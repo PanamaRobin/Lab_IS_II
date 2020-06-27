@@ -1,0 +1,56 @@
+﻿@model SMICISite.Models.LoginVM
+
+@{
+    Layout = "~/Views/Shared/_Layout_AdminLTE_Login.cshtml";
+}
+
+<div class="login-box">
+    <div class="login-logo">
+        <a href="../../About.html"><b>SEGUIMIENTO </b>Y REPARACIÓN DE BACHES</a>
+    </div>
+    <!-- /.login-logo -->
+    @using (Ajax.BeginForm("Login", "Home",
+                                   new AjaxOptions { HttpMethod = "POST" },
+                                   new { id = "ajaxFormLogin" }))
+    {
+        @*@Html.AntiForgeryToken()*@
+        <div class="login-box-body">
+            <h2 class="login-box-msg"><b>Iniciar Sesión</b></h2>
+            <div class="form-group has-feedback">
+                @Html.TextBoxFor(x => x.Email, new { @class = "form-control", @placeholder = "Correo", @id = "strEmail" })
+                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                @Html.ValidationMessageFor(x => x.Email)
+            </div>
+            <div class="form-group has-feedback">
+                @Html.PasswordFor(x => x.Pass, new { @class = "form-control", @placeholder = "Contraseña", @id = "strPass" })
+                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                @Html.ValidationMessageFor(x => x.Pass)
+            </div>
+
+            <div class="social-auth-links text-center">
+                <a href="@Url.Action("IndexCiudadano", "Ciudadano")" id="btnLogin" class="btn btn-primary btn-block btn-lg">
+                    INICIAR
+                    <i class="fa fa-sign-in"></i>
+                </a>
+                <hr />
+                <a href="@Url.Action("Registro", "Home")" class="btn btn-block btn-social btn-tumblr">
+                    <i class="fa fa-user-plus"></i> Nuevo Usuario
+                </a>
+                <a href="#" class="btn btn-block btn-social btn-google">
+                    <i class="fa fa-unlock-alt"></i> Recordar Contraseña
+                </a>
+            </div>
+
+            <!-- /.funcion de iniciar sesion con ENTER -->
+            <script>
+                var input = document.getElementById("strPass");
+                input.addEventListener("keyup", function (event) {
+                    if (event.keyCode === 13) {
+                        event.preventDefault();
+                        document.getElementById("btnLogin").click();
+                    }
+                });
+            </script>
+        </div>
+    }
+</div>

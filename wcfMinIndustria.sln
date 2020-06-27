@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29306.81
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wcfBD", "wcfMinIndustria\wcfBD.csproj", "{C8AAF0BD-D347-4DD4-A703-1E685F49AA60}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitio", "SMICISite\Sitio.csproj", "{C332C8FB-8258-4DD0-B2DE-4F20A719B55D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C8AAF0BD-D347-4DD4-A703-1E685F49AA60} = {C8AAF0BD-D347-4DD4-A703-1E685F49AA60}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C8AAF0BD-D347-4DD4-A703-1E685F49AA60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8AAF0BD-D347-4DD4-A703-1E685F49AA60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8AAF0BD-D347-4DD4-A703-1E685F49AA60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8AAF0BD-D347-4DD4-A703-1E685F49AA60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C332C8FB-8258-4DD0-B2DE-4F20A719B55D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C332C8FB-8258-4DD0-B2DE-4F20A719B55D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C332C8FB-8258-4DD0-B2DE-4F20A719B55D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C332C8FB-8258-4DD0-B2DE-4F20A719B55D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F9872365-AEE1-40D2-8BC7-785F166B46E6}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="wcfExtService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:52832/wcfExtService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:52832/wcfExtService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IwcfExtService_DoWork_InputMessage">
+    <wsdl:part name="parameters" element="tns:DoWork" />
+  </wsdl:message>
+  <wsdl:message name="IwcfExtService_DoWork_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DoWorkResponse" />
+  </wsdl:message>
+  <wsdl:message name="IwcfExtService_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="IwcfExtService_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IwcfExtService_Registro_InputMessage">
+    <wsdl:part name="parameters" element="tns:Registro" />
+  </wsdl:message>
+  <wsdl:message name="IwcfExtService_Registro_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegistroResponse" />
+  </wsdl:message>
+  <wsdl:message name="IwcfExtService_NuevaSolicitud_InputMessage">
+    <wsdl:part name="parameters" element="tns:NuevaSolicitud" />
+  </wsdl:message>
+  <wsdl:message name="IwcfExtService_NuevaSolicitud_OutputMessage">
+    <wsdl:part name="parameters" element="tns:NuevaSolicitudResponse" />
+  </wsdl:message>
+  <wsdl:message name="IwcfExtService_DetalleSolicitud_InputMessage">
+    <wsdl:part name="parameters" element="tns:DetalleSolicitud" />
+  </wsdl:message>
+  <wsdl:message name="IwcfExtService_DetalleSolicitud_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DetalleSolicitudResponse" />
+  </wsdl:message>
+  <wsdl:message name="IwcfExtService_Solicitudes_InputMessage">
+    <wsdl:part name="parameters" element="tns:Solicitudes" />
+  </wsdl:message>
+  <wsdl:message name="IwcfExtService_Solicitudes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SolicitudesResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IwcfExtService">
+    <wsdl:operation name="DoWork">
+      <wsdl:input wsaw:Action="http://tempuri.org/IwcfExtService/DoWork" message="tns:IwcfExtService_DoWork_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IwcfExtService/DoWorkResponse" message="tns:IwcfExtService_DoWork_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="http://tempuri.org/IwcfExtService/Login" message="tns:IwcfExtService_Login_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IwcfExtService/LoginResponse" message="tns:IwcfExtService_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Registro">
+      <wsdl:input wsaw:Action="http://tempuri.org/IwcfExtService/Registro" message="tns:IwcfExtService_Registro_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IwcfExtService/RegistroResponse" message="tns:IwcfExtService_Registro_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NuevaSolicitud">
+      <wsdl:input wsaw:Action="http://tempuri.org/IwcfExtService/NuevaSolicitud" message="tns:IwcfExtService_NuevaSolicitud_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IwcfExtService/NuevaSolicitudResponse" message="tns:IwcfExtService_NuevaSolicitud_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DetalleSolicitud">
+      <wsdl:input wsaw:Action="http://tempuri.org/IwcfExtService/DetalleSolicitud" message="tns:IwcfExtService_DetalleSolicitud_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IwcfExtService/DetalleSolicitudResponse" message="tns:IwcfExtService_DetalleSolicitud_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Solicitudes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IwcfExtService/Solicitudes" message="tns:IwcfExtService_Solicitudes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IwcfExtService/SolicitudesResponse" message="tns:IwcfExtService_Solicitudes_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IwcfExtService" type="tns:IwcfExtService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="DoWork">
+      <soap:operation soapAction="http://tempuri.org/IwcfExtService/DoWork" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/IwcfExtService/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Registro">
+      <soap:operation soapAction="http://tempuri.org/IwcfExtService/Registro" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NuevaSolicitud">
+      <soap:operation soapAction="http://tempuri.org/IwcfExtService/NuevaSolicitud" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DetalleSolicitud">
+      <soap:operation soapAction="http://tempuri.org/IwcfExtService/DetalleSolicitud" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Solicitudes">
+      <soap:operation soapAction="http://tempuri.org/IwcfExtService/Solicitudes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="wcfExtService">
+    <wsdl:port name="BasicHttpBinding_IwcfExtService" binding="tns:BasicHttpBinding_IwcfExtService">
+      <soap:address location="http://localhost:52832/wcfExtService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

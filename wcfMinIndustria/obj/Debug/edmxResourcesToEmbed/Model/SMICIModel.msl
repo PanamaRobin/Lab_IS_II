@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SMICIModeloStoreContainer" CdmEntityContainer="SMICIEntidad">
+    <EntitySetMapping Name="UsuariosExt">
+      <EntityTypeMapping TypeName="SMICIModelo.UsuariosExt">
+        <MappingFragment StoreEntitySet="UsuariosExt">
+          <ScalarProperty Name="IdUsuarioExt" ColumnName="IdUsuarioExt" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Pass" ColumnName="Pass" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="FCreacion" ColumnName="FCreacion" />
+          <ScalarProperty Name="IdUsuarioModificacion" ColumnName="IdUsuarioModificacion" />
+          <ScalarProperty Name="FModificacion" ColumnName="FModificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UsuariosMICI">
+      <EntityTypeMapping TypeName="SMICIModelo.UsuariosMICI">
+        <MappingFragment StoreEntitySet="UsuariosMICI">
+          <ScalarProperty Name="IdUsuarioMICI" ColumnName="IdUsuarioMICI" />
+          <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="FCreacion" ColumnName="FCreacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="USP_SMICI_LOGIN" FunctionName="SMICIModelo.Store.USP_SMICI_LOGIN" />
+    <FunctionImportMapping FunctionImportName="USP_SMICI_REGISTRO" FunctionName="SMICIModelo.Store.USP_SMICI_REGISTRO" />
+  </EntityContainerMapping>
+</Mapping>

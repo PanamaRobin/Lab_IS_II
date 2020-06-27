@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="d0df2efb-bfc6-4d39-baf7-a9bd0a048a34" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:52832/wcfExtService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="wcfExtService.xsd" MetadataType="Schema" ID="4128f362-f118-4fad-99d1-512af74f253f" SourceId="1" SourceUrl="http://localhost:52832/wcfExtService.svc?xsd=xsd0" />
+    <MetadataFile FileName="wcfExtService1.xsd" MetadataType="Schema" ID="fda716dc-4762-477c-b7ce-bf18b4ba8384" SourceId="1" SourceUrl="http://localhost:52832/wcfExtService.svc?xsd=xsd1" />
+    <MetadataFile FileName="wcfExtService.disco" MetadataType="Disco" ID="449946b6-b913-4293-9bb9-3a96bd17b0dc" SourceId="1" SourceUrl="http://localhost:52832/wcfExtService.svc?disco" />
+    <MetadataFile FileName="wcfExtService.wsdl" MetadataType="Wsdl" ID="972ba10c-0405-4a8e-95fa-05ee3cea0d16" SourceId="1" SourceUrl="http://localhost:52832/wcfExtService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

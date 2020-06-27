@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SMICIModelo.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="UsuariosExt">
+          <Key>
+            <PropertyRef Name="IdUsuarioExt" />
+          </Key>
+          <Property Name="IdUsuarioExt" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Pass" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+          <Property Name="FCreacion" Type="datetime" Nullable="false" />
+          <Property Name="IdUsuarioModificacion" Type="int" />
+          <Property Name="FModificacion" Type="datetime" />
+        </EntityType>
+        <EntityType Name="UsuariosMICI">
+          <Key>
+            <PropertyRef Name="IdUsuarioMICI" />
+          </Key>
+          <Property Name="IdUsuarioMICI" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreCompleto" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+          <Property Name="FCreacion" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Function Name="USP_SMICI_LOGIN" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="EMAIL" Type="varchar" Mode="In" />
+          <Parameter Name="PASS" Type="varchar" Mode="In" />
+          <Parameter Name="IdUsuario" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="USP_SMICI_REGISTRO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="EMAIL" Type="varchar" Mode="In" />
+          <Parameter Name="PASS" Type="varchar" Mode="In" />
+          <Parameter Name="IdUsuario" Type="int" Mode="InOut" />
+        </Function>
+        <EntityContainer Name="SMICIModeloStoreContainer">
+          <EntitySet Name="UsuariosExt" EntityType="Self.UsuariosExt" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UsuariosMICI" EntityType="Self.UsuariosMICI" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SMICIModelo" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="UsuariosExt">
+          <Key>
+            <PropertyRef Name="IdUsuarioExt" />
+          </Key>
+          <Property Name="IdUsuarioExt" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Pass" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <Property Name="FCreacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IdUsuarioModificacion" Type="Int32" />
+          <Property Name="FModificacion" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="UsuariosMICI">
+          <Key>
+            <PropertyRef Name="IdUsuarioMICI" />
+          </Key>
+          <Property Name="IdUsuarioMICI" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreCompleto" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <Property Name="FCreacion" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="SMICIEntidad" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="UsuariosExt" EntityType="Self.UsuariosExt" />
+          <EntitySet Name="UsuariosMICI" EntityType="Self.UsuariosMICI" />
+          <FunctionImport Name="USP_SMICI_LOGIN">
+            <Parameter Name="EMAIL" Mode="In" Type="String" />
+            <Parameter Name="PASS" Mode="In" Type="String" />
+            <Parameter Name="IdUsuario" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="USP_SMICI_REGISTRO">
+            <Parameter Name="EMAIL" Mode="In" Type="String" />
+            <Parameter Name="PASS" Mode="In" Type="String" />
+            <Parameter Name="IdUsuario" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SMICIModeloStoreContainer" CdmEntityContainer="SMICIEntidad">
+          <EntitySetMapping Name="UsuariosExt">
+            <EntityTypeMapping TypeName="SMICIModelo.UsuariosExt">
+              <MappingFragment StoreEntitySet="UsuariosExt">
+                <ScalarProperty Name="IdUsuarioExt" ColumnName="IdUsuarioExt" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Pass" ColumnName="Pass" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="FCreacion" ColumnName="FCreacion" />
+                <ScalarProperty Name="IdUsuarioModificacion" ColumnName="IdUsuarioModificacion" />
+                <ScalarProperty Name="FModificacion" ColumnName="FModificacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UsuariosMICI">
+            <EntityTypeMapping TypeName="SMICIModelo.UsuariosMICI">
+              <MappingFragment StoreEntitySet="UsuariosMICI">
+                <ScalarProperty Name="IdUsuarioMICI" ColumnName="IdUsuarioMICI" />
+                <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="FCreacion" ColumnName="FCreacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="USP_SMICI_LOGIN" FunctionName="SMICIModelo.Store.USP_SMICI_LOGIN" />
+          <FunctionImportMapping FunctionImportName="USP_SMICI_REGISTRO" FunctionName="SMICIModelo.Store.USP_SMICI_REGISTRO" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

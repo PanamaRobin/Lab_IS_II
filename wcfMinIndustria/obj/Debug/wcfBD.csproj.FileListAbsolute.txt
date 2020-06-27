@@ -1,0 +1,12 @@
+X:\Git\repositories\Lab_IS_II\wcfMinIndustria\bin\wcfMinIndustria.dll.config
+X:\Git\repositories\Lab_IS_II\wcfMinIndustria\bin\wcfMinIndustria.dll
+X:\Git\repositories\Lab_IS_II\wcfMinIndustria\bin\wcfMinIndustria.pdb
+X:\Git\repositories\Lab_IS_II\wcfMinIndustria\bin\EntityFramework.dll
+X:\Git\repositories\Lab_IS_II\wcfMinIndustria\bin\EntityFramework.SqlServer.dll
+X:\Git\repositories\Lab_IS_II\wcfMinIndustria\bin\EntityFramework.xml
+X:\Git\repositories\Lab_IS_II\wcfMinIndustria\bin\EntityFramework.SqlServer.xml
+X:\Git\repositories\Lab_IS_II\wcfMinIndustria\obj\Debug\wcfBD.csprojAssemblyReference.cache
+X:\Git\repositories\Lab_IS_II\wcfMinIndustria\obj\Debug\wcfBD.csproj.CoreCompileInputs.cache
+X:\Git\repositories\Lab_IS_II\wcfMinIndustria\obj\Debug\wcfBD.csproj.CopyComplete
+X:\Git\repositories\Lab_IS_II\wcfMinIndustria\obj\Debug\wcfMinIndustria.dll
+X:\Git\repositories\Lab_IS_II\wcfMinIndustria\obj\Debug\wcfMinIndustria.pdb
