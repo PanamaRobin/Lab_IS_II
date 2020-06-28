@@ -69,7 +69,6 @@ X:\Git\repositories\Lab_IS_II\SMICISite\bin\System.Web.WebPages.Razor.xml
 X:\Git\repositories\Lab_IS_II\SMICISite\bin\Newtonsoft.Json.xml
 X:\Git\repositories\Lab_IS_II\SMICISite\bin\Antlr3.Runtime.pdb
 X:\Git\repositories\Lab_IS_II\SMICISite\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-X:\Git\repositories\Lab_IS_II\SMICISite\obj\Debug\Sitio.csprojAssemblyReference.cache
 X:\Git\repositories\Lab_IS_II\SMICISite\obj\Debug\Sitio.csproj.CoreCompileInputs.cache
 X:\Git\repositories\Lab_IS_II\SMICISite\obj\Debug\Sitio.csproj.CopyComplete
 X:\Git\repositories\Lab_IS_II\SMICISite\obj\Debug\SMICISite.dll

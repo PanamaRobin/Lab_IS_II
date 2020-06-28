@@ -15,7 +15,8 @@ namespace SMICISite.Controllers
             return View();
         }
 
-        public ActionResult Login2(UsuariosVM objUsuariosVM)
+        // Login
+        public ActionResult Login(UsuariosVM objUsuariosVM)
         {
             string strTitulo = "titulo Error ";
             bool boolExitoso = false;
@@ -31,7 +32,7 @@ namespace SMICISite.Controllers
                 {
                     var Resp = objServicio.Login(objUsuariosVM.Correo, objUsuariosVM.Contrasena);
 
-                    if (Resp == 0)
+                    if (Resp.IdUsuario == 0)
                     {
                         strTitulo = "Credenciales Incorrectas";
                         boolExitoso = false;
@@ -42,10 +43,7 @@ namespace SMICISite.Controllers
                         UsuariosVM objUsuario = new UsuariosVM();
                         objUsuario.IdUsuario = Resp.IdUsuario;
                         objUsuario.Nombre = Resp.Nombre;
-                        objUsuario.Direccion = Direccion;
-                        objUsuario.Telefono = Resp.Telefono;
                         objUsuario.Correo = Resp.Correo;
-                        objUsuario.Contrasena = Resp.Contrasena;
 
                         strTitulo = "Usuario Encontrado";
                         boolExitoso = true;

@@ -1,31 +1,86 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="SMICIModeloStoreContainer" CdmEntityContainer="SMICIEntidad">
-    <EntitySetMapping Name="UsuariosExt">
-      <EntityTypeMapping TypeName="SMICIModelo.UsuariosExt">
-        <MappingFragment StoreEntitySet="UsuariosExt">
-          <ScalarProperty Name="IdUsuarioExt" ColumnName="IdUsuarioExt" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="Pass" ColumnName="Pass" />
-          <ScalarProperty Name="Activo" ColumnName="Activo" />
-          <ScalarProperty Name="FCreacion" ColumnName="FCreacion" />
-          <ScalarProperty Name="IdUsuarioModificacion" ColumnName="IdUsuarioModificacion" />
-          <ScalarProperty Name="FModificacion" ColumnName="FModificacion" />
+    <EntitySetMapping Name="Baches">
+      <EntityTypeMapping TypeName="SMICIModelo.Baches">
+        <MappingFragment StoreEntitySet="Baches">
+          <ScalarProperty Name="Prioridad" ColumnName="Prioridad" />
+          <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+          <ScalarProperty Name="Posicion" ColumnName="Posicion" />
+          <ScalarProperty Name="Tamano" ColumnName="Tamano" />
+          <ScalarProperty Name="Distrito" ColumnName="Distrito" />
+          <ScalarProperty Name="Calle" ColumnName="Calle" />
+          <ScalarProperty Name="IdBache" ColumnName="IdBache" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="UsuariosMICI">
-      <EntityTypeMapping TypeName="SMICIModelo.UsuariosMICI">
-        <MappingFragment StoreEntitySet="UsuariosMICI">
-          <ScalarProperty Name="IdUsuarioMICI" ColumnName="IdUsuarioMICI" />
-          <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="Activo" ColumnName="Activo" />
-          <ScalarProperty Name="FCreacion" ColumnName="FCreacion" />
+    <EntitySetMapping Name="Prioridad">
+      <EntityTypeMapping TypeName="SMICIModelo.Prioridad">
+        <MappingFragment StoreEntitySet="Prioridad">
+          <ScalarProperty Name="NombrePrioridad" ColumnName="NombrePrioridad" />
+          <ScalarProperty Name="IdPrioridad" ColumnName="IdPrioridad" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <FunctionImportMapping FunctionImportName="USP_SMICI_LOGIN" FunctionName="SMICIModelo.Store.USP_SMICI_LOGIN" />
-    <FunctionImportMapping FunctionImportName="USP_SMICI_REGISTRO" FunctionName="SMICIModelo.Store.USP_SMICI_REGISTRO" />
+    <EntitySetMapping Name="Tipo">
+      <EntityTypeMapping TypeName="SMICIModelo.Tipo">
+        <MappingFragment StoreEntitySet="Tipo">
+          <ScalarProperty Name="NombreTipo" ColumnName="NombreTipo" />
+          <ScalarProperty Name="IdTipo" ColumnName="IdTipo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuarios">
+      <EntityTypeMapping TypeName="SMICIModelo.Usuarios">
+        <MappingFragment StoreEntitySet="Usuarios">
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Contrasena" ColumnName="Contrasena" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InformeBache">
+      <EntityTypeMapping TypeName="SMICIModelo.InformeBache">
+        <MappingFragment StoreEntitySet="InformeBache">
+          <ScalarProperty Name="CostoBache" ColumnName="CostoBache" />
+          <ScalarProperty Name="CantRelleno" ColumnName="CantRelleno" />
+          <ScalarProperty Name="EstadoBache" ColumnName="EstadoBache" />
+          <ScalarProperty Name="HorasDeReparacion" ColumnName="HorasDeReparacion" />
+          <ScalarProperty Name="Equipamiento" ColumnName="Equipamiento" />
+          <ScalarProperty Name="Brigada" ColumnName="Brigada" />
+          <ScalarProperty Name="Tamano" ColumnName="Tamano" />
+          <ScalarProperty Name="Ubicacion" ColumnName="Ubicacion" />
+          <ScalarProperty Name="IdBache" ColumnName="IdBache" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReporteDano">
+      <EntityTypeMapping TypeName="SMICIModelo.ReporteDano">
+        <MappingFragment StoreEntitySet="ReporteDano">
+          <ScalarProperty Name="IdBache" ColumnName="IdBache" />
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+          <ScalarProperty Name="CostoReparacion" ColumnName="CostoReparacion" />
+          <ScalarProperty Name="TipoDano" ColumnName="TipoDano" />
+          <ScalarProperty Name="IdReporte" ColumnName="IdReporte" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="LOGIN" FunctionName="SMICIModelo.Store.LOGIN">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SMICIModelo.LOGIN_Result">
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+          <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="Contrasena" ColumnName="Contrasena" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

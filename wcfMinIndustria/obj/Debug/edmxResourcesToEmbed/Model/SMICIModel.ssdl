@@ -1,39 +1,193 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="SMICIModelo.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityType Name="UsuariosExt">
+<Schema Namespace="SMICIModelo.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Baches">
     <Key>
-      <PropertyRef Name="IdUsuarioExt" />
+      <PropertyRef Name="IdBache" />
     </Key>
-    <Property Name="IdUsuarioExt" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="Pass" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="Activo" Type="bit" Nullable="false" />
-    <Property Name="FCreacion" Type="datetime" Nullable="false" />
-    <Property Name="IdUsuarioModificacion" Type="int" />
-    <Property Name="FModificacion" Type="datetime" />
+    <Property Name="IdBache" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Calle" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Distrito" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Tamano" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Posicion" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Usuario" Type="int" Nullable="false" />
+    <Property Name="Prioridad" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="UsuariosMICI">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Baches.dbo.InformeBache' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="InformeBache">
     <Key>
-      <PropertyRef Name="IdUsuarioMICI" />
+      <PropertyRef Name="IdBache" />
+      <PropertyRef Name="Ubicacion" />
+      <PropertyRef Name="Tamano" />
+      <PropertyRef Name="Brigada" />
+      <PropertyRef Name="Equipamiento" />
+      <PropertyRef Name="HorasDeReparacion" />
+      <PropertyRef Name="EstadoBache" />
+      <PropertyRef Name="CantRelleno" />
+      <PropertyRef Name="CostoBache" />
     </Key>
-    <Property Name="IdUsuarioMICI" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="NombreCompleto" Type="varchar" MaxLength="150" Nullable="false" />
-    <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="Activo" Type="bit" Nullable="false" />
-    <Property Name="FCreacion" Type="datetime" Nullable="false" />
+    <Property Name="IdBache" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ubicacion" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Tamano" Type="float" Nullable="false" />
+    <Property Name="Brigada" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Equipamiento" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="HorasDeReparacion" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="EstadoBache" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CantRelleno" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CostoBache" Type="float" Nullable="false" />
   </EntityType>
-  <Function Name="USP_SMICI_LOGIN" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+  <EntityType Name="Prioridad">
+    <Key>
+      <PropertyRef Name="IdPrioridad" />
+    </Key>
+    <Property Name="IdPrioridad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NombrePrioridad" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Baches.dbo.ReporteDano' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ReporteDano">
+    <Key>
+      <PropertyRef Name="IdReporte" />
+      <PropertyRef Name="TipoDano" />
+      <PropertyRef Name="CostoReparacion" />
+      <PropertyRef Name="IdUsuario" />
+      <PropertyRef Name="IdBache" />
+    </Key>
+    <Property Name="IdReporte" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TipoDano" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CostoReparacion" Type="float" Nullable="false" />
+    <Property Name="IdUsuario" Type="int" Nullable="false" />
+    <Property Name="IdBache" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tipo">
+    <Key>
+      <PropertyRef Name="IdTipo" />
+    </Key>
+    <Property Name="IdTipo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NombreTipo" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="IdUsuario" />
+    </Key>
+    <Property Name="IdUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NombreUsuario" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Direccion" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Telefono" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Correo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Contrasena" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Tipo" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK1">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+    <End Role="Baches" Type="Self.Baches" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="IdUsuario" />
+      </Principal>
+      <Dependent Role="Baches">
+        <PropertyRef Name="Usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK2">
+    <End Role="Prioridad" Type="Self.Prioridad" Multiplicity="1" />
+    <End Role="Baches" Type="Self.Baches" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Prioridad">
+        <PropertyRef Name="IdPrioridad" />
+      </Principal>
+      <Dependent Role="Baches">
+        <PropertyRef Name="Prioridad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK3">
+    <End Role="Baches" Type="Self.Baches" Multiplicity="1" />
+    <End Role="InformeBache" Type="Self.InformeBache" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Baches">
+        <PropertyRef Name="IdBache" />
+      </Principal>
+      <Dependent Role="InformeBache">
+        <PropertyRef Name="IdBache" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK4">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+    <End Role="ReporteDano" Type="Self.ReporteDano" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="IdUsuario" />
+      </Principal>
+      <Dependent Role="ReporteDano">
+        <PropertyRef Name="IdUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK5">
+    <End Role="Baches" Type="Self.Baches" Multiplicity="1" />
+    <End Role="ReporteDano" Type="Self.ReporteDano" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Baches">
+        <PropertyRef Name="IdBache" />
+      </Principal>
+      <Dependent Role="ReporteDano">
+        <PropertyRef Name="IdBache" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="LOGIN" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="EMAIL" Type="varchar" Mode="In" />
     <Parameter Name="PASS" Type="varchar" Mode="In" />
-    <Parameter Name="IdUsuario" Type="int" Mode="InOut" />
-  </Function>
-  <Function Name="USP_SMICI_REGISTRO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="EMAIL" Type="varchar" Mode="In" />
-    <Parameter Name="PASS" Type="varchar" Mode="In" />
-    <Parameter Name="IdUsuario" Type="int" Mode="InOut" />
   </Function>
   <EntityContainer Name="SMICIModeloStoreContainer">
-    <EntitySet Name="UsuariosExt" EntityType="Self.UsuariosExt" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="UsuariosMICI" EntityType="Self.UsuariosMICI" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Baches" EntityType="Self.Baches" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Prioridad" EntityType="Self.Prioridad" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tipo" EntityType="Self.Tipo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InformeBache" EntityType="Self.InformeBache" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [InformeBache].[IdBache] AS [IdBache], 
+    [InformeBache].[Ubicacion] AS [Ubicacion], 
+    [InformeBache].[Tamano] AS [Tamano], 
+    [InformeBache].[Brigada] AS [Brigada], 
+    [InformeBache].[Equipamiento] AS [Equipamiento], 
+    [InformeBache].[HorasDeReparacion] AS [HorasDeReparacion], 
+    [InformeBache].[EstadoBache] AS [EstadoBache], 
+    [InformeBache].[CantRelleno] AS [CantRelleno], 
+    [InformeBache].[CostoBache] AS [CostoBache]
+    FROM [dbo].[InformeBache] AS [InformeBache]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ReporteDano" EntityType="Self.ReporteDano" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ReporteDano].[IdReporte] AS [IdReporte], 
+    [ReporteDano].[TipoDano] AS [TipoDano], 
+    [ReporteDano].[CostoReparacion] AS [CostoReparacion], 
+    [ReporteDano].[IdUsuario] AS [IdUsuario], 
+    [ReporteDano].[IdBache] AS [IdBache]
+    FROM [dbo].[ReporteDano] AS [ReporteDano]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK1" Association="Self.FK1">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Baches" EntitySet="Baches" />
+    </AssociationSet>
+    <AssociationSet Name="FK2" Association="Self.FK2">
+      <End Role="Prioridad" EntitySet="Prioridad" />
+      <End Role="Baches" EntitySet="Baches" />
+    </AssociationSet>
+    <AssociationSet Name="FK3" Association="Self.FK3">
+      <End Role="Baches" EntitySet="Baches" />
+      <End Role="InformeBache" EntitySet="InformeBache" />
+    </AssociationSet>
+    <AssociationSet Name="FK4" Association="Self.FK4">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="ReporteDano" EntitySet="ReporteDano" />
+    </AssociationSet>
+    <AssociationSet Name="FK5" Association="Self.FK5">
+      <End Role="Baches" EntitySet="Baches" />
+      <End Role="ReporteDano" EntitySet="ReporteDano" />
+    </AssociationSet>
   </EntityContainer>
 </Schema>

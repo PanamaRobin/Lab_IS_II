@@ -1,39 +1,188 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="SMICIModelo" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityType Name="UsuariosExt">
-    <Key>
-      <PropertyRef Name="IdUsuarioExt" />
-    </Key>
-    <Property Name="IdUsuarioExt" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Pass" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Activo" Type="Boolean" Nullable="false" />
-    <Property Name="FCreacion" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="IdUsuarioModificacion" Type="Int32" />
-    <Property Name="FModificacion" Type="DateTime" Precision="3" />
-  </EntityType>
-  <EntityType Name="UsuariosMICI">
-    <Key>
-      <PropertyRef Name="IdUsuarioMICI" />
-    </Key>
-    <Property Name="IdUsuarioMICI" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="NombreCompleto" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Activo" Type="Boolean" Nullable="false" />
-    <Property Name="FCreacion" Type="DateTime" Nullable="false" Precision="3" />
-  </EntityType>
   <EntityContainer Name="SMICIEntidad" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="UsuariosExt" EntityType="Self.UsuariosExt" />
-    <EntitySet Name="UsuariosMICI" EntityType="Self.UsuariosMICI" />
-    <FunctionImport Name="USP_SMICI_LOGIN">
+    <EntitySet Name="Baches" EntityType="SMICIModelo.Baches" />
+    <EntitySet Name="Prioridad" EntityType="SMICIModelo.Prioridad" />
+    <EntitySet Name="Tipo" EntityType="SMICIModelo.Tipo" />
+    <EntitySet Name="Usuarios" EntityType="SMICIModelo.Usuarios" />
+    <EntitySet Name="InformeBache" EntityType="SMICIModelo.InformeBache" />
+    <EntitySet Name="ReporteDano" EntityType="SMICIModelo.ReporteDano" />
+    <AssociationSet Name="FK1" Association="SMICIModelo.FK1">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Baches" EntitySet="Baches" />
+    </AssociationSet>
+    <AssociationSet Name="FK2" Association="SMICIModelo.FK2">
+      <End Role="Prioridad" EntitySet="Prioridad" />
+      <End Role="Baches" EntitySet="Baches" />
+    </AssociationSet>
+    <AssociationSet Name="FK3" Association="SMICIModelo.FK3">
+      <End Role="Baches" EntitySet="Baches" />
+      <End Role="InformeBache" EntitySet="InformeBache" />
+    </AssociationSet>
+    <AssociationSet Name="FK5" Association="SMICIModelo.FK5">
+      <End Role="Baches" EntitySet="Baches" />
+      <End Role="ReporteDano" EntitySet="ReporteDano" />
+    </AssociationSet>
+    <AssociationSet Name="FK4" Association="SMICIModelo.FK4">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="ReporteDano" EntitySet="ReporteDano" />
+    </AssociationSet>
+    <FunctionImport Name="LOGIN" ReturnType="Collection(SMICIModelo.LOGIN_Result)">
       <Parameter Name="EMAIL" Mode="In" Type="String" />
       <Parameter Name="PASS" Mode="In" Type="String" />
-      <Parameter Name="IdUsuario" Mode="InOut" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="USP_SMICI_REGISTRO">
-      <Parameter Name="EMAIL" Mode="In" Type="String" />
-      <Parameter Name="PASS" Mode="In" Type="String" />
-      <Parameter Name="IdUsuario" Mode="InOut" Type="Int32" />
     </FunctionImport>
   </EntityContainer>
+  <EntityType Name="Baches">
+    <Key>
+      <PropertyRef Name="IdBache" />
+    </Key>
+    <Property Name="IdBache" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Calle" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Distrito" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Tamano" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Posicion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Usuario" Type="Int32" Nullable="false" />
+    <Property Name="Prioridad" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Usuarios" Relationship="SMICIModelo.FK1" FromRole="Baches" ToRole="Usuarios" />
+    <NavigationProperty Name="Prioridad1" Relationship="SMICIModelo.FK2" FromRole="Baches" ToRole="Prioridad" />
+    <NavigationProperty Name="InformeBache" Relationship="SMICIModelo.FK3" FromRole="Baches" ToRole="InformeBache" />
+    <NavigationProperty Name="ReporteDano" Relationship="SMICIModelo.FK5" FromRole="Baches" ToRole="ReporteDano" />
+  </EntityType>
+  <EntityType Name="Prioridad">
+    <Key>
+      <PropertyRef Name="IdPrioridad" />
+    </Key>
+    <Property Name="IdPrioridad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NombrePrioridad" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Baches" Relationship="SMICIModelo.FK2" FromRole="Prioridad" ToRole="Baches" />
+  </EntityType>
+  <EntityType Name="Tipo">
+    <Key>
+      <PropertyRef Name="IdTipo" />
+    </Key>
+    <Property Name="IdTipo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NombreTipo" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="IdUsuario" />
+    </Key>
+    <Property Name="IdUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NombreUsuario" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Direccion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Telefono" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Correo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Contrasena" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Tipo" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Baches" Relationship="SMICIModelo.FK1" FromRole="Usuarios" ToRole="Baches" />
+    <NavigationProperty Name="ReporteDano" Relationship="SMICIModelo.FK4" FromRole="Usuarios" ToRole="ReporteDano" />
+  </EntityType>
+  <EntityType Name="InformeBache">
+    <Key>
+      <PropertyRef Name="IdBache" />
+      <PropertyRef Name="Ubicacion" />
+      <PropertyRef Name="Tamano" />
+      <PropertyRef Name="Brigada" />
+      <PropertyRef Name="Equipamiento" />
+      <PropertyRef Name="HorasDeReparacion" />
+      <PropertyRef Name="EstadoBache" />
+      <PropertyRef Name="CantRelleno" />
+      <PropertyRef Name="CostoBache" />
+    </Key>
+    <Property Name="IdBache" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ubicacion" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Tamano" Type="Double" Nullable="false" />
+    <Property Name="Brigada" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Equipamiento" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="HorasDeReparacion" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="EstadoBache" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CantRelleno" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CostoBache" Type="Double" Nullable="false" />
+    <NavigationProperty Name="Baches" Relationship="SMICIModelo.FK3" FromRole="InformeBache" ToRole="Baches" />
+  </EntityType>
+  <EntityType Name="ReporteDano">
+    <Key>
+      <PropertyRef Name="IdReporte" />
+      <PropertyRef Name="TipoDano" />
+      <PropertyRef Name="CostoReparacion" />
+      <PropertyRef Name="IdUsuario" />
+      <PropertyRef Name="IdBache" />
+    </Key>
+    <Property Name="IdReporte" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TipoDano" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CostoReparacion" Type="Double" Nullable="false" />
+    <Property Name="IdUsuario" Type="Int32" Nullable="false" />
+    <Property Name="IdBache" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Baches" Relationship="SMICIModelo.FK5" FromRole="ReporteDano" ToRole="Baches" />
+    <NavigationProperty Name="Usuarios" Relationship="SMICIModelo.FK4" FromRole="ReporteDano" ToRole="Usuarios" />
+  </EntityType>
+  <Association Name="FK1">
+    <End Type="SMICIModelo.Usuarios" Role="Usuarios" Multiplicity="1" />
+    <End Type="SMICIModelo.Baches" Role="Baches" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="IdUsuario" />
+      </Principal>
+      <Dependent Role="Baches">
+        <PropertyRef Name="Usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK2">
+    <End Type="SMICIModelo.Prioridad" Role="Prioridad" Multiplicity="1" />
+    <End Type="SMICIModelo.Baches" Role="Baches" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Prioridad">
+        <PropertyRef Name="IdPrioridad" />
+      </Principal>
+      <Dependent Role="Baches">
+        <PropertyRef Name="Prioridad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK3">
+    <End Type="SMICIModelo.Baches" Role="Baches" Multiplicity="1" />
+    <End Type="SMICIModelo.InformeBache" Role="InformeBache" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Baches">
+        <PropertyRef Name="IdBache" />
+      </Principal>
+      <Dependent Role="InformeBache">
+        <PropertyRef Name="IdBache" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK5">
+    <End Type="SMICIModelo.Baches" Role="Baches" Multiplicity="1" />
+    <End Type="SMICIModelo.ReporteDano" Role="ReporteDano" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Baches">
+        <PropertyRef Name="IdBache" />
+      </Principal>
+      <Dependent Role="ReporteDano">
+        <PropertyRef Name="IdBache" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK4">
+    <End Type="SMICIModelo.Usuarios" Role="Usuarios" Multiplicity="1" />
+    <End Type="SMICIModelo.ReporteDano" Role="ReporteDano" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="IdUsuario" />
+      </Principal>
+      <Dependent Role="ReporteDano">
+        <PropertyRef Name="IdUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="LOGIN_Result">
+    <Property Type="Int32" Name="IdUsuario" Nullable="false" />
+    <Property Type="String" Name="NombreUsuario" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Direccion" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="Telefono" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Correo" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Contrasena" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="Tipo" Nullable="false" />
+  </ComplexType>
 </Schema>

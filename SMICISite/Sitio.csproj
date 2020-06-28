@@ -132,11 +132,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\LoginVM.cs" />
-    <Compile Include="Models\SolicitudVM.cs" />
+    <Compile Include="Models\UsuariosVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Connected Services\wcfServicio\SMICISite.wcfServicio.UsuariosVM.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\wcfServicio\wcfExtService.disco" />
     <None Include="Connected Services\wcfServicio\configuration91.svcinfo" />
     <None Include="Connected Services\wcfServicio\configuration.svcinfo" />
@@ -245,6 +247,9 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\wcfServicio\wcfExtService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\wcfServicio\wcfExtService2.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />

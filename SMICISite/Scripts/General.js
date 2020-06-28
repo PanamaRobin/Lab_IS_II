@@ -41,7 +41,7 @@ $(document).ready(function () {
 //        }
 //    });
 //}
-function Login2() {
+function Login() {
 
     var _form = $('#ajaxFormLogin');
 
