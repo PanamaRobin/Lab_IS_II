@@ -27,10 +27,14 @@ namespace wcfMinIndustria.Model
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<UsuariosExt> UsuariosExt { get; set; }
-        public virtual DbSet<UsuariosMICI> UsuariosMICI { get; set; }
+        public virtual DbSet<Baches> Baches { get; set; }
+        public virtual DbSet<Prioridad> Prioridad { get; set; }
+        public virtual DbSet<Tipo> Tipo { get; set; }
+        public virtual DbSet<Usuarios> Usuarios { get; set; }
+        public virtual DbSet<InformeBache> InformeBache { get; set; }
+        public virtual DbSet<ReporteDano> ReporteDano { get; set; }
     
-        public virtual int USP_SMICI_LOGIN(string eMAIL, string pASS, ObjectParameter idUsuario)
+        public virtual ObjectResult<LOGIN_Result> LOGIN(string eMAIL, string pASS)
         {
             var eMAILParameter = eMAIL != null ?
                 new ObjectParameter("EMAIL", eMAIL) :
@@ -40,20 +44,7 @@ namespace wcfMinIndustria.Model
                 new ObjectParameter("PASS", pASS) :
                 new ObjectParameter("PASS", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_SMICI_LOGIN", eMAILParameter, pASSParameter, idUsuario);
-        }
-    
-        public virtual int USP_SMICI_REGISTRO(string eMAIL, string pASS, ObjectParameter idUsuario)
-        {
-            var eMAILParameter = eMAIL != null ?
-                new ObjectParameter("EMAIL", eMAIL) :
-                new ObjectParameter("EMAIL", typeof(string));
-    
-            var pASSParameter = pASS != null ?
-                new ObjectParameter("PASS", pASS) :
-                new ObjectParameter("PASS", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_SMICI_REGISTRO", eMAILParameter, pASSParameter, idUsuario);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<LOGIN_Result>("LOGIN", eMAILParameter, pASSParameter);
         }
     }
 }

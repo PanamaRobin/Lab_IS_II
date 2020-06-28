@@ -15,32 +15,32 @@ $(document).ready(function () {
 
 /******************** INICIO SCRIPTS PARA ALMACENAR Y ACTUALIZAR DATOS *******************/
 /*****************************************************************************************/
-function Login() {
-    var _email = $("#strEmail").val();
-    var _pass = $("#strPass").val();
+//function Login() {
+//    var _email = $("#strEmail").val();
+//    var _pass = $("#strPass").val();
 
-    var Param = {
-        strEmail: _email,
-        strPass: _pass
-    };
+//    var Param = {
+//        strEmail: _email,
+//        strPass: _pass
+//    };
 
-    //MostrarSpin(true);
+//    //MostrarSpin(true);
 
-    $.ajax({
-        url: RootURL + "Home/Login",
-        type: "get",
-        cache: false,
-        data: Param,
-        success: function (response) {
-            GritterPop(response);
-            //MostrarSpin(false);
-        },
-        error: function (response) {
-            MostrarSpin(false);
-            ManejaErroresAJAXSession(response);
-        }
-    });
-}
+//    $.ajax({
+//        url: RootURL + "Home/Login",
+//        type: "get",
+//        cache: false,
+//        data: Param,
+//        success: function (response) {
+//            GritterPop(response);
+//            //MostrarSpin(false);
+//        },
+//        error: function (response) {
+//            MostrarSpin(false);
+//            ManejaErroresAJAXSession(response);
+//        }
+//    });
+//}
 function Login2() {
 
     var _form = $('#ajaxFormLogin');
@@ -50,14 +50,17 @@ function Login2() {
         var options = {
             success: function (data) {
                 $.spin('false');
-
-                GritterPop(data);
-                window.location.href = RootURL + 'Ciudadano/Index';
+                if (!data.success) {
+                    GritterPop(data);
+                }
+                else
+                {
+                    window.location.href = RootURL + 'Ciudadano/IndexCiudadano';
+                }  
             },
             error: function (response) {
                 $.spin('false');
                 ManejaErroresAJAXSession(response);
-                window.location.href = RootURL + 'Ciudadano/Index';
             }
         }
         $('#ajaxFormLogin').ajaxSubmit(options);

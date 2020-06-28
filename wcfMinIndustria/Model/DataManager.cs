@@ -10,32 +10,29 @@ namespace wcfMinIndustria.Model
     {
         private SMICIEntidad db = new SMICIEntidad();
 
-        public int Login (string Email, string pass)
+        public UsuariosVM Login(string Email, string pass)
         {
-            int Res = 0;
+            UsuariosVM objPerfilVM = new UsuariosVM();
+            try
+            {
+                objPerfilVM.IdUsuario = 0;
+                objPerfilVM.Nombre = "";
+                objPerfilVM.Correo = "";
 
-            System.Data.Entity.Core.Objects.ObjectParameter Resultado = new
-            System.Data.Entity.Core.Objects.ObjectParameter("IdUsuario", 0);
+                var objPerfilSP = db.LOGIN(Email, pass);
 
-            db.USP_SMICI_LOGIN(Email, pass, Resultado);
+                foreach (var reg in objPerfilSP)
+                {
+                    objPerfilVM.IdUsuario = reg.IdUsuario;
+                    objPerfilVM.Nombre = reg.NombreUsuario;
+                    objPerfilVM.Correo = reg.Correo;
+                }
+            }
+            catch (Exception ex)
+            {
 
-            Res = Convert.ToInt32( Resultado.Value);
-
-            return Res;
-        }
-
-        public int Registro(string Email, string pass)
-        {
-            int Res = 0;
-
-            System.Data.Entity.Core.Objects.ObjectParameter Resultado = new
-                 System.Data.Entity.Core.Objects.ObjectParameter("IdUsuario", 0);
-
-            db.USP_SMICI_REGISTRO(Email, pass, Resultado);
-
-            Res = Convert.ToInt32(Resultado.Value);
-
-            return Res;
+            }
+            return objPerfilVM;
         }
     }
 }

@@ -14,46 +14,56 @@ namespace SMICISite.Controllers
         {
             return View();
         }
-        public ActionResult Index2()
-        {
-            return View();
-        }
 
-        public ActionResult Login2(LoginVM objLogin)
+        public ActionResult Login2(UsuariosVM objUsuariosVM)
         {
-            string titulo = "Titulo Error";
-            bool exitoso = false;
-            string mensaje = "Error Descripcion";
-            int Resp = 0;
+            string strTitulo = "titulo Error ";
+            bool boolExitoso = false;
+            string strMensaje = "Error descripcion";
+
+            //int Resp = 0;
+
             if (ModelState.IsValid)
             {
                 wcfServicio.IwcfExtServiceClient objServicio = new wcfServicio.IwcfExtServiceClient();
 
                 try
                 {
-                    Resp = objServicio.Login(objLogin.Email, objLogin.Pass);
+                    var Resp = objServicio.Login(objUsuariosVM.Correo, objUsuariosVM.Contrasena);
+
                     if (Resp == 0)
                     {
-                        titulo = "Credenciales Incorrectas";
-                        exitoso = false;
-                        mensaje = "Usuario o Contraseña Incorrecta";
+                        strTitulo = "Credenciales Incorrectas";
+                        boolExitoso = false;
+                        strMensaje = "Usuario o Contraseña Incorrecta...";
                     }
                     else
                     {
-                        titulo = "Usuario Encontrado";
-                        exitoso = true;
-                        mensaje = "El ID del Usuario Encontrado es = " + Resp;
+                        UsuariosVM objUsuario = new UsuariosVM();
+                        objUsuario.IdUsuario = Resp.IdUsuario;
+                        objUsuario.Nombre = Resp.Nombre;
+                        objUsuario.Direccion = Direccion;
+                        objUsuario.Telefono = Resp.Telefono;
+                        objUsuario.Correo = Resp.Correo;
+                        objUsuario.Contrasena = Resp.Contrasena;
+
+                        strTitulo = "Usuario Encontrado";
+                        boolExitoso = true;
+                        strMensaje = "El Id del Usuario Encontrado es = " + Resp;
+
                     }
+
                 }
                 catch (Exception ex)
                 {
-                    titulo = "Excepción Encontrada";
-                    exitoso = false;
-                    mensaje = "Ocurrió una excepción no esperada... Detalles = " + ex.Message;
+                    strTitulo = "Exepción Encontrada";
+                    boolExitoso = false;
+                    strMensaje = "Ocurrió una excepción no esperada... Detalles =" + ex.Message;
                 }
+
             }
 
-            var objRes = new { success = exitoso, titulo = titulo, mensaje = mensaje };
+            var objRes = new { success = boolExitoso, titulo = strTitulo, mensaje = strMensaje };
 
             return Json(objRes, JsonRequestBehavior.AllowGet);
         }

@@ -1,4 +1,4 @@
-﻿@model SMICISite.Models.LoginVM
+﻿@model SMICISite.Models.UsuariosVM
 
 @{
     Layout = "~/Views/Shared/_Layout_AdminLTE_Login.cshtml";
@@ -28,7 +28,7 @@
             </div>
 
             <div class="social-auth-links text-center">
-                <a href="@Url.Action("IndexCiudadano", "Ciudadano")" id="btnLogin" class="btn btn-primary btn-block btn-lg">
+                <a href="#" id="btnLogin" onclick="Login2()" class="btn btn-primary btn-block btn-lg">
                     INICIAR
                     <i class="fa fa-sign-in"></i>
                 </a>

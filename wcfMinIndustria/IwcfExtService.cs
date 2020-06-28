@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using wcfMinIndustria.Model;
 
 namespace wcfMinIndustria
 {
@@ -11,24 +12,8 @@ namespace wcfMinIndustria
     [ServiceContract]
     public interface IwcfExtService
     {
-        [OperationContract]
-        void DoWork();
 
         [OperationContract]
-        int Login(string strUsuario, string strPass);
-
-        [OperationContract]
-        int Registro(string strUsuario, string strPass);
-
-        [OperationContract]
-        int NuevaSolicitud();
-
-
-        [OperationContract]
-        int DetalleSolicitud();
-
-        [OperationContract]
-        int Solicitudes();
-
+        UsuariosVM Login(string strUsuario, string strPass);
     }
 }

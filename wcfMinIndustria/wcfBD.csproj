@@ -84,7 +84,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IwcfExtService.cs" />
+    <Compile Include="Model\Baches.cs">
+      <DependentUpon>SMICIModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\DataManager.cs" />
+    <Compile Include="Model\InformeBache.cs">
+      <DependentUpon>SMICIModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\LOGIN_Result.cs">
+      <DependentUpon>SMICIModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Prioridad.cs">
+      <DependentUpon>SMICIModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ReporteDano.cs">
+      <DependentUpon>SMICIModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\SMICIModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -100,12 +115,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SMICIModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Model\UsuariosExt.cs">
+    <Compile Include="Model\Tipo.cs">
       <DependentUpon>SMICIModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\UsuariosMICI.cs">
+    <Compile Include="Model\Usuarios.cs">
       <DependentUpon>SMICIModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\UsuariosVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="wcfExtService.svc.cs">
       <DependentUpon>wcfExtService.svc</DependentUpon>

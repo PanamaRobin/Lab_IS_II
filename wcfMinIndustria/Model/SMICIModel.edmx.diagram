@@ -5,8 +5,17 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="a712c7ccdd3649db8028b48eed6c2192" Name="Diagram1">
-        <EntityTypeShape EntityType="SMICIModelo.UsuariosExt" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMICIModelo.UsuariosMICI" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMICIModelo.Baches" Width="1.5" PointX="6" PointY="5.625" />
+        <EntityTypeShape EntityType="SMICIModelo.Prioridad" Width="1.5" PointX="3.75" PointY="9.375" />
+        <EntityTypeShape EntityType="SMICIModelo.Tipo" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="SMICIModelo.Usuarios" Width="1.5" PointX="3.75" PointY="5.75" />
+        <EntityTypeShape EntityType="SMICIModelo.InformeBache" Width="1.5" PointX="8.25" PointY="8.75" />
+        <EntityTypeShape EntityType="SMICIModelo.ReporteDano" Width="1.5" PointX="8.25" PointY="5" />
+        <AssociationConnector Association="SMICIModelo.FK1" />
+        <AssociationConnector Association="SMICIModelo.FK2" />
+        <AssociationConnector Association="SMICIModelo.FK3" />
+        <AssociationConnector Association="SMICIModelo.FK5" />
+        <AssociationConnector Association="SMICIModelo.FK4" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

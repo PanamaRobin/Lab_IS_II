@@ -4,116 +4,473 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="SMICIModelo.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="UsuariosExt">
+    <Schema Namespace="SMICIModelo.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Baches">
           <Key>
-            <PropertyRef Name="IdUsuarioExt" />
+            <PropertyRef Name="IdBache" />
           </Key>
-          <Property Name="IdUsuarioExt" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Pass" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Activo" Type="bit" Nullable="false" />
-          <Property Name="FCreacion" Type="datetime" Nullable="false" />
-          <Property Name="IdUsuarioModificacion" Type="int" />
-          <Property Name="FModificacion" Type="datetime" />
+          <Property Name="IdBache" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Calle" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Distrito" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Tamano" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Posicion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Usuario" Type="int" Nullable="false" />
+          <Property Name="Prioridad" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="UsuariosMICI">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Baches.dbo.InformeBache' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="InformeBache">
           <Key>
-            <PropertyRef Name="IdUsuarioMICI" />
+            <PropertyRef Name="IdBache" />
+            <PropertyRef Name="Ubicacion" />
+            <PropertyRef Name="Tamano" />
+            <PropertyRef Name="Brigada" />
+            <PropertyRef Name="Equipamiento" />
+            <PropertyRef Name="HorasDeReparacion" />
+            <PropertyRef Name="EstadoBache" />
+            <PropertyRef Name="CantRelleno" />
+            <PropertyRef Name="CostoBache" />
           </Key>
-          <Property Name="IdUsuarioMICI" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NombreCompleto" Type="varchar" MaxLength="150" Nullable="false" />
-          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Activo" Type="bit" Nullable="false" />
-          <Property Name="FCreacion" Type="datetime" Nullable="false" />
+          <Property Name="IdBache" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ubicacion" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Tamano" Type="float" Nullable="false" />
+          <Property Name="Brigada" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Equipamiento" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="HorasDeReparacion" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="EstadoBache" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CantRelleno" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CostoBache" Type="float" Nullable="false" />
         </EntityType>
-        <Function Name="USP_SMICI_LOGIN" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+        <EntityType Name="Prioridad">
+          <Key>
+            <PropertyRef Name="IdPrioridad" />
+          </Key>
+          <Property Name="IdPrioridad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombrePrioridad" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Baches.dbo.ReporteDano' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ReporteDano">
+          <Key>
+            <PropertyRef Name="IdReporte" />
+            <PropertyRef Name="TipoDano" />
+            <PropertyRef Name="CostoReparacion" />
+            <PropertyRef Name="IdUsuario" />
+            <PropertyRef Name="IdBache" />
+          </Key>
+          <Property Name="IdReporte" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TipoDano" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CostoReparacion" Type="float" Nullable="false" />
+          <Property Name="IdUsuario" Type="int" Nullable="false" />
+          <Property Name="IdBache" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tipo">
+          <Key>
+            <PropertyRef Name="IdTipo" />
+          </Key>
+          <Property Name="IdTipo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreTipo" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="IdUsuario" />
+          </Key>
+          <Property Name="IdUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreUsuario" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Direccion" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Telefono" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Correo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Contrasena" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Tipo" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK1">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+          <End Role="Baches" Type="Self.Baches" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="IdUsuario" />
+            </Principal>
+            <Dependent Role="Baches">
+              <PropertyRef Name="Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK2">
+          <End Role="Prioridad" Type="Self.Prioridad" Multiplicity="1" />
+          <End Role="Baches" Type="Self.Baches" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Prioridad">
+              <PropertyRef Name="IdPrioridad" />
+            </Principal>
+            <Dependent Role="Baches">
+              <PropertyRef Name="Prioridad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK3">
+          <End Role="Baches" Type="Self.Baches" Multiplicity="1" />
+          <End Role="InformeBache" Type="Self.InformeBache" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Baches">
+              <PropertyRef Name="IdBache" />
+            </Principal>
+            <Dependent Role="InformeBache">
+              <PropertyRef Name="IdBache" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK4">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+          <End Role="ReporteDano" Type="Self.ReporteDano" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="IdUsuario" />
+            </Principal>
+            <Dependent Role="ReporteDano">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK5">
+          <End Role="Baches" Type="Self.Baches" Multiplicity="1" />
+          <End Role="ReporteDano" Type="Self.ReporteDano" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Baches">
+              <PropertyRef Name="IdBache" />
+            </Principal>
+            <Dependent Role="ReporteDano">
+              <PropertyRef Name="IdBache" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="LOGIN" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="EMAIL" Type="varchar" Mode="In" />
           <Parameter Name="PASS" Type="varchar" Mode="In" />
-          <Parameter Name="IdUsuario" Type="int" Mode="InOut" />
-        </Function>
-        <Function Name="USP_SMICI_REGISTRO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="EMAIL" Type="varchar" Mode="In" />
-          <Parameter Name="PASS" Type="varchar" Mode="In" />
-          <Parameter Name="IdUsuario" Type="int" Mode="InOut" />
         </Function>
         <EntityContainer Name="SMICIModeloStoreContainer">
-          <EntitySet Name="UsuariosExt" EntityType="Self.UsuariosExt" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="UsuariosMICI" EntityType="Self.UsuariosMICI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Baches" EntityType="Self.Baches" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Prioridad" EntityType="Self.Prioridad" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tipo" EntityType="Self.Tipo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InformeBache" EntityType="Self.InformeBache" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [InformeBache].[IdBache] AS [IdBache], 
+    [InformeBache].[Ubicacion] AS [Ubicacion], 
+    [InformeBache].[Tamano] AS [Tamano], 
+    [InformeBache].[Brigada] AS [Brigada], 
+    [InformeBache].[Equipamiento] AS [Equipamiento], 
+    [InformeBache].[HorasDeReparacion] AS [HorasDeReparacion], 
+    [InformeBache].[EstadoBache] AS [EstadoBache], 
+    [InformeBache].[CantRelleno] AS [CantRelleno], 
+    [InformeBache].[CostoBache] AS [CostoBache]
+    FROM [dbo].[InformeBache] AS [InformeBache]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ReporteDano" EntityType="Self.ReporteDano" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ReporteDano].[IdReporte] AS [IdReporte], 
+    [ReporteDano].[TipoDano] AS [TipoDano], 
+    [ReporteDano].[CostoReparacion] AS [CostoReparacion], 
+    [ReporteDano].[IdUsuario] AS [IdUsuario], 
+    [ReporteDano].[IdBache] AS [IdBache]
+    FROM [dbo].[ReporteDano] AS [ReporteDano]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK1" Association="Self.FK1">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Baches" EntitySet="Baches" />
+          </AssociationSet>
+          <AssociationSet Name="FK2" Association="Self.FK2">
+            <End Role="Prioridad" EntitySet="Prioridad" />
+            <End Role="Baches" EntitySet="Baches" />
+          </AssociationSet>
+          <AssociationSet Name="FK3" Association="Self.FK3">
+            <End Role="Baches" EntitySet="Baches" />
+            <End Role="InformeBache" EntitySet="InformeBache" />
+          </AssociationSet>
+          <AssociationSet Name="FK4" Association="Self.FK4">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="ReporteDano" EntitySet="ReporteDano" />
+          </AssociationSet>
+          <AssociationSet Name="FK5" Association="Self.FK5">
+            <End Role="Baches" EntitySet="Baches" />
+            <End Role="ReporteDano" EntitySet="ReporteDano" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SMICIModelo" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="UsuariosExt">
-          <Key>
-            <PropertyRef Name="IdUsuarioExt" />
-          </Key>
-          <Property Name="IdUsuarioExt" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Pass" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Activo" Type="Boolean" Nullable="false" />
-          <Property Name="FCreacion" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="IdUsuarioModificacion" Type="Int32" />
-          <Property Name="FModificacion" Type="DateTime" Precision="3" />
-        </EntityType>
-        <EntityType Name="UsuariosMICI">
-          <Key>
-            <PropertyRef Name="IdUsuarioMICI" />
-          </Key>
-          <Property Name="IdUsuarioMICI" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NombreCompleto" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Activo" Type="Boolean" Nullable="false" />
-          <Property Name="FCreacion" Type="DateTime" Nullable="false" Precision="3" />
-        </EntityType>
         <EntityContainer Name="SMICIEntidad" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="UsuariosExt" EntityType="Self.UsuariosExt" />
-          <EntitySet Name="UsuariosMICI" EntityType="Self.UsuariosMICI" />
-          <FunctionImport Name="USP_SMICI_LOGIN">
+          <EntitySet Name="Baches" EntityType="SMICIModelo.Baches" />
+          <EntitySet Name="Prioridad" EntityType="SMICIModelo.Prioridad" />
+          <EntitySet Name="Tipo" EntityType="SMICIModelo.Tipo" />
+          <EntitySet Name="Usuarios" EntityType="SMICIModelo.Usuarios" />
+          <EntitySet Name="InformeBache" EntityType="SMICIModelo.InformeBache" />
+          <EntitySet Name="ReporteDano" EntityType="SMICIModelo.ReporteDano" />
+          <AssociationSet Name="FK1" Association="SMICIModelo.FK1">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Baches" EntitySet="Baches" />
+          </AssociationSet>
+          <AssociationSet Name="FK2" Association="SMICIModelo.FK2">
+            <End Role="Prioridad" EntitySet="Prioridad" />
+            <End Role="Baches" EntitySet="Baches" />
+          </AssociationSet>
+          <AssociationSet Name="FK3" Association="SMICIModelo.FK3">
+            <End Role="Baches" EntitySet="Baches" />
+            <End Role="InformeBache" EntitySet="InformeBache" />
+          </AssociationSet>
+          <AssociationSet Name="FK5" Association="SMICIModelo.FK5">
+            <End Role="Baches" EntitySet="Baches" />
+            <End Role="ReporteDano" EntitySet="ReporteDano" />
+          </AssociationSet>
+          <AssociationSet Name="FK4" Association="SMICIModelo.FK4">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="ReporteDano" EntitySet="ReporteDano" />
+          </AssociationSet>
+          <FunctionImport Name="LOGIN" ReturnType="Collection(SMICIModelo.LOGIN_Result)">
             <Parameter Name="EMAIL" Mode="In" Type="String" />
             <Parameter Name="PASS" Mode="In" Type="String" />
-            <Parameter Name="IdUsuario" Mode="InOut" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="USP_SMICI_REGISTRO">
-            <Parameter Name="EMAIL" Mode="In" Type="String" />
-            <Parameter Name="PASS" Mode="In" Type="String" />
-            <Parameter Name="IdUsuario" Mode="InOut" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
+        <EntityType Name="Baches">
+          <Key>
+            <PropertyRef Name="IdBache" />
+          </Key>
+          <Property Name="IdBache" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Calle" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Distrito" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Tamano" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Posicion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Usuario" Type="Int32" Nullable="false" />
+          <Property Name="Prioridad" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Usuarios" Relationship="SMICIModelo.FK1" FromRole="Baches" ToRole="Usuarios" />
+          <NavigationProperty Name="Prioridad1" Relationship="SMICIModelo.FK2" FromRole="Baches" ToRole="Prioridad" />
+          <NavigationProperty Name="InformeBache" Relationship="SMICIModelo.FK3" FromRole="Baches" ToRole="InformeBache" />
+          <NavigationProperty Name="ReporteDano" Relationship="SMICIModelo.FK5" FromRole="Baches" ToRole="ReporteDano" />
+        </EntityType>
+        <EntityType Name="Prioridad">
+          <Key>
+            <PropertyRef Name="IdPrioridad" />
+          </Key>
+          <Property Name="IdPrioridad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombrePrioridad" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Baches" Relationship="SMICIModelo.FK2" FromRole="Prioridad" ToRole="Baches" />
+        </EntityType>
+        <EntityType Name="Tipo">
+          <Key>
+            <PropertyRef Name="IdTipo" />
+          </Key>
+          <Property Name="IdTipo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreTipo" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="IdUsuario" />
+          </Key>
+          <Property Name="IdUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreUsuario" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Direccion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Correo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Contrasena" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Tipo" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Baches" Relationship="SMICIModelo.FK1" FromRole="Usuarios" ToRole="Baches" />
+          <NavigationProperty Name="ReporteDano" Relationship="SMICIModelo.FK4" FromRole="Usuarios" ToRole="ReporteDano" />
+        </EntityType>
+        <EntityType Name="InformeBache">
+          <Key>
+            <PropertyRef Name="IdBache" />
+            <PropertyRef Name="Ubicacion" />
+            <PropertyRef Name="Tamano" />
+            <PropertyRef Name="Brigada" />
+            <PropertyRef Name="Equipamiento" />
+            <PropertyRef Name="HorasDeReparacion" />
+            <PropertyRef Name="EstadoBache" />
+            <PropertyRef Name="CantRelleno" />
+            <PropertyRef Name="CostoBache" />
+          </Key>
+          <Property Name="IdBache" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ubicacion" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Tamano" Type="Double" Nullable="false" />
+          <Property Name="Brigada" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Equipamiento" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="HorasDeReparacion" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="EstadoBache" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CantRelleno" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CostoBache" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Baches" Relationship="SMICIModelo.FK3" FromRole="InformeBache" ToRole="Baches" />
+        </EntityType>
+        <EntityType Name="ReporteDano">
+          <Key>
+            <PropertyRef Name="IdReporte" />
+            <PropertyRef Name="TipoDano" />
+            <PropertyRef Name="CostoReparacion" />
+            <PropertyRef Name="IdUsuario" />
+            <PropertyRef Name="IdBache" />
+          </Key>
+          <Property Name="IdReporte" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TipoDano" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CostoReparacion" Type="Double" Nullable="false" />
+          <Property Name="IdUsuario" Type="Int32" Nullable="false" />
+          <Property Name="IdBache" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Baches" Relationship="SMICIModelo.FK5" FromRole="ReporteDano" ToRole="Baches" />
+          <NavigationProperty Name="Usuarios" Relationship="SMICIModelo.FK4" FromRole="ReporteDano" ToRole="Usuarios" />
+        </EntityType>
+        <Association Name="FK1">
+          <End Type="SMICIModelo.Usuarios" Role="Usuarios" Multiplicity="1" />
+          <End Type="SMICIModelo.Baches" Role="Baches" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="IdUsuario" />
+            </Principal>
+            <Dependent Role="Baches">
+              <PropertyRef Name="Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK2">
+          <End Type="SMICIModelo.Prioridad" Role="Prioridad" Multiplicity="1" />
+          <End Type="SMICIModelo.Baches" Role="Baches" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Prioridad">
+              <PropertyRef Name="IdPrioridad" />
+            </Principal>
+            <Dependent Role="Baches">
+              <PropertyRef Name="Prioridad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK3">
+          <End Type="SMICIModelo.Baches" Role="Baches" Multiplicity="1" />
+          <End Type="SMICIModelo.InformeBache" Role="InformeBache" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Baches">
+              <PropertyRef Name="IdBache" />
+            </Principal>
+            <Dependent Role="InformeBache">
+              <PropertyRef Name="IdBache" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK5">
+          <End Type="SMICIModelo.Baches" Role="Baches" Multiplicity="1" />
+          <End Type="SMICIModelo.ReporteDano" Role="ReporteDano" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Baches">
+              <PropertyRef Name="IdBache" />
+            </Principal>
+            <Dependent Role="ReporteDano">
+              <PropertyRef Name="IdBache" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK4">
+          <End Type="SMICIModelo.Usuarios" Role="Usuarios" Multiplicity="1" />
+          <End Type="SMICIModelo.ReporteDano" Role="ReporteDano" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="IdUsuario" />
+            </Principal>
+            <Dependent Role="ReporteDano">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="LOGIN_Result">
+          <Property Type="Int32" Name="IdUsuario" Nullable="false" />
+          <Property Type="String" Name="NombreUsuario" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Direccion" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Telefono" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Correo" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Contrasena" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="Tipo" Nullable="false" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="SMICIModeloStoreContainer" CdmEntityContainer="SMICIEntidad">
-          <EntitySetMapping Name="UsuariosExt">
-            <EntityTypeMapping TypeName="SMICIModelo.UsuariosExt">
-              <MappingFragment StoreEntitySet="UsuariosExt">
-                <ScalarProperty Name="IdUsuarioExt" ColumnName="IdUsuarioExt" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Pass" ColumnName="Pass" />
-                <ScalarProperty Name="Activo" ColumnName="Activo" />
-                <ScalarProperty Name="FCreacion" ColumnName="FCreacion" />
-                <ScalarProperty Name="IdUsuarioModificacion" ColumnName="IdUsuarioModificacion" />
-                <ScalarProperty Name="FModificacion" ColumnName="FModificacion" />
+          <EntitySetMapping Name="Baches">
+            <EntityTypeMapping TypeName="SMICIModelo.Baches">
+              <MappingFragment StoreEntitySet="Baches">
+                <ScalarProperty Name="Prioridad" ColumnName="Prioridad" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Posicion" ColumnName="Posicion" />
+                <ScalarProperty Name="Tamano" ColumnName="Tamano" />
+                <ScalarProperty Name="Distrito" ColumnName="Distrito" />
+                <ScalarProperty Name="Calle" ColumnName="Calle" />
+                <ScalarProperty Name="IdBache" ColumnName="IdBache" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="UsuariosMICI">
-            <EntityTypeMapping TypeName="SMICIModelo.UsuariosMICI">
-              <MappingFragment StoreEntitySet="UsuariosMICI">
-                <ScalarProperty Name="IdUsuarioMICI" ColumnName="IdUsuarioMICI" />
-                <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Activo" ColumnName="Activo" />
-                <ScalarProperty Name="FCreacion" ColumnName="FCreacion" />
+          <EntitySetMapping Name="Prioridad">
+            <EntityTypeMapping TypeName="SMICIModelo.Prioridad">
+              <MappingFragment StoreEntitySet="Prioridad">
+                <ScalarProperty Name="NombrePrioridad" ColumnName="NombrePrioridad" />
+                <ScalarProperty Name="IdPrioridad" ColumnName="IdPrioridad" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="USP_SMICI_LOGIN" FunctionName="SMICIModelo.Store.USP_SMICI_LOGIN" />
-          <FunctionImportMapping FunctionImportName="USP_SMICI_REGISTRO" FunctionName="SMICIModelo.Store.USP_SMICI_REGISTRO" />
+          <EntitySetMapping Name="Tipo">
+            <EntityTypeMapping TypeName="SMICIModelo.Tipo">
+              <MappingFragment StoreEntitySet="Tipo">
+                <ScalarProperty Name="NombreTipo" ColumnName="NombreTipo" />
+                <ScalarProperty Name="IdTipo" ColumnName="IdTipo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuarios">
+            <EntityTypeMapping TypeName="SMICIModelo.Usuarios">
+              <MappingFragment StoreEntitySet="Usuarios">
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Contrasena" ColumnName="Contrasena" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InformeBache">
+            <EntityTypeMapping TypeName="SMICIModelo.InformeBache">
+              <MappingFragment StoreEntitySet="InformeBache">
+                <ScalarProperty Name="CostoBache" ColumnName="CostoBache" />
+                <ScalarProperty Name="CantRelleno" ColumnName="CantRelleno" />
+                <ScalarProperty Name="EstadoBache" ColumnName="EstadoBache" />
+                <ScalarProperty Name="HorasDeReparacion" ColumnName="HorasDeReparacion" />
+                <ScalarProperty Name="Equipamiento" ColumnName="Equipamiento" />
+                <ScalarProperty Name="Brigada" ColumnName="Brigada" />
+                <ScalarProperty Name="Tamano" ColumnName="Tamano" />
+                <ScalarProperty Name="Ubicacion" ColumnName="Ubicacion" />
+                <ScalarProperty Name="IdBache" ColumnName="IdBache" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReporteDano">
+            <EntityTypeMapping TypeName="SMICIModelo.ReporteDano">
+              <MappingFragment StoreEntitySet="ReporteDano">
+                <ScalarProperty Name="IdBache" ColumnName="IdBache" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="CostoReparacion" ColumnName="CostoReparacion" />
+                <ScalarProperty Name="TipoDano" ColumnName="TipoDano" />
+                <ScalarProperty Name="IdReporte" ColumnName="IdReporte" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="LOGIN" FunctionName="SMICIModelo.Store.LOGIN">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SMICIModelo.LOGIN_Result">
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Contrasena" ColumnName="Contrasena" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

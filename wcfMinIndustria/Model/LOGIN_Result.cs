@@ -10,16 +10,15 @@
 namespace wcfMinIndustria.Model
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class UsuariosExt
+    public partial class LOGIN_Result
     {
-        public int IdUsuarioExt { get; set; }
-        public string Email { get; set; }
-        public string Pass { get; set; }
-        public bool Activo { get; set; }
-        public System.DateTime FCreacion { get; set; }
-        public Nullable<int> IdUsuarioModificacion { get; set; }
-        public Nullable<System.DateTime> FModificacion { get; set; }
+        public int IdUsuario { get; set; }
+        public string NombreUsuario { get; set; }
+        public string Direccion { get; set; }
+        public string Telefono { get; set; }
+        public string Correo { get; set; }
+        public string Contrasena { get; set; }
+        public int Tipo { get; set; }
     }
 }

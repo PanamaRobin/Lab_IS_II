@@ -6,15 +6,20 @@ using System.ComponentModel.DataAnnotations;
 
 namespace SMICISite.Models
 {
-	public class LoginVM
+	public class UsuariosVM
 	{
+		public int IdUsuario { set; get; }
+		public string Nombre { set; get; }
+		public string Direccion { set; get; }
+		public string Telefono { set; get; }
+
 		[Required(ErrorMessage = "El correo es obligatorio...")]
 		[Display(Name = "Correo")]
-		public string Email { set; get; }
+		public string Correo { set; get; }
 
 		[Display(Name = "Contraseña")]
 		[Required(ErrorMessage = "Favor ingrese una contraseña...")]
 		//[RegularExpression(@"^.*(?=.*[!@#$%^&*\(\)_\-+=]).*$", ErrorMessage = "El password debe ser ....")]
-		public string Pass { set; get; }
+		public string Contrasena { set; get; }
 	}
 }

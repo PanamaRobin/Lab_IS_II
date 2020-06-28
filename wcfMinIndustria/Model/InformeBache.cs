@@ -12,12 +12,18 @@ namespace wcfMinIndustria.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class UsuariosMICI
+    public partial class InformeBache
     {
-        public int IdUsuarioMICI { get; set; }
-        public string NombreCompleto { get; set; }
-        public string Email { get; set; }
-        public bool Activo { get; set; }
-        public System.DateTime FCreacion { get; set; }
+        public int IdBache { get; set; }
+        public string Ubicacion { get; set; }
+        public double Tamano { get; set; }
+        public string Brigada { get; set; }
+        public string Equipamiento { get; set; }
+        public string HorasDeReparacion { get; set; }
+        public string EstadoBache { get; set; }
+        public string CantRelleno { get; set; }
+        public double CostoBache { get; set; }
+    
+        public virtual Baches Baches { get; set; }
     }
 }
