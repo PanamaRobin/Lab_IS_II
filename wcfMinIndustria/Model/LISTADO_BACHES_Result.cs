@@ -10,16 +10,9 @@
 namespace wcfMinIndustria.Model
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Baches
+    public partial class LISTADO_BACHES_Result
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Baches()
-        {
-            this.ReporteDano = new HashSet<ReporteDano>();
-        }
-    
         public int IdBache { get; set; }
         public string Calle { get; set; }
         public string Distrito { get; set; }
@@ -27,8 +20,5 @@ namespace wcfMinIndustria.Model
         public string Posicion { get; set; }
         public string Usuario { get; set; }
         public string Prioridad { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ReporteDano> ReporteDano { get; set; }
     }
 }

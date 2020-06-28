@@ -10,6 +10,7 @@ namespace wcfMinIndustria.Model
     {
         private SMICIEntidad db = new SMICIEntidad();
 
+        //LOGIN
         public UsuariosVM Login(string Email, string pass)
         {
             UsuariosVM objPerfilVM = new UsuariosVM();
@@ -33,6 +34,35 @@ namespace wcfMinIndustria.Model
 
             }
             return objPerfilVM;
+        }
+
+        //LISTADO DE BACHES CIUDADANO
+        public List<BachesVM> Listado()
+        {
+            List<BachesVM> objLista = new List<BachesVM>();
+            try
+            {
+                var objBaches = db.LISTADO_BACHES("Jorge");
+
+                foreach (var reg in objBaches)
+                {
+                    objLista.Add(new BachesVM()
+                    {
+                        IdBache = reg.IdBache,
+                        Calle = reg.Calle,
+                        Distrito = reg.Distrito,
+                        Tamano = reg.Tamano,
+                        Posicion = reg.Posicion,
+                        Usuario = reg.Usuario,
+                        Prioridad = reg.Prioridad,
+                    });   
+                }
+            }
+            catch (Exception ex)
+            {
+                
+            }
+            return objLista;
         }
     }
 }

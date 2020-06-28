@@ -73,3 +73,4 @@ X:\Git\repositories\Lab_IS_II\SMICISite\obj\Debug\Sitio.csproj.CoreCompileInputs
 X:\Git\repositories\Lab_IS_II\SMICISite\obj\Debug\Sitio.csproj.CopyComplete
 X:\Git\repositories\Lab_IS_II\SMICISite\obj\Debug\SMICISite.dll
 X:\Git\repositories\Lab_IS_II\SMICISite\obj\Debug\SMICISite.pdb
+X:\Git\repositories\Lab_IS_II\SMICISite\obj\Debug\Sitio.csprojAssemblyReference.cache

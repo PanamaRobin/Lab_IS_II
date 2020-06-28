@@ -91,10 +91,11 @@
     <Compile Include="Model\InformeBache.cs">
       <DependentUpon>SMICIModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\LOGIN_Result.cs">
+    <Compile Include="Model\BachesVM.cs" />
+    <Compile Include="Model\LISTADO_BACHES_Result.cs">
       <DependentUpon>SMICIModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\Prioridad.cs">
+    <Compile Include="Model\LOGIN_Result.cs">
       <DependentUpon>SMICIModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ReporteDano.cs">

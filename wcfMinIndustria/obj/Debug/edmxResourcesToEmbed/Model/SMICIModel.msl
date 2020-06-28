@@ -14,14 +14,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Prioridad">
-      <EntityTypeMapping TypeName="SMICIModelo.Prioridad">
-        <MappingFragment StoreEntitySet="Prioridad">
-          <ScalarProperty Name="NombrePrioridad" ColumnName="NombrePrioridad" />
-          <ScalarProperty Name="IdPrioridad" ColumnName="IdPrioridad" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Tipo">
       <EntityTypeMapping TypeName="SMICIModelo.Tipo">
         <MappingFragment StoreEntitySet="Tipo">
@@ -69,6 +61,19 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="LISTADO_BACHES" FunctionName="SMICIModelo.Store.LISTADO_BACHES">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SMICIModelo.LISTADO_BACHES_Result">
+          <ScalarProperty Name="IdBache" ColumnName="IdBache" />
+          <ScalarProperty Name="Calle" ColumnName="Calle" />
+          <ScalarProperty Name="Distrito" ColumnName="Distrito" />
+          <ScalarProperty Name="Tamano" ColumnName="Tamano" />
+          <ScalarProperty Name="Posicion" ColumnName="Posicion" />
+          <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+          <ScalarProperty Name="Prioridad" ColumnName="Prioridad" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="LOGIN" FunctionName="SMICIModelo.Store.LOGIN">
       <ResultMapping>
         <ComplexTypeMapping TypeName="SMICIModelo.LOGIN_Result">
@@ -82,5 +87,6 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_REGISTRO_SOLICITUD_REPORTE_BACHE" FunctionName="SMICIModelo.Store.USP_REGISTRO_SOLICITUD_REPORTE_BACHE" />
   </EntityContainerMapping>
 </Mapping>

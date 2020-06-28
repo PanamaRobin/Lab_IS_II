@@ -11,4 +11,22 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="UsuariosVM" nillable="true" type="tns:UsuariosVM" />
+  <xs:complexType name="ArrayOfBachesVM">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BachesVM" nillable="true" type="tns:BachesVM" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBachesVM" nillable="true" type="tns:ArrayOfBachesVM" />
+  <xs:complexType name="BachesVM">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Calle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Distrito" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdBache" type="xs:int" />
+      <xs:element minOccurs="0" name="Posicion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Prioridad" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tamano" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Usuario" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BachesVM" nillable="true" type="tns:BachesVM" />
 </xs:schema>

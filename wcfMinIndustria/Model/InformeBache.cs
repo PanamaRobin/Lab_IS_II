@@ -23,7 +23,5 @@ namespace wcfMinIndustria.Model
         public string EstadoBache { get; set; }
         public string CantRelleno { get; set; }
         public double CostoBache { get; set; }
-    
-        public virtual Baches Baches { get; set; }
     }
 }

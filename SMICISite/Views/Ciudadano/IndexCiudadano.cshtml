@@ -1,9 +1,9 @@
 ﻿@{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Listado de reportes";
     Layout = "~/Views/Shared/_Layout_AdminLTE.cshtml";
 }
 
-@*@model IEnumerable<SMICISite.Models.ListSolVM>*@
+@model IEnumerable<SMICISite.Models.BachesVM>
 
 <div class="row">
     <div class="col-xs-12">
@@ -22,40 +22,46 @@
                                             Calle
                                         </th>
                                         <th style="width:auto">
+                                            Distrito
+                                        </th>
+                                        <th style="width:auto">
                                             Tamaño
                                         </th>
                                         <th style="width:auto">
                                             Posición
                                         </th>
                                         <th style="width:auto">
-                                            Distrito
+                                            Prioridad
                                         </th>
-                                        <th style="width:auto">
-                                            Estado
+                                        <th style="width:25px">
+                                            
                                         </th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @*@foreach (var item in Model)
-                                        {
-                                            <tr>
-                                                <td style="width:auto">
-                                                    @Html.DisplayFor(modelItem => item.Calle)
-                                                </td>
-                                                <td style="width:auto">
-                                                    @Html.DisplayFor(modelItem => item.Tamano)
-                                                </td>
-                                                <td style="width:auto">
-                                                    @Html.DisplayFor(modelItem => item.Posicion)
-                                                </td>
-                                                <td style="width:auto">
-                                                    @Html.DisplayFor(modelItem => item.Distrito)
-                                                </td>
-                                                <td style="width:auto">
-                                                    @Html.DisplayFor(modelItem => item.Estado)
-                                                </td>
-                                            </tr>
-                                        }*@
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td style="width:auto">
+                                                @Html.DisplayFor(modelItem => item.Calle)
+                                            </td>
+                                            <td style="width:auto">
+                                                @Html.DisplayFor(modelItem => item.Distrito)
+                                            </td>
+                                            <td style="width:auto">
+                                                @Html.DisplayFor(modelItem => item.Tamano)
+                                            </td>
+                                            <td style="width:auto">
+                                                @Html.DisplayFor(modelItem => item.Posicion)
+                                            </td>
+                                            <td style="width:auto">
+                                                @Html.DisplayFor(modelItem => item.Prioridad)
+                                            </td>
+                                            <td style="width:25px" class="text-center">
+                                                <a href="#" class="btn btn-social-icon btn-google text-sm-center" title="Eliminar"><i class="fa fa-trash text-sm-center"></i></a>
+                                            </td>
+                                        </tr>
+                                    }
                                 </tbody>
                             </table>
                         </div>

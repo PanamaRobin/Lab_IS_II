@@ -15,7 +15,7 @@ namespace SMICISite.Controllers
             return View();
         }
 
-        // Login
+        // LOGIN
         public ActionResult Login(UsuariosVM objUsuariosVM)
         {
             string strTitulo = "titulo Error ";

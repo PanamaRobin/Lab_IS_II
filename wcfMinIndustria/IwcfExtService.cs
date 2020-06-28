@@ -12,8 +12,12 @@ namespace wcfMinIndustria
     [ServiceContract]
     public interface IwcfExtService
     {
-
+        //LOGIN
         [OperationContract]
         UsuariosVM Login(string strUsuario, string strPass);
+
+        //LISTADO DE BACHES CIUDADANO
+        [OperationContract]
+        List<BachesVM> Listado();
     }
 }

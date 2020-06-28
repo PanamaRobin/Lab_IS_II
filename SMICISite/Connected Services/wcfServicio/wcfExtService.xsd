@@ -16,4 +16,16 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="Listado">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListadoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/wcfMinIndustria.Model" minOccurs="0" name="ListadoResult" nillable="true" type="q2:ArrayOfBachesVM" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

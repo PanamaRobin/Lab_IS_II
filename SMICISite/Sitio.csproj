@@ -132,11 +132,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\BachesVM.cs" />
     <Compile Include="Models\UsuariosVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Connected Services\wcfServicio\SMICISite.wcfServicio.UsuariosVM.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\wcfServicio\SMICISite.wcfServicio.BachesVM.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Connected Services\wcfServicio\wcfExtService.disco" />

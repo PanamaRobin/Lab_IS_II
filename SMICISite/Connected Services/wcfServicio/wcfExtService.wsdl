@@ -13,16 +13,35 @@
   <wsdl:message name="IwcfExtService_Login_OutputMessage">
     <wsdl:part name="parameters" element="tns:LoginResponse" />
   </wsdl:message>
+  <wsdl:message name="IwcfExtService_Listado_InputMessage">
+    <wsdl:part name="parameters" element="tns:Listado" />
+  </wsdl:message>
+  <wsdl:message name="IwcfExtService_Listado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListadoResponse" />
+  </wsdl:message>
   <wsdl:portType name="IwcfExtService">
     <wsdl:operation name="Login">
       <wsdl:input wsaw:Action="http://tempuri.org/IwcfExtService/Login" message="tns:IwcfExtService_Login_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IwcfExtService/LoginResponse" message="tns:IwcfExtService_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Listado">
+      <wsdl:input wsaw:Action="http://tempuri.org/IwcfExtService/Listado" message="tns:IwcfExtService_Listado_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IwcfExtService/ListadoResponse" message="tns:IwcfExtService_Listado_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IwcfExtService" type="tns:IwcfExtService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="Login">
       <soap:operation soapAction="http://tempuri.org/IwcfExtService/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Listado">
+      <soap:operation soapAction="http://tempuri.org/IwcfExtService/Listado" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -17,10 +17,9 @@ namespace wcfMinIndustria.Model
         public int IdReporte { get; set; }
         public string TipoDano { get; set; }
         public double CostoReparacion { get; set; }
-        public int IdUsuario { get; set; }
+        public string IdUsuario { get; set; }
         public int IdBache { get; set; }
     
         public virtual Baches Baches { get; set; }
-        public virtual Usuarios Usuarios { get; set; }
     }
 }

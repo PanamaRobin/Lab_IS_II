@@ -138,6 +138,147 @@ namespace SMICISite.wcfServicio {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="BachesVM", Namespace="http://schemas.datacontract.org/2004/07/wcfMinIndustria.Model")]
+    [System.SerializableAttribute()]
+    public partial class BachesVM : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CalleField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DistritoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdBacheField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PosicionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PrioridadField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TamanoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UsuarioField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Calle {
+            get {
+                return this.CalleField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CalleField, value) != true)) {
+                    this.CalleField = value;
+                    this.RaisePropertyChanged("Calle");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Distrito {
+            get {
+                return this.DistritoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DistritoField, value) != true)) {
+                    this.DistritoField = value;
+                    this.RaisePropertyChanged("Distrito");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int IdBache {
+            get {
+                return this.IdBacheField;
+            }
+            set {
+                if ((this.IdBacheField.Equals(value) != true)) {
+                    this.IdBacheField = value;
+                    this.RaisePropertyChanged("IdBache");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Posicion {
+            get {
+                return this.PosicionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PosicionField, value) != true)) {
+                    this.PosicionField = value;
+                    this.RaisePropertyChanged("Posicion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Prioridad {
+            get {
+                return this.PrioridadField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PrioridadField, value) != true)) {
+                    this.PrioridadField = value;
+                    this.RaisePropertyChanged("Prioridad");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Tamano {
+            get {
+                return this.TamanoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TamanoField, value) != true)) {
+                    this.TamanoField = value;
+                    this.RaisePropertyChanged("Tamano");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Usuario {
+            get {
+                return this.UsuarioField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UsuarioField, value) != true)) {
+                    this.UsuarioField = value;
+                    this.RaisePropertyChanged("Usuario");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="wcfServicio.IwcfExtService")]
     public interface IwcfExtService {
@@ -147,6 +288,12 @@ namespace SMICISite.wcfServicio {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IwcfExtService/Login", ReplyAction="http://tempuri.org/IwcfExtService/LoginResponse")]
         System.Threading.Tasks.Task<SMICISite.wcfServicio.UsuariosVM> LoginAsync(string strUsuario, string strPass);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IwcfExtService/Listado", ReplyAction="http://tempuri.org/IwcfExtService/ListadoResponse")]
+        System.Collections.Generic.List<SMICISite.wcfServicio.BachesVM> Listado();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IwcfExtService/Listado", ReplyAction="http://tempuri.org/IwcfExtService/ListadoResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<SMICISite.wcfServicio.BachesVM>> ListadoAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -182,6 +329,14 @@ namespace SMICISite.wcfServicio {
         
         public System.Threading.Tasks.Task<SMICISite.wcfServicio.UsuariosVM> LoginAsync(string strUsuario, string strPass) {
             return base.Channel.LoginAsync(strUsuario, strPass);
+        }
+        
+        public System.Collections.Generic.List<SMICISite.wcfServicio.BachesVM> Listado() {
+            return base.Channel.Listado();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<SMICISite.wcfServicio.BachesVM>> ListadoAsync() {
+            return base.Channel.ListadoAsync();
         }
     }
 }

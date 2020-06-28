@@ -14,9 +14,20 @@ namespace wcfMinIndustria
     {
         DataManager objDataManager = new DataManager();
 
+        //LOGIN
         public UsuariosVM Login(string strUsuario, string strPass)
         {
             return objDataManager.Login(strUsuario, strPass);
+        }
+
+        //LISTADO DE BACHES CIUDADANO
+        public List<BachesVM> Listado()
+        {
+            List<BachesVM> Res = new List<BachesVM>();
+
+            Res = objDataManager.Listado();
+
+            return Res;
         }
     }
 }

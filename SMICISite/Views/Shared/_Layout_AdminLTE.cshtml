@@ -14,9 +14,9 @@
             <!-- Logo -->
             <a href="index2.html" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
-                <span class="logo-mini"><b>RPB</b></span>
+                <span class="logo-mini"><b>MOP</b></span>
                 <!-- logo for regular state and mobile devices -->
-                <span class="logo-lg">Reporte de <b>Bache </b></span>
+                <span class="logo-lg">Ministerio de <b>Obras Públicas </b></span>
             </a>
 
             <!-- Header Navbar: style can be found in header.less -->
@@ -29,11 +29,11 @@
                 <div class="navbar-custom-menu">
                     <ul class="nav navbar-nav">
                         <!-- Messages: style can be found in dropdown.less-->
-                       
                         <!-- User Account: style can be found in dropdown.less -->
-                        <!-- Control Sidebar Toggle Button -->
+                        <!-- Control Sidebar Toggle Button-->
                         <li>
-                            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+                            @*@Html.DisplayFor(modelItem => modelItem.Nombre)*@
+                            <a href="#" data-toggle="control-sidebar"><b>Jorge Herrera </b><i class="fa fa-user"></i></a>
                         </li>
                     </ul>
                 </div>
@@ -46,11 +46,10 @@
             <!-- sidebar: style can be found in sidebar.less -->
             <section class="sidebar">
                 <!-- Sidebar user panel -->
-
                 <!-- sidebar menu: : style can be found in sidebar.less -->
-                <ul class="sidebar-menu">                 
-                    <li><a href="#"><i class="fa fa-folder"></i><span>Crear Reporte</span></a></li>
-                    <li><a href="#"><i class="fa fa-folder"></i><span>Listado de Solicitudes</span></a></li>
+                <ul class="sidebar-menu">
+                    <li><a href="#"><i class="fa fa-pencil"></i><span>Crear Reporte</span></a></li>
+                    <li><a href="#"><i class="fa fa-table"></i><span>Listado de Solicitudes</span></a></li>
                 </ul>
             </section>
             <!-- /.sidebar -->
@@ -64,7 +63,7 @@
         </div>
 
         <footer class="main-footer">
-       
+
             <strong>Copyright &copy; 2020 <a href="#">Ingenieria de Software II</a>.</strong> Derechos Reservados
         </footer>
     </div>
