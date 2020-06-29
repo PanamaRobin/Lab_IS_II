@@ -15,32 +15,7 @@ $(document).ready(function () {
 
 /******************** INICIO SCRIPTS PARA ALMACENAR Y ACTUALIZAR DATOS *******************/
 /*****************************************************************************************/
-//function Login() {
-//    var _email = $("#strEmail").val();
-//    var _pass = $("#strPass").val();
 
-//    var Param = {
-//        strEmail: _email,
-//        strPass: _pass
-//    };
-
-//    //MostrarSpin(true);
-
-//    $.ajax({
-//        url: RootURL + "Home/Login",
-//        type: "get",
-//        cache: false,
-//        data: Param,
-//        success: function (response) {
-//            GritterPop(response);
-//            //MostrarSpin(false);
-//        },
-//        error: function (response) {
-//            MostrarSpin(false);
-//            ManejaErroresAJAXSession(response);
-//        }
-//    });
-//}
 function Login() {
 
     var _form = $('#ajaxFormLogin');
@@ -66,6 +41,27 @@ function Login() {
         $('#ajaxFormLogin').ajaxSubmit(options);
     }
 }
+
+function EliminarReporte(IdBache) {
+    $.ajax({
+        url: RootURL + "Ciudadano/Eliminar?IdBache=" + IdSolicitud,
+        type: "get",
+        cache: false,
+        //data: IdSolicitud,
+        success: function (response) {
+            $("#DivDetalles").html(response);
+            //$("modal").show();
+            AbrirModal('modal-default');
+            //FormatearDataTablePuntual("");
+        },
+        error: function (response) {
+            MostrarSpin(false);
+            ManejaErroresAJAXSession(response);
+        }
+    });
+}
+
+
 function Registro() 
 {
     var _email = $("#strEmail").val();

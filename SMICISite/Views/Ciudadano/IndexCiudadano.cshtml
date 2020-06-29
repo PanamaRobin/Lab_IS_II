@@ -19,6 +19,9 @@
                                 <thead>
                                     <tr>
                                         <th style="width:auto">
+                                            ID Reporte
+                                        </th>
+                                        <th style="width:auto">
                                             Calle
                                         </th>
                                         <th style="width:auto">
@@ -34,33 +37,36 @@
                                             Prioridad
                                         </th>
                                         <th style="width:25px">
-                                            
+
                                         </th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach (var item in Model)
                                     {
-                                        <tr>
-                                            <td style="width:auto">
-                                                @Html.DisplayFor(modelItem => item.Calle)
-                                            </td>
-                                            <td style="width:auto">
-                                                @Html.DisplayFor(modelItem => item.Distrito)
-                                            </td>
-                                            <td style="width:auto">
-                                                @Html.DisplayFor(modelItem => item.Tamano)
-                                            </td>
-                                            <td style="width:auto">
-                                                @Html.DisplayFor(modelItem => item.Posicion)
-                                            </td>
-                                            <td style="width:auto">
-                                                @Html.DisplayFor(modelItem => item.Prioridad)
-                                            </td>
-                                            <td style="width:25px" class="text-center">
-                                                <a href="#" class="btn btn-social-icon btn-google text-sm-center" title="Eliminar"><i class="fa fa-trash text-sm-center"></i></a>
-                                            </td>
-                                        </tr>
+                                    <tr>
+                                        <td style="width:auto">
+                                            @Html.DisplayFor(modelItem => item.IdBache)
+                                        </td>
+                                        <td style="width:auto">
+                                            @Html.DisplayFor(modelItem => item.Calle)
+                                        </td>
+                                        <td style="width:auto">
+                                            @Html.DisplayFor(modelItem => item.Distrito)
+                                        </td>
+                                        <td style="width:auto">
+                                            @Html.DisplayFor(modelItem => item.Tamano)
+                                        </td>
+                                        <td style="width:auto">
+                                            @Html.DisplayFor(modelItem => item.Posicion)
+                                        </td>
+                                        <td style="width:auto">
+                                            @Html.DisplayFor(modelItem => item.Prioridad)
+                                        </td>
+                                        <td style="width:25px" class="text-center">
+                                            <a href="#" class="btn btn-social-icon btn-google text-sm-center" title="Eliminar" onclick="EliminarReporte(@item.IdBache)"><i class="fa fa-trash text-sm-center"></i></a>
+                                        </td>
+                                    </tr>
                                     }
                                 </tbody>
                             </table>
