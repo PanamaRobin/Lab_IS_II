@@ -10,6 +10,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitio", "SMICISite\Sitio.cs
 		{C8AAF0BD-D347-4DD4-A703-1E685F49AA60} = {C8AAF0BD-D347-4DD4-A703-1E685F49AA60}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SitioAdmin", "SitioAdmin\SitioAdmin.csproj", "{E7DBF79A-3252-4C89-84C3-BF4B9EDC4E02}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C8AAF0BD-D347-4DD4-A703-1E685F49AA60} = {C8AAF0BD-D347-4DD4-A703-1E685F49AA60}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,6 +29,10 @@ Global
 		{C332C8FB-8258-4DD0-B2DE-4F20A719B55D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C332C8FB-8258-4DD0-B2DE-4F20A719B55D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C332C8FB-8258-4DD0-B2DE-4F20A719B55D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7DBF79A-3252-4C89-84C3-BF4B9EDC4E02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7DBF79A-3252-4C89-84C3-BF4B9EDC4E02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7DBF79A-3252-4C89-84C3-BF4B9EDC4E02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7DBF79A-3252-4C89-84C3-BF4B9EDC4E02}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

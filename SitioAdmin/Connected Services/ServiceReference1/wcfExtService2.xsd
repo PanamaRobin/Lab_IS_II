@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/wcfMinIndustria.Model" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/wcfMinIndustria.Model" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="UsuariosVM">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Contrasena" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Correo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Direccion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdUsuario" type="xs:int" />
+      <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Telefono" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UsuariosVM" nillable="true" type="tns:UsuariosVM" />
+  <xs:complexType name="ArrayOfBachesVM">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BachesVM" nillable="true" type="tns:BachesVM" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBachesVM" nillable="true" type="tns:ArrayOfBachesVM" />
+  <xs:complexType name="BachesVM">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Calle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Distrito" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Fcreacion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdBache" type="xs:int" />
+      <xs:element minOccurs="0" name="Posicion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Prioridad" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tamano" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Usuario" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BachesVM" nillable="true" type="tns:BachesVM" />
+  <xs:complexType name="DanoVM">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CostoReparacion" type="xs:double" />
+      <xs:element minOccurs="0" name="Fcreacion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdBache" type="xs:int" />
+      <xs:element minOccurs="0" name="IdReporte" type="xs:int" />
+      <xs:element minOccurs="0" name="IdUsuario" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TipoDano" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DanoVM" nillable="true" type="tns:DanoVM" />
+  <xs:complexType name="ArrayOfDanoVM">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DanoVM" nillable="true" type="tns:DanoVM" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDanoVM" nillable="true" type="tns:ArrayOfDanoVM" />
+</xs:schema>
