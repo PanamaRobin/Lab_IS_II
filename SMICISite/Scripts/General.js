@@ -42,53 +42,94 @@ function Login() {
     }
 }
 
-function EliminarReporte(IdBache) {
-    $.ajax({
-        url: RootURL + "Ciudadano/Eliminar?IdBache=" + IdSolicitud,
-        type: "get",
-        cache: false,
-        //data: IdSolicitud,
-        success: function (response) {
-            $("#DivDetalles").html(response);
-            //$("modal").show();
-            AbrirModal('modal-default');
-            //FormatearDataTablePuntual("");
-        },
-        error: function (response) {
-            MostrarSpin(false);
-            ManejaErroresAJAXSession(response);
-        }
-    });
-}
+function CrearReporteBache() {
+    var Resp = 0;
 
+    // Guardar todos los datos de la nueva solicitud
+    var DatosNewSolicitud = {
+        //Indice 1
+        IdIdBache: 0,
+        Calle: $('#Calle').val(),
+        Distrito: $('#Distrito').val(),
+        Tamano: $('#Tamano').val(),
+        Posicion: $('#Posicion').val(),
+        Usuario: 0,
+        Prioridad: 0
 
-function Registro() 
-{
-    var _email = $("#strEmail").val();
-    var _pass = $("#strPass").val();
-
-    var Param = {
-        strEmail: _email,
-        strPass: _pass
-    };
-
-    //MostrarSpin(true);
+    }
 
     $.ajax({
-        url: RootURL + "Home/Registro",
-        type: "get",
-        cache: false,
-        data: Param,
-        success: function (response) {
-            GritterPop(response);
-            //MostrarSpin(false);
+        url: RootURL + "Ciudadano/CrearReporteBache",
+        type: "Post",
+        cache: true,
+        data: DatosNewSolicitud,
+        success: function (data) {
+            if (!data.success) {
+                GritterPop(data);
+                window.location.href = RootURL + 'Ciudadano/IndexCiudadano';
+            }
+            else {
+                Resp = data.IdSolicitud;
+                GritterPop(data);
+            }
         },
         error: function (response) {
-            MostrarSpin(false);
+            //$.spin('false');
             ManejaErroresAJAXSession(response);
+            Resp = 0;
         }
     });
+
+    //return Resp;
 }
+
+//function EliminarReporte(IdBache) {
+//    $.ajax({
+//        url: RootURL + "Ciudadano/Eliminar?IdBache=" + IdSolicitud,
+//        type: "get",
+//        cache: false,
+//        //data: IdSolicitud,
+//        success: function (response) {
+//            $("#DivDetalles").html(response);
+//            //$("modal").show();
+//            AbrirModal('modal-default');
+//            //FormatearDataTablePuntual("");
+//        },
+//        error: function (response) {
+//            MostrarSpin(false);
+//            ManejaErroresAJAXSession(response);
+//        }
+//    });
+//}
+
+
+//function Registro() 
+//{
+//    var _email = $("#strEmail").val();
+//    var _pass = $("#strPass").val();
+
+//    var Param = {
+//        strEmail: _email,
+//        strPass: _pass
+//    };
+
+//    //MostrarSpin(true);
+
+//    $.ajax({
+//        url: RootURL + "Home/Registro",
+//        type: "get",
+//        cache: false,
+//        data: Param,
+//        success: function (response) {
+//            GritterPop(response);
+//            //MostrarSpin(false);
+//        },
+//        error: function (response) {
+//            MostrarSpin(false);
+//            ManejaErroresAJAXSession(response);
+//        }
+//    });
+//}
 
 // Cambiar Nombre según el formulario
 // Crear métodos para guardar correspondientes al formulario

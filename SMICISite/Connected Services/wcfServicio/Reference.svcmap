@@ -29,6 +29,7 @@
     <MetadataFile FileName="wcfExtService.disco" MetadataType="Disco" ID="449946b6-b913-4293-9bb9-3a96bd17b0dc" SourceId="1" SourceUrl="http://localhost:52832/wcfExtService.svc?disco" />
     <MetadataFile FileName="wcfExtService.wsdl" MetadataType="Wsdl" ID="972ba10c-0405-4a8e-95fa-05ee3cea0d16" SourceId="1" SourceUrl="http://localhost:52832/wcfExtService.svc?wsdl" />
     <MetadataFile FileName="wcfExtService2.xsd" MetadataType="Schema" ID="fd8b33ff-8981-46c8-bcdb-646e22e22859" SourceId="1" SourceUrl="http://localhost:52832/wcfExtService.svc?xsd=xsd2" />
+    <MetadataFile FileName="wcfExtService3.xsd" MetadataType="Schema" ID="695da669-e110-4a78-b46e-a9cbc28cac47" SourceId="1" SourceUrl="http://localhost:52832/wcfExtService.svc?xsd=xsd3" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

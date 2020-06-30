@@ -29,5 +29,15 @@ namespace wcfMinIndustria
 
             return Res;
         }
+
+        //REPORTE DE BACHES CIUDADANO
+        public Respuesta RegistroReporteBache(BachesVM objRegistroBaches)
+        {
+            Respuesta objResp = new Respuesta();
+
+            objResp = objDataManager.RegistroReporteBache(objRegistroBaches);
+
+            return objResp;
+        }
     }
 }

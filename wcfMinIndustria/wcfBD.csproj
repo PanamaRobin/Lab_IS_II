@@ -124,6 +124,7 @@
     </Compile>
     <Compile Include="Model\UsuariosVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Respuesta.cs" />
     <Compile Include="wcfExtService.svc.cs">
       <DependentUpon>wcfExtService.svc</DependentUpon>
     </Compile>

@@ -5,6 +5,7 @@
       <xsd:import schemaLocation="http://localhost:52832/wcfExtService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:52832/wcfExtService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:52832/wcfExtService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/wcfMinIndustria.Model" />
+      <xsd:import schemaLocation="http://localhost:52832/wcfExtService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/wcfMinIndustria" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IwcfExtService_Login_InputMessage">
@@ -19,6 +20,12 @@
   <wsdl:message name="IwcfExtService_Listado_OutputMessage">
     <wsdl:part name="parameters" element="tns:ListadoResponse" />
   </wsdl:message>
+  <wsdl:message name="IwcfExtService_RegistroReporteBache_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegistroReporteBache" />
+  </wsdl:message>
+  <wsdl:message name="IwcfExtService_RegistroReporteBache_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegistroReporteBacheResponse" />
+  </wsdl:message>
   <wsdl:portType name="IwcfExtService">
     <wsdl:operation name="Login">
       <wsdl:input wsaw:Action="http://tempuri.org/IwcfExtService/Login" message="tns:IwcfExtService_Login_InputMessage" />
@@ -27,6 +34,10 @@
     <wsdl:operation name="Listado">
       <wsdl:input wsaw:Action="http://tempuri.org/IwcfExtService/Listado" message="tns:IwcfExtService_Listado_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IwcfExtService/ListadoResponse" message="tns:IwcfExtService_Listado_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistroReporteBache">
+      <wsdl:input wsaw:Action="http://tempuri.org/IwcfExtService/RegistroReporteBache" message="tns:IwcfExtService_RegistroReporteBache_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IwcfExtService/RegistroReporteBacheResponse" message="tns:IwcfExtService_RegistroReporteBache_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IwcfExtService" type="tns:IwcfExtService">
@@ -42,6 +53,15 @@
     </wsdl:operation>
     <wsdl:operation name="Listado">
       <soap:operation soapAction="http://tempuri.org/IwcfExtService/Listado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistroReporteBache">
+      <soap:operation soapAction="http://tempuri.org/IwcfExtService/RegistroReporteBache" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -1,0 +1,57 @@
+﻿@model SMICISite.Models.BachesVM
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout_AdminLTE.cshtml";
+}
+
+
+<div class="box shadow-window box-solid box-primary">
+    <div class="box-header with-border">
+        <h3 class="box-title">Reporte de Bache</h3>
+    </div>
+
+    <!-- /.box-header -->
+
+    <div class="box-body">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.DisplayNameFor(x => x.Calle)
+                    @Html.TextBoxFor(x => x.Calle, new { @class = "form-control", @placeholder = "Ingrese la Calle..." })
+                </div>
+                <!-- /.form-group -->
+                <div class="form-group">
+                    @Html.DisplayNameFor(x => x.Distrito)
+                    @Html.TextBoxFor(x => x.Distrito, new { @class = "form-control", @placeholder = "Ingrese el Distrito..." })
+                </div>
+                <!-- /.form-group -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.DisplayNameFor(x => x.Tamano)
+                    @Html.TextBoxFor(x => x.Tamano, new { @class = "form-control", @placeholder = "Ingrese el tamaño del 1 al 10..." })
+                </div>
+                <!-- /.form-group -->
+                <div class="form-group">
+                    @Html.DisplayNameFor(x => x.Posicion)
+                    @Html.TextBoxFor(x => x.Posicion, new { @class = "form-control", @placeholder = "Ingrese la Posicion..." })
+                </div>
+                <!-- /.form-group -->
+            </div>
+            <div class="col-md-12" style="display: flex; justify-content:flex-end; ">
+                <div class="form-group">
+                    <button type="button" style="width:100px; margin-right:15px;" class="btn btn-success float-left" onclick="CrearReporteBache()"> Aceptar</button>
+                    <button type="button" style="width:100px;" class="btn btn-danger float-left">Cancelar</button>
+                    <!-- /.form-group -->
+                </div>
+            </div>
+
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div>
+
+
+    <!-- /.box-body -->
+</div>

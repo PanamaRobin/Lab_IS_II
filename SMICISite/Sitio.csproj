@@ -143,6 +143,9 @@
     <Content Include="Connected Services\wcfServicio\SMICISite.wcfServicio.BachesVM.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\wcfServicio\SMICISite.wcfServicio.Respuesta.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\wcfServicio\wcfExtService.disco" />
     <None Include="Connected Services\wcfServicio\configuration91.svcinfo" />
     <None Include="Connected Services\wcfServicio\configuration.svcinfo" />
@@ -256,6 +259,9 @@
     <None Include="Connected Services\wcfServicio\wcfExtService2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\wcfServicio\wcfExtService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\General.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -288,6 +294,7 @@
     <Content Include="Views\Shared\_Layout_AdminLTE.cshtml" />
     <Content Include="Views\Shared\_Layout_AdminLTE_Login.cshtml" />
     <Content Include="Views\Ciudadano\IndexCiudadano.cshtml" />
+    <Content Include="Views\Ciudadano\CreateReporte.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

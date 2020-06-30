@@ -65,5 +65,38 @@ namespace wcfMinIndustria.Model
             }
             return objLista;
         }
+
+        //REGISTRAR REPORTE DE BACHE
+        public Respuesta RegistroReporteBache(BachesVM objRegistroBaches)
+        {
+            Respuesta objResp = new Respuesta();
+
+            System.Data.Entity.Core.Objects.ObjectParameter Resp = new System.Data.Entity.Core.Objects.ObjectParameter("RESPUESTA", 0);
+            System.Data.Entity.Core.Objects.ObjectParameter DescError = new System.Data.Entity.Core.Objects.ObjectParameter("DESCRIPCION", "");
+            System.Data.Entity.Core.Objects.ObjectParameter IdNuevaSolicitud = new System.Data.Entity.Core.Objects.ObjectParameter("IDNuevaSolicitud", 0);
+
+            try
+            {
+                db.USP_REGISTRO_SOLICITUD_BACHE(objRegistroBaches.Calle, objRegistroBaches.Distrito, objRegistroBaches.Tamano,
+                                                        objRegistroBaches.Posicion, Resp, DescError, IdNuevaSolicitud);
+
+                objResp.IdRespuesta = (int)Resp.Value;
+                objResp.Mensaje = DescError.Value.ToString();
+
+                if (objResp.IdRespuesta == 0) //Sin Error
+                {
+                    objRegistroBaches.IdBache = Convert.ToInt16(IdNuevaSolicitud.Value);
+
+                    objResp.IdSolicitud = Convert.ToInt16(objRegistroBaches.IdBache);
+
+                }
+            }
+            catch (Exception ex)
+            {
+                objResp.IdRespuesta = 1;
+
+            }
+            return objResp;
+        }
     }
 }

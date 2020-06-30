@@ -19,5 +19,9 @@ namespace wcfMinIndustria
         //LISTADO DE BACHES CIUDADANO
         [OperationContract]
         List<BachesVM> Listado();
+
+        //REPORTE DE BACHES CIUDADANO
+        [OperationContract]
+        Respuesta RegistroReporteBache(BachesVM objRegistroBaches);
     }
 }
