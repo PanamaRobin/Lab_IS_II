@@ -27,6 +27,7 @@ namespace wcfMinIndustria.Model
         public string Posicion { get; set; }
         public string Usuario { get; set; }
         public string Prioridad { get; set; }
+        public System.DateTime Fcreacion { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ReporteDano> ReporteDano { get; set; }

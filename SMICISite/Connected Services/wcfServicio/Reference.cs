@@ -154,6 +154,9 @@ namespace SMICISite.wcfServicio {
         private string DistritoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FcreacionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IdBacheField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -200,6 +203,19 @@ namespace SMICISite.wcfServicio {
                 if ((object.ReferenceEquals(this.DistritoField, value) != true)) {
                     this.DistritoField = value;
                     this.RaisePropertyChanged("Distrito");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Fcreacion {
+            get {
+                return this.FcreacionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FcreacionField, value) != true)) {
+                    this.FcreacionField = value;
+                    this.RaisePropertyChanged("Fcreacion");
                 }
             }
         }

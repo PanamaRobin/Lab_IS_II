@@ -33,15 +33,6 @@ namespace wcfMinIndustria.Model
         public virtual DbSet<InformeBache> InformeBache { get; set; }
         public virtual DbSet<ReporteDano> ReporteDano { get; set; }
     
-        public virtual ObjectResult<LISTADO_BACHES_Result> LISTADO_BACHES(string iDUSUARIO)
-        {
-            var iDUSUARIOParameter = iDUSUARIO != null ?
-                new ObjectParameter("IDUSUARIO", iDUSUARIO) :
-                new ObjectParameter("IDUSUARIO", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<LISTADO_BACHES_Result>("LISTADO_BACHES", iDUSUARIOParameter);
-        }
-    
         public virtual ObjectResult<LOGIN_Result> LOGIN(string eMAIL, string pASS)
         {
             var eMAILParameter = eMAIL != null ?
@@ -74,6 +65,45 @@ namespace wcfMinIndustria.Model
                 new ObjectParameter("POSICION", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_REGISTRO_SOLICITUD_REPORTE_BACHE", cALLEParameter, dISTRITOParameter, tAMANOParameter, pOSICIONParameter, rESPUESTA, dESCRIPCION, iDNuevaSolicitud);
+        }
+    
+        public virtual int ELIMINAR_BACHES(Nullable<int> iDBACHE)
+        {
+            var iDBACHEParameter = iDBACHE.HasValue ?
+                new ObjectParameter("IDBACHE", iDBACHE) :
+                new ObjectParameter("IDBACHE", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ELIMINAR_BACHES", iDBACHEParameter);
+        }
+    
+        public virtual ObjectResult<LISTADO_BACHES_Result> LISTADO_BACHES(string iDUSUARIO)
+        {
+            var iDUSUARIOParameter = iDUSUARIO != null ?
+                new ObjectParameter("IDUSUARIO", iDUSUARIO) :
+                new ObjectParameter("IDUSUARIO", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<LISTADO_BACHES_Result>("LISTADO_BACHES", iDUSUARIOParameter);
+        }
+    
+        public virtual int USP_REGISTRO_SOLICITUD_BACHE(string cALLE, string dISTRITO, string tAMANO, string pOSICION, ObjectParameter rESPUESTA, ObjectParameter dESCRIPCION, ObjectParameter iDNuevaSolicitud)
+        {
+            var cALLEParameter = cALLE != null ?
+                new ObjectParameter("CALLE", cALLE) :
+                new ObjectParameter("CALLE", typeof(string));
+    
+            var dISTRITOParameter = dISTRITO != null ?
+                new ObjectParameter("DISTRITO", dISTRITO) :
+                new ObjectParameter("DISTRITO", typeof(string));
+    
+            var tAMANOParameter = tAMANO != null ?
+                new ObjectParameter("TAMANO", tAMANO) :
+                new ObjectParameter("TAMANO", typeof(string));
+    
+            var pOSICIONParameter = pOSICION != null ?
+                new ObjectParameter("POSICION", pOSICION) :
+                new ObjectParameter("POSICION", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_REGISTRO_SOLICITUD_BACHE", cALLEParameter, dISTRITOParameter, tAMANOParameter, pOSICIONParameter, rESPUESTA, dESCRIPCION, iDNuevaSolicitud);
         }
     }
 }

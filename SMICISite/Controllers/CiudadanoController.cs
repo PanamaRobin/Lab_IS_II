@@ -29,6 +29,7 @@ namespace SMICISite.Controllers
                     Posicion = fila.Posicion,
                     Usuario = fila.Usuario,
                     Prioridad = fila.Prioridad,
+                    Fcreacion = fila.Fcreacion
                 });
             }
             return View(objLista);

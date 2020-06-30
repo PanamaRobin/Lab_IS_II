@@ -20,5 +20,6 @@ namespace wcfMinIndustria.Model
         public string Posicion { get; set; }
         public string Usuario { get; set; }
         public string Prioridad { get; set; }
+        public System.DateTime Fcreacion { get; set; }
     }
 }

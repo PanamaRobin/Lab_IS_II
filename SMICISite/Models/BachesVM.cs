@@ -14,5 +14,6 @@ namespace SMICISite.Models
         public string Posicion { set; get; }
         public string Usuario { set; get; }
         public string Prioridad { set; get; }
+        public string Fcreacion { set; get; }
     }
 }

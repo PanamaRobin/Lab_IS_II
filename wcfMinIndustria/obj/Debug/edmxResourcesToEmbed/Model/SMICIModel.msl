@@ -4,6 +4,7 @@
     <EntitySetMapping Name="Baches">
       <EntityTypeMapping TypeName="SMICIModelo.Baches">
         <MappingFragment StoreEntitySet="Baches">
+          <ScalarProperty Name="Fcreacion" ColumnName="Fcreacion" />
           <ScalarProperty Name="Prioridad" ColumnName="Prioridad" />
           <ScalarProperty Name="Usuario" ColumnName="Usuario" />
           <ScalarProperty Name="Posicion" ColumnName="Posicion" />
@@ -61,19 +62,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <FunctionImportMapping FunctionImportName="LISTADO_BACHES" FunctionName="SMICIModelo.Store.LISTADO_BACHES">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="SMICIModelo.LISTADO_BACHES_Result">
-          <ScalarProperty Name="IdBache" ColumnName="IdBache" />
-          <ScalarProperty Name="Calle" ColumnName="Calle" />
-          <ScalarProperty Name="Distrito" ColumnName="Distrito" />
-          <ScalarProperty Name="Tamano" ColumnName="Tamano" />
-          <ScalarProperty Name="Posicion" ColumnName="Posicion" />
-          <ScalarProperty Name="Usuario" ColumnName="Usuario" />
-          <ScalarProperty Name="Prioridad" ColumnName="Prioridad" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="LOGIN" FunctionName="SMICIModelo.Store.LOGIN">
       <ResultMapping>
         <ComplexTypeMapping TypeName="SMICIModelo.LOGIN_Result">
@@ -88,5 +76,21 @@
       </ResultMapping>
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="USP_REGISTRO_SOLICITUD_REPORTE_BACHE" FunctionName="SMICIModelo.Store.USP_REGISTRO_SOLICITUD_REPORTE_BACHE" />
+    <FunctionImportMapping FunctionImportName="ELIMINAR_BACHES" FunctionName="SMICIModelo.Store.ELIMINAR_BACHES" />
+    <FunctionImportMapping FunctionImportName="LISTADO_BACHES" FunctionName="SMICIModelo.Store.LISTADO_BACHES">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SMICIModelo.LISTADO_BACHES_Result">
+          <ScalarProperty Name="IdBache" ColumnName="IdBache" />
+          <ScalarProperty Name="Calle" ColumnName="Calle" />
+          <ScalarProperty Name="Distrito" ColumnName="Distrito" />
+          <ScalarProperty Name="Tamano" ColumnName="Tamano" />
+          <ScalarProperty Name="Posicion" ColumnName="Posicion" />
+          <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+          <ScalarProperty Name="Prioridad" ColumnName="Prioridad" />
+          <ScalarProperty Name="Fcreacion" ColumnName="Fcreacion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_REGISTRO_SOLICITUD_BACHE" FunctionName="SMICIModelo.Store.USP_REGISTRO_SOLICITUD_BACHE" />
   </EntityContainerMapping>
 </Mapping>

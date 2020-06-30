@@ -19,7 +19,7 @@
                                 <thead>
                                     <tr>
                                         <th style="width:auto">
-                                            ID Reporte
+                                            No. de Reporte
                                         </th>
                                         <th style="width:auto">
                                             Calle
@@ -36,8 +36,8 @@
                                         <th style="width:auto">
                                             Prioridad
                                         </th>
-                                        <th style="width:25px">
-
+                                        <th style="width:auto">
+                                            Fecha de Creación
                                         </th>
                                     </tr>
                                 </thead>
@@ -63,8 +63,8 @@
                                         <td style="width:auto">
                                             @Html.DisplayFor(modelItem => item.Prioridad)
                                         </td>
-                                        <td style="width:25px" class="text-center">
-                                            <a href="#" class="btn btn-social-icon btn-google text-sm-center" title="Eliminar" onclick="EliminarReporte(@item.IdBache)"><i class="fa fa-trash text-sm-center"></i></a>
+                                        <td style="width:auto">
+                                            @Html.DisplayFor(modelItem => item.Fcreacion)
                                         </td>
                                     </tr>
                                     }

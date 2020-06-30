@@ -10,14 +10,26 @@
       <End Role="Baches" EntitySet="Baches" />
       <End Role="ReporteDano" EntitySet="ReporteDano" />
     </AssociationSet>
-    <FunctionImport Name="LISTADO_BACHES" ReturnType="Collection(SMICIModelo.LISTADO_BACHES_Result)">
-      <Parameter Name="IDUSUARIO" Mode="In" Type="String" />
-    </FunctionImport>
     <FunctionImport Name="LOGIN" ReturnType="Collection(SMICIModelo.LOGIN_Result)">
       <Parameter Name="EMAIL" Mode="In" Type="String" />
       <Parameter Name="PASS" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="USP_REGISTRO_SOLICITUD_REPORTE_BACHE">
+      <Parameter Name="CALLE" Mode="In" Type="String" />
+      <Parameter Name="DISTRITO" Mode="In" Type="String" />
+      <Parameter Name="TAMANO" Mode="In" Type="String" />
+      <Parameter Name="POSICION" Mode="In" Type="String" />
+      <Parameter Name="RESPUESTA" Mode="InOut" Type="Int32" />
+      <Parameter Name="DESCRIPCION" Mode="InOut" Type="String" />
+      <Parameter Name="IDNuevaSolicitud" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ELIMINAR_BACHES">
+      <Parameter Name="IDBACHE" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="LISTADO_BACHES" ReturnType="Collection(SMICIModelo.LISTADO_BACHES_Result)">
+      <Parameter Name="IDUSUARIO" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USP_REGISTRO_SOLICITUD_BACHE">
       <Parameter Name="CALLE" Mode="In" Type="String" />
       <Parameter Name="DISTRITO" Mode="In" Type="String" />
       <Parameter Name="TAMANO" Mode="In" Type="String" />
@@ -39,6 +51,7 @@
     <Property Name="Usuario" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Prioridad" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="ReporteDano" Relationship="SMICIModelo.FK4" FromRole="Baches" ToRole="ReporteDano" />
+    <Property Name="Fcreacion" Type="DateTime" Nullable="false" Precision="3" />
   </EntityType>
   <EntityType Name="Tipo">
     <Key>
@@ -108,15 +121,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <ComplexType Name="LISTADO_BACHES_Result">
-    <Property Type="Int32" Name="IdBache" Nullable="false" />
-    <Property Type="String" Name="Calle" Nullable="false" MaxLength="50" />
-    <Property Type="String" Name="Distrito" Nullable="false" MaxLength="50" />
-    <Property Type="String" Name="Tamano" Nullable="false" MaxLength="50" />
-    <Property Type="String" Name="Posicion" Nullable="false" MaxLength="50" />
-    <Property Type="String" Name="Usuario" Nullable="false" MaxLength="50" />
-    <Property Type="String" Name="Prioridad" Nullable="false" MaxLength="50" />
-  </ComplexType>
   <ComplexType Name="LOGIN_Result">
     <Property Type="Int32" Name="IdUsuario" Nullable="false" />
     <Property Type="String" Name="NombreUsuario" Nullable="false" MaxLength="50" />
@@ -125,5 +129,15 @@
     <Property Type="String" Name="Correo" Nullable="false" MaxLength="50" />
     <Property Type="String" Name="Contrasena" Nullable="false" MaxLength="50" />
     <Property Type="Int32" Name="Tipo" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="LISTADO_BACHES_Result">
+    <Property Type="Int32" Name="IdBache" Nullable="false" />
+    <Property Type="String" Name="Calle" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Distrito" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Tamano" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Posicion" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Usuario" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Prioridad" Nullable="false" MaxLength="50" />
+    <Property Type="DateTime" Name="Fcreacion" Nullable="false" Precision="23" />
   </ComplexType>
 </Schema>

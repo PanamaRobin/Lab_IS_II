@@ -55,6 +55,7 @@ namespace wcfMinIndustria.Model
                         Posicion = reg.Posicion,
                         Usuario = reg.Usuario,
                         Prioridad = reg.Prioridad,
+                        Fcreacion = reg.Fcreacion.ToString("yyyy-MM-dd")
                     });   
                 }
             }

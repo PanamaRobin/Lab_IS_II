@@ -11,6 +11,7 @@
     <Property Name="Posicion" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Usuario" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Prioridad" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Fcreacion" Type="datetime" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'Baches.dbo.InformeBache' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -83,12 +84,24 @@ warning 6002: The table/view 'Baches.dbo.ReporteDano' does not have a primary ke
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="ELIMINAR_BACHES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDBACHE" Type="int" Mode="In" />
+  </Function>
   <Function Name="LISTADO_BACHES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="IDUSUARIO" Type="varchar" Mode="In" />
   </Function>
   <Function Name="LOGIN" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="EMAIL" Type="varchar" Mode="In" />
     <Parameter Name="PASS" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="USP_REGISTRO_SOLICITUD_BACHE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CALLE" Type="varchar" Mode="In" />
+    <Parameter Name="DISTRITO" Type="varchar" Mode="In" />
+    <Parameter Name="TAMANO" Type="varchar" Mode="In" />
+    <Parameter Name="POSICION" Type="varchar" Mode="In" />
+    <Parameter Name="RESPUESTA" Type="int" Mode="InOut" />
+    <Parameter Name="DESCRIPCION" Type="varchar(max)" Mode="InOut" />
+    <Parameter Name="IDNuevaSolicitud" Type="varchar" Mode="InOut" />
   </Function>
   <Function Name="USP_REGISTRO_SOLICITUD_REPORTE_BACHE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="CALLE" Type="varchar" Mode="In" />
