@@ -34,6 +34,8 @@
                         <li>
                             @*@Html.DisplayFor(modelItem => modelItem.Nombre)*@
                             <a href="#" data-toggle="control-sidebar" style="margin-right:20px;"><b>Jorge Herrera</b><i class="fa fa-user" style="margin-left: 10px;"></i></a>
+
+
                         </li>
                     </ul>
                 </div>
@@ -48,8 +50,10 @@
                 <!-- Sidebar user panel -->
                 <!-- sidebar menu: : style can be found in sidebar.less -->
                 <ul class="sidebar-menu" style="margin-top: 30px;">
-                    <li><a href="@Url.Action("CreateReporte", "Ciudadano")"><i class="fa fa-pencil"></i><span><b>Crear Reporte</b></span></a></li>
-                    <li><a href="@Url.Action("IndexCiudadano", "Ciudadano")"><i class="fa fa-table"></i><span><b>Listado de Solicitudes</b></span></a></li>
+                    <li><a href="@Url.Action("CreateReporte", "Ciudadano")"><i class="fa fa-pencil"></i><span><b>Reportar Bache</b></span></a></li>
+                    <li><a href="@Url.Action("IndexCiudadano", "Ciudadano")"><i class="fa fa-table"></i><span><b>Listado de Baches Reportados</b></span></a></li>
+                    <li><a href="@Url.Action("DanosVehiculares", "Ciudadano")"><i class="fa fa-car"></i><span><b>Reportar Daños Vehiculares</b></span></a></li>
+                    <li><a href="@Url.Action("IndexDano", "Ciudadano")"><i class="fa fa-table"></i><span><b>Listado de Daños Vehiculares</b></span></a></li>
                 </ul>
             </section>
             <!-- /.sidebar -->
@@ -63,7 +67,6 @@
         </div>
 
         <footer class="main-footer">
-
             <strong>Copyright &copy; 2020 <a href="#">Ingenieria de Software II</a>.</strong> Derechos Reservados
         </footer>
     </div>

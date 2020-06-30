@@ -388,6 +388,131 @@ namespace SMICISite.wcfServicio {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DanoVM", Namespace="http://schemas.datacontract.org/2004/07/wcfMinIndustria.Model")]
+    [System.SerializableAttribute()]
+    public partial class DanoVM : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double CostoReparacionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FcreacionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdBacheField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdReporteField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string IdUsuarioField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TipoDanoField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double CostoReparacion {
+            get {
+                return this.CostoReparacionField;
+            }
+            set {
+                if ((this.CostoReparacionField.Equals(value) != true)) {
+                    this.CostoReparacionField = value;
+                    this.RaisePropertyChanged("CostoReparacion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Fcreacion {
+            get {
+                return this.FcreacionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FcreacionField, value) != true)) {
+                    this.FcreacionField = value;
+                    this.RaisePropertyChanged("Fcreacion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int IdBache {
+            get {
+                return this.IdBacheField;
+            }
+            set {
+                if ((this.IdBacheField.Equals(value) != true)) {
+                    this.IdBacheField = value;
+                    this.RaisePropertyChanged("IdBache");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int IdReporte {
+            get {
+                return this.IdReporteField;
+            }
+            set {
+                if ((this.IdReporteField.Equals(value) != true)) {
+                    this.IdReporteField = value;
+                    this.RaisePropertyChanged("IdReporte");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string IdUsuario {
+            get {
+                return this.IdUsuarioField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IdUsuarioField, value) != true)) {
+                    this.IdUsuarioField = value;
+                    this.RaisePropertyChanged("IdUsuario");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TipoDano {
+            get {
+                return this.TipoDanoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TipoDanoField, value) != true)) {
+                    this.TipoDanoField = value;
+                    this.RaisePropertyChanged("TipoDano");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="wcfServicio.IwcfExtService")]
     public interface IwcfExtService {
@@ -409,6 +534,18 @@ namespace SMICISite.wcfServicio {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IwcfExtService/RegistroReporteBache", ReplyAction="http://tempuri.org/IwcfExtService/RegistroReporteBacheResponse")]
         System.Threading.Tasks.Task<SMICISite.wcfServicio.Respuesta> RegistroReporteBacheAsync(SMICISite.wcfServicio.BachesVM objRegistroBaches);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IwcfExtService/RegistroReporteDano", ReplyAction="http://tempuri.org/IwcfExtService/RegistroReporteDanoResponse")]
+        SMICISite.wcfServicio.Respuesta RegistroReporteDano(SMICISite.wcfServicio.DanoVM objRegistroDano);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IwcfExtService/RegistroReporteDano", ReplyAction="http://tempuri.org/IwcfExtService/RegistroReporteDanoResponse")]
+        System.Threading.Tasks.Task<SMICISite.wcfServicio.Respuesta> RegistroReporteDanoAsync(SMICISite.wcfServicio.DanoVM objRegistroDano);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IwcfExtService/ListadoDano", ReplyAction="http://tempuri.org/IwcfExtService/ListadoDanoResponse")]
+        System.Collections.Generic.List<SMICISite.wcfServicio.DanoVM> ListadoDano();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IwcfExtService/ListadoDano", ReplyAction="http://tempuri.org/IwcfExtService/ListadoDanoResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<SMICISite.wcfServicio.DanoVM>> ListadoDanoAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -460,6 +597,22 @@ namespace SMICISite.wcfServicio {
         
         public System.Threading.Tasks.Task<SMICISite.wcfServicio.Respuesta> RegistroReporteBacheAsync(SMICISite.wcfServicio.BachesVM objRegistroBaches) {
             return base.Channel.RegistroReporteBacheAsync(objRegistroBaches);
+        }
+        
+        public SMICISite.wcfServicio.Respuesta RegistroReporteDano(SMICISite.wcfServicio.DanoVM objRegistroDano) {
+            return base.Channel.RegistroReporteDano(objRegistroDano);
+        }
+        
+        public System.Threading.Tasks.Task<SMICISite.wcfServicio.Respuesta> RegistroReporteDanoAsync(SMICISite.wcfServicio.DanoVM objRegistroDano) {
+            return base.Channel.RegistroReporteDanoAsync(objRegistroDano);
+        }
+        
+        public System.Collections.Generic.List<SMICISite.wcfServicio.DanoVM> ListadoDano() {
+            return base.Channel.ListadoDano();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<SMICISite.wcfServicio.DanoVM>> ListadoDanoAsync() {
+            return base.Channel.ListadoDanoAsync();
         }
     }
 }

@@ -26,6 +26,18 @@
   <wsdl:message name="IwcfExtService_RegistroReporteBache_OutputMessage">
     <wsdl:part name="parameters" element="tns:RegistroReporteBacheResponse" />
   </wsdl:message>
+  <wsdl:message name="IwcfExtService_RegistroReporteDano_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegistroReporteDano" />
+  </wsdl:message>
+  <wsdl:message name="IwcfExtService_RegistroReporteDano_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegistroReporteDanoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IwcfExtService_ListadoDano_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListadoDano" />
+  </wsdl:message>
+  <wsdl:message name="IwcfExtService_ListadoDano_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListadoDanoResponse" />
+  </wsdl:message>
   <wsdl:portType name="IwcfExtService">
     <wsdl:operation name="Login">
       <wsdl:input wsaw:Action="http://tempuri.org/IwcfExtService/Login" message="tns:IwcfExtService_Login_InputMessage" />
@@ -38,6 +50,14 @@
     <wsdl:operation name="RegistroReporteBache">
       <wsdl:input wsaw:Action="http://tempuri.org/IwcfExtService/RegistroReporteBache" message="tns:IwcfExtService_RegistroReporteBache_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IwcfExtService/RegistroReporteBacheResponse" message="tns:IwcfExtService_RegistroReporteBache_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistroReporteDano">
+      <wsdl:input wsaw:Action="http://tempuri.org/IwcfExtService/RegistroReporteDano" message="tns:IwcfExtService_RegistroReporteDano_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IwcfExtService/RegistroReporteDanoResponse" message="tns:IwcfExtService_RegistroReporteDano_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListadoDano">
+      <wsdl:input wsaw:Action="http://tempuri.org/IwcfExtService/ListadoDano" message="tns:IwcfExtService_ListadoDano_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IwcfExtService/ListadoDanoResponse" message="tns:IwcfExtService_ListadoDano_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IwcfExtService" type="tns:IwcfExtService">
@@ -62,6 +82,24 @@
     </wsdl:operation>
     <wsdl:operation name="RegistroReporteBache">
       <soap:operation soapAction="http://tempuri.org/IwcfExtService/RegistroReporteBache" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistroReporteDano">
+      <soap:operation soapAction="http://tempuri.org/IwcfExtService/RegistroReporteDano" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListadoDano">
+      <soap:operation soapAction="http://tempuri.org/IwcfExtService/ListadoDano" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

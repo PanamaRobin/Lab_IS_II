@@ -41,6 +41,12 @@ namespace SMICISite.Controllers
             return View();
         }
 
+        //VISTA DAÑOS VEHICULARES
+        public ActionResult DanosVehiculares()
+        {
+            return View();
+        }
+
         //CREACION DE REPORTE
         [HttpPost]
         public ActionResult CrearReporteBache(BachesVM ObjBaches)
@@ -89,6 +95,79 @@ namespace SMICISite.Controllers
             }
             var objRes = new { success = boolexitoso, titulo = strTitulo, mensaje = strMensaje, IdSolicitud = IdSolicitud };
             return Json(objRes, JsonRequestBehavior.AllowGet);
+        }
+
+        //CREACION DE REPORTE DAÑO VEHICULAR
+        [HttpPost]
+        public ActionResult CrearReporteDano(DanoVM ObjDano)
+        {
+            string strTitulo = "⚠ Se ha producido un error ⚠";
+            bool boolexitoso = false;
+            string strMensaje = "El correo esta ya siendo utilizado...";
+            int IdSolicitud = 0;
+            if (ModelState.IsValid)
+            {
+                wcfServicio.IwcfExtServiceClient objServicio = new wcfServicio.IwcfExtServiceClient();
+                wcfServicio.DanoVM objReg = new wcfServicio.DanoVM();
+                try
+                {
+                    objReg.CostoReparacion = ObjDano.CostoReparacion;
+                    objReg.TipoDano = ObjDano.TipoDano;
+                    objReg.IdBache = ObjDano.IdBache;
+
+                    var objResp = objServicio.RegistroReporteDano(objReg);
+
+                    if (objResp.IdRespuesta == 0)
+                    {
+                        strTitulo = "Solicitud Creada";
+                        boolexitoso = true;
+                        strMensaje = "La solicitud fue creada satisfactoriamente...";
+                        IdSolicitud = objResp.IdSolicitud;
+
+                    }
+                    else
+                    {
+                        strTitulo = "Error al crear la solicitud";
+                        boolexitoso = false;
+                        strMensaje = objResp.Mensaje;
+                        IdSolicitud = 0;
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    strTitulo = "Exepcion Encontrada";
+                    boolexitoso = false;
+                    strMensaje = "Ocurrio una excepción no esperada... Detalles = " + ex.Message;
+                    IdSolicitud = 0;
+                }
+            }
+            var objRes = new { success = boolexitoso, titulo = strTitulo, mensaje = strMensaje, IdSolicitud = IdSolicitud };
+            return Json(objRes, JsonRequestBehavior.AllowGet);
+        }
+
+        //VISTA QUE MUESTRA LOS REPORTES DE DANO
+        public ActionResult IndexDano()
+        {
+            List<DanoVM> objLista = new List<DanoVM>();
+
+            wcfServicio.IwcfExtServiceClient objServicio = new wcfServicio.IwcfExtServiceClient();
+
+            var objResp = objServicio.ListadoDano();
+
+            foreach (var fila in objResp)
+            {
+                objLista.Add(new DanoVM()
+                {
+                    IdReporte = fila.IdReporte,
+                    TipoDano = fila.TipoDano,
+                    CostoReparacion = fila.CostoReparacion,
+                    IdUsuario = fila.IdUsuario,
+                    IdBache = fila.IdBache,
+                    Fcreacion = fila.Fcreacion
+                });
+            }
+            return View(objLista);
         }
     }
 }

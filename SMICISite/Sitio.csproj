@@ -133,6 +133,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\BachesVM.cs" />
+    <Compile Include="Models\DanoVM.cs" />
     <Compile Include="Models\UsuariosVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -144,6 +145,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\wcfServicio\SMICISite.wcfServicio.Respuesta.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\wcfServicio\SMICISite.wcfServicio.DanoVM.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Connected Services\wcfServicio\wcfExtService.disco" />
@@ -295,6 +299,8 @@
     <Content Include="Views\Shared\_Layout_AdminLTE_Login.cshtml" />
     <Content Include="Views\Ciudadano\IndexCiudadano.cshtml" />
     <Content Include="Views\Ciudadano\CreateReporte.cshtml" />
+    <Content Include="Views\Ciudadano\DanosVehiculares.cshtml" />
+    <Content Include="Views\Ciudadano\IndexDano.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

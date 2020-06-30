@@ -65,12 +65,48 @@ function CrearReporteBache() {
         data: DatosNewSolicitud,
         success: function (data) {
             if (!data.success) {
+                Resp = data.IdSolicitud;
+                GritterPop(data);
+            }
+            else {
                 GritterPop(data);
                 window.location.href = RootURL + 'Ciudadano/IndexCiudadano';
             }
-            else {
+        },
+        error: function (response) {
+            //$.spin('false');
+            ManejaErroresAJAXSession(response);
+            Resp = 0;
+        }
+    });
+
+    //return Resp;
+}
+
+function CrearReporteDano() {
+    var Resp = 0;
+
+    // Guardar todos los datos de la nueva solicitud
+    var DatosNewSolicitud = {
+        //Indice 1
+        IdBache: $('#IdBache').val(),
+        CostoReparacion: $('#CostoReparacion').val(),
+        TipoDano: $('#TipoDano').val()
+    }
+
+    $.ajax({
+        url: RootURL + "Ciudadano/CrearReporteDano",
+        type: "Post",
+        cache: true,
+        data: DatosNewSolicitud,
+        success: function (data) {
+            if (!data.success) {
                 Resp = data.IdSolicitud;
                 GritterPop(data);
+            }
+            else {
+                GritterPop(data);
+                window.location.href = RootURL + 'Ciudadano/IndexCiudadano';
             }
         },
         error: function (response) {

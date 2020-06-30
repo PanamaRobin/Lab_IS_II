@@ -54,6 +54,7 @@
     <EntitySetMapping Name="ReporteDano">
       <EntityTypeMapping TypeName="SMICIModelo.ReporteDano">
         <MappingFragment StoreEntitySet="ReporteDano">
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
           <ScalarProperty Name="IdBache" ColumnName="IdBache" />
           <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
           <ScalarProperty Name="CostoReparacion" ColumnName="CostoReparacion" />
@@ -92,5 +93,6 @@
       </ResultMapping>
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="USP_REGISTRO_SOLICITUD_BACHE" FunctionName="SMICIModelo.Store.USP_REGISTRO_SOLICITUD_BACHE" />
+    <FunctionImportMapping FunctionImportName="USP_REGISTRO_DANO_DEL_AUTO" FunctionName="SMICIModelo.Store.USP_REGISTRO_DANO_DEL_AUTO" />
   </EntityContainerMapping>
 </Mapping>

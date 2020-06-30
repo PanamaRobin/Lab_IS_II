@@ -23,5 +23,13 @@ namespace wcfMinIndustria
         //REPORTE DE BACHES CIUDADANO
         [OperationContract]
         Respuesta RegistroReporteBache(BachesVM objRegistroBaches);
+
+        //REPORTE DE DAÑOS CIUDADANO
+        [OperationContract]
+        Respuesta RegistroReporteDano(DanoVM objRegistroDano);
+
+        //LISTADO DE DAÑOS CIUDADANO
+        [OperationContract]
+        List<DanoVM> ListadoDano();
     }
 }

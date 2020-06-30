@@ -43,4 +43,30 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="RegistroReporteDano">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/wcfMinIndustria.Model" minOccurs="0" name="objRegistroDano" nillable="true" type="q5:DanoVM" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegistroReporteDanoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/wcfMinIndustria" minOccurs="0" name="RegistroReporteDanoResult" nillable="true" type="q6:Respuesta" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListadoDano">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListadoDanoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/wcfMinIndustria.Model" minOccurs="0" name="ListadoDanoResult" nillable="true" type="q7:ArrayOfDanoVM" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

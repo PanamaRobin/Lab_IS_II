@@ -30,4 +30,21 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="BachesVM" nillable="true" type="tns:BachesVM" />
+  <xs:complexType name="DanoVM">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CostoReparacion" type="xs:double" />
+      <xs:element minOccurs="0" name="Fcreacion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdBache" type="xs:int" />
+      <xs:element minOccurs="0" name="IdReporte" type="xs:int" />
+      <xs:element minOccurs="0" name="IdUsuario" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TipoDano" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DanoVM" nillable="true" type="tns:DanoVM" />
+  <xs:complexType name="ArrayOfDanoVM">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DanoVM" nillable="true" type="tns:DanoVM" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDanoVM" nillable="true" type="tns:ArrayOfDanoVM" />
 </xs:schema>

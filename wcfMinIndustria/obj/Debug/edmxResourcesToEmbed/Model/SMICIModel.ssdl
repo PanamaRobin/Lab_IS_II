@@ -46,12 +46,14 @@ warning 6002: The table/view 'Baches.dbo.ReporteDano' does not have a primary ke
       <PropertyRef Name="CostoReparacion" />
       <PropertyRef Name="IdUsuario" />
       <PropertyRef Name="IdBache" />
+      <PropertyRef Name="Fecha" />
     </Key>
     <Property Name="IdReporte" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TipoDano" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="CostoReparacion" Type="float" Nullable="false" />
     <Property Name="IdUsuario" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="IdBache" Type="int" Nullable="false" />
+    <Property Name="Fecha" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="Tipo">
     <Key>
@@ -94,6 +96,14 @@ warning 6002: The table/view 'Baches.dbo.ReporteDano' does not have a primary ke
     <Parameter Name="EMAIL" Type="varchar" Mode="In" />
     <Parameter Name="PASS" Type="varchar" Mode="In" />
   </Function>
+  <Function Name="USP_REGISTRO_DANO_DEL_AUTO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TipoDano" Type="varchar" Mode="In" />
+    <Parameter Name="CostoReparacion" Type="float" Mode="In" />
+    <Parameter Name="IdBache" Type="int" Mode="In" />
+    <Parameter Name="RESPUESTA" Type="int" Mode="InOut" />
+    <Parameter Name="DESCRIPCION" Type="varchar(max)" Mode="InOut" />
+    <Parameter Name="IDNuevaSolicitud" Type="varchar" Mode="InOut" />
+  </Function>
   <Function Name="USP_REGISTRO_SOLICITUD_BACHE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="CALLE" Type="varchar" Mode="In" />
     <Parameter Name="DISTRITO" Type="varchar" Mode="In" />
@@ -135,7 +145,8 @@ warning 6002: The table/view 'Baches.dbo.ReporteDano' does not have a primary ke
     [ReporteDano].[TipoDano] AS [TipoDano], 
     [ReporteDano].[CostoReparacion] AS [CostoReparacion], 
     [ReporteDano].[IdUsuario] AS [IdUsuario], 
-    [ReporteDano].[IdBache] AS [IdBache]
+    [ReporteDano].[IdBache] AS [IdBache], 
+    [ReporteDano].[Fecha] AS [Fecha]
     FROM [dbo].[ReporteDano] AS [ReporteDano]</DefiningQuery>
     </EntitySet>
     <AssociationSet Name="FK4" Association="Self.FK4">

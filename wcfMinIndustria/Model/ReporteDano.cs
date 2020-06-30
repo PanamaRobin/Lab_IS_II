@@ -19,6 +19,7 @@ namespace wcfMinIndustria.Model
         public double CostoReparacion { get; set; }
         public string IdUsuario { get; set; }
         public int IdBache { get; set; }
+        public System.DateTime Fecha { get; set; }
     
         public virtual Baches Baches { get; set; }
     }

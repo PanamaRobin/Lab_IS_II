@@ -39,5 +39,25 @@ namespace wcfMinIndustria
 
             return objResp;
         }
+
+        //REPORTE DE DAÑOS CIUDADANO
+        public Respuesta RegistroReporteDano(DanoVM objRegistroDano)
+        {
+            Respuesta objResp = new Respuesta();
+
+            objResp = objDataManager.RegistroReporteDano(objRegistroDano);
+
+            return objResp;
+        }
+
+        //LISTADO DE DAÑOS CIUDADANO
+        public List<DanoVM> ListadoDano()
+        {
+            List<DanoVM> Res = new List<DanoVM>();
+
+            Res = objDataManager.ListadoDano();
+
+            return Res;
+        }
     }
 }

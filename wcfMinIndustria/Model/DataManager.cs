@@ -98,5 +98,65 @@ namespace wcfMinIndustria.Model
             }
             return objResp;
         }
+
+        //REGISTRAR REPORTE DE DAÑOS
+        public Respuesta RegistroReporteDano(DanoVM objRegistroDano)
+        {
+            Respuesta objResp = new Respuesta();
+
+            System.Data.Entity.Core.Objects.ObjectParameter Resp = new System.Data.Entity.Core.Objects.ObjectParameter("RESPUESTA", 0);
+            System.Data.Entity.Core.Objects.ObjectParameter DescError = new System.Data.Entity.Core.Objects.ObjectParameter("DESCRIPCION", "");
+            System.Data.Entity.Core.Objects.ObjectParameter IdNuevaSolicitud = new System.Data.Entity.Core.Objects.ObjectParameter("IDNuevaSolicitud", 0);
+
+            try
+            {
+                db.USP_REGISTRO_DANO_DEL_AUTO(objRegistroDano.TipoDano, objRegistroDano.CostoReparacion,
+                                                        objRegistroDano.IdBache, Resp, DescError, IdNuevaSolicitud);
+
+                objResp.IdRespuesta = (int)Resp.Value;
+                objResp.Mensaje = DescError.Value.ToString();
+
+                if (objResp.IdRespuesta == 0) //Sin Error
+                {
+                    objRegistroDano.IdReporte = Convert.ToInt16(IdNuevaSolicitud.Value);
+
+                    objResp.IdSolicitud = Convert.ToInt16(objRegistroDano.IdReporte);
+                }
+            }
+            catch (Exception ex)
+            {
+                objResp.IdRespuesta = 1;
+
+            }
+            return objResp;
+        }
+
+        //LISTADO DE DAÑOS AL AUTO
+        public List<DanoVM> ListadoDano()
+        {
+            List<DanoVM> objLista = new List<DanoVM>();
+            try
+            {
+                var objBaches = db.ReporteDano;
+
+                foreach (var reg in objBaches)
+                {
+                    objLista.Add(new DanoVM()
+                    {
+                        IdReporte = reg.IdReporte,
+                        TipoDano = reg.TipoDano,
+                        CostoReparacion = reg.CostoReparacion,
+                        IdUsuario = reg.IdUsuario,
+                        IdBache = reg.IdBache,
+                        Fcreacion = reg.Fecha.ToString("yyyy-MM-dd")
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return objLista;
+        }
     }
 }

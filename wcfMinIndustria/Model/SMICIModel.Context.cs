@@ -105,5 +105,22 @@ namespace wcfMinIndustria.Model
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_REGISTRO_SOLICITUD_BACHE", cALLEParameter, dISTRITOParameter, tAMANOParameter, pOSICIONParameter, rESPUESTA, dESCRIPCION, iDNuevaSolicitud);
         }
+    
+        public virtual int USP_REGISTRO_DANO_DEL_AUTO(string tipoDano, Nullable<double> costoReparacion, Nullable<int> idBache, ObjectParameter rESPUESTA, ObjectParameter dESCRIPCION, ObjectParameter iDNuevaSolicitud)
+        {
+            var tipoDanoParameter = tipoDano != null ?
+                new ObjectParameter("TipoDano", tipoDano) :
+                new ObjectParameter("TipoDano", typeof(string));
+    
+            var costoReparacionParameter = costoReparacion.HasValue ?
+                new ObjectParameter("CostoReparacion", costoReparacion) :
+                new ObjectParameter("CostoReparacion", typeof(double));
+    
+            var idBacheParameter = idBache.HasValue ?
+                new ObjectParameter("IdBache", idBache) :
+                new ObjectParameter("IdBache", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_REGISTRO_DANO_DEL_AUTO", tipoDanoParameter, costoReparacionParameter, idBacheParameter, rESPUESTA, dESCRIPCION, iDNuevaSolicitud);
+        }
     }
 }

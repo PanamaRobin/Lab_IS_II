@@ -38,6 +38,14 @@
       <Parameter Name="DESCRIPCION" Mode="InOut" Type="String" />
       <Parameter Name="IDNuevaSolicitud" Mode="InOut" Type="String" />
     </FunctionImport>
+    <FunctionImport Name="USP_REGISTRO_DANO_DEL_AUTO">
+      <Parameter Name="TipoDano" Mode="In" Type="String" />
+      <Parameter Name="CostoReparacion" Mode="In" Type="Double" />
+      <Parameter Name="IdBache" Mode="In" Type="Int32" />
+      <Parameter Name="RESPUESTA" Mode="InOut" Type="Int32" />
+      <Parameter Name="DESCRIPCION" Mode="InOut" Type="String" />
+      <Parameter Name="IDNuevaSolicitud" Mode="InOut" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="Baches">
     <Key>
@@ -101,6 +109,7 @@
       <PropertyRef Name="CostoReparacion" />
       <PropertyRef Name="IdUsuario" />
       <PropertyRef Name="IdBache" />
+      <PropertyRef Name="Fecha" />
     </Key>
     <Property Name="IdReporte" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="TipoDano" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -108,6 +117,7 @@
     <Property Name="IdUsuario" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="IdBache" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Baches" Relationship="SMICIModelo.FK4" FromRole="ReporteDano" ToRole="Baches" />
+    <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
   </EntityType>
   <Association Name="FK4">
     <End Type="SMICIModelo.Baches" Role="Baches" Multiplicity="1" />
