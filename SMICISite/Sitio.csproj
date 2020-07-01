@@ -304,6 +304,7 @@
     <Content Include="Views\Ciudadano\CreateReporte.cshtml" />
     <Content Include="Views\Ciudadano\DanosVehiculares.cshtml" />
     <Content Include="Views\Ciudadano\IndexDano.cshtml" />
+    <Content Include="Views\Home\Registro.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

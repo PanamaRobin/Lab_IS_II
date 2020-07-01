@@ -65,5 +65,10 @@ namespace SMICISite.Controllers
 
             return Json(objRes, JsonRequestBehavior.AllowGet);
         }
+        public ActionResult Registro()
+        {
+            return View();
+        }
     }
+    
 }

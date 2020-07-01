@@ -87,6 +87,9 @@
     <Compile Include="Model\Baches.cs">
       <DependentUpon>SMICIModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\CONSULTA_DANO_USUARIO_Result.cs">
+      <DependentUpon>SMICIModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\DanoVM.cs" />
     <Compile Include="Model\DataManager.cs" />
     <Compile Include="Model\InformeBache.cs">

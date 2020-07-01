@@ -91,6 +91,9 @@ warning 6002: The table/view 'Baches.dbo.ReporteDano' does not have a primary ke
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="CONSULTA_DANO_USUARIO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDREPORTE" Type="int" Mode="In" />
+  </Function>
   <Function Name="ELIMINAR_BACHES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="IDBACHE" Type="int" Mode="In" />
   </Function>

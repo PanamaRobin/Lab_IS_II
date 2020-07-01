@@ -23,6 +23,12 @@
                                             Tipo de daño
                                         </th>
                                         <th style="width:auto">
+                                            Nombre
+                                        </th>
+                                        <th style="width:auto">
+                                            Teléfono
+                                        </th>
+                                        <th style="width:auto">
                                             Costo de Reparación
                                         </th>
                                         <th style="width:auto">
@@ -43,18 +49,30 @@
                                         <td style="width:auto">
                                             @Html.DisplayFor(modelItem => item.IdReporte)
                                         </td>
+
                                         <td style="width:auto">
                                             @Html.DisplayFor(modelItem => item.TipoDano)
                                         </td>
+
+                                        <td style="width:auto">
+                                            @Html.DisplayFor(modelItem => item.IdUsuario)
+                                        </td>
+
+                                        <td style="width:auto">
+                                            2134
+                                        </td>
+
                                         <td style="width:auto">
                                             @Html.DisplayFor(modelItem => item.CostoReparacion)
                                         </td>
                                         <td style="width:auto">
                                             @Html.DisplayFor(modelItem => item.IdBache)
                                         </td>
+
                                         <td style="width:auto">
                                             @Html.DisplayFor(modelItem => item.Fcreacion)
                                         </td>
+
                                         <td style="width:auto">
                                             @if (item.Estado == "Activo")
                                             {

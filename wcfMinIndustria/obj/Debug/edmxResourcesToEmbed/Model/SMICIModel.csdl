@@ -60,6 +60,9 @@
       <Parameter Name="DESCRIPCION" Mode="InOut" Type="String" />
       <Parameter Name="IDNuevaSolicitud" Mode="InOut" Type="String" />
     </FunctionImport>
+    <FunctionImport Name="CONSULTA_DANO_USUARIO" ReturnType="Collection(SMICIModelo.CONSULTA_DANO_USUARIO_Result)">
+      <Parameter Name="IDREPORTE" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="Baches">
     <Key>
@@ -168,5 +171,14 @@
     <Property Type="String" Name="Usuario" Nullable="false" MaxLength="50" />
     <Property Type="String" Name="Prioridad" Nullable="false" MaxLength="50" />
     <Property Type="DateTime" Name="Fcreacion" Nullable="false" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="CONSULTA_DANO_USUARIO_Result">
+    <Property Type="Int32" Name="IdReporte" Nullable="false" />
+    <Property Type="String" Name="TipoDano" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="IdUsuario" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Telefono" Nullable="false" MaxLength="4" />
+    <Property Type="Int32" Name="IdBache" Nullable="false" />
+    <Property Type="DateTime" Name="Fecha" Nullable="false" Precision="23" />
+    <Property Type="String" Name="Estado" Nullable="false" MaxLength="50" />
   </ComplexType>
 </Schema>

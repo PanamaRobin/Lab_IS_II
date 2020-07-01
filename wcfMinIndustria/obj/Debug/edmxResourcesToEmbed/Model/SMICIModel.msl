@@ -98,5 +98,18 @@
     <FunctionImportMapping FunctionImportName="USP_REGISTRO_INFORME" FunctionName="SMICIModelo.Store.USP_REGISTRO_INFORME" />
     <FunctionImportMapping FunctionImportName="USP_REGISTRO_SOLICITUD_BACHE" FunctionName="SMICIModelo.Store.USP_REGISTRO_SOLICITUD_BACHE" />
     <FunctionImportMapping FunctionImportName="USP_REGISTRO_DANO_DEL_AUTO" FunctionName="SMICIModelo.Store.USP_REGISTRO_DANO_DEL_AUTO" />
+    <FunctionImportMapping FunctionImportName="CONSULTA_DANO_USUARIO" FunctionName="SMICIModelo.Store.CONSULTA_DANO_USUARIO">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SMICIModelo.CONSULTA_DANO_USUARIO_Result">
+          <ScalarProperty Name="IdReporte" ColumnName="IdReporte" />
+          <ScalarProperty Name="TipoDano" ColumnName="TipoDano" />
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="IdBache" ColumnName="IdBache" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

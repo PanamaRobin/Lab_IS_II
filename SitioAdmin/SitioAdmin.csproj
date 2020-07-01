@@ -308,6 +308,7 @@
     <Content Include="Views\Funcionario\CreateInformeBache.cshtml" />
     <Content Include="Views\Funcionario\InformeDeReporte.cshtml" />
     <Content Include="Views\Funcionario\IndexDano.cshtml" />
+    <Content Include="Views\Home\Registro.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
