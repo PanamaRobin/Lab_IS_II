@@ -1,7 +1,5 @@
-﻿@{
-    ViewBag.Title = "Listado de reportes";
-    Layout = "~/Views/Shared/_Layout_AdminLTE.cshtml";
-}
+﻿@{ ViewBag.Title = "Listado de reportes";
+                Layout = "~/Views/Shared/_Layout_AdminLTE.cshtml"; }
 
 @model IEnumerable<SMICISite.Models.BachesVM>
 
@@ -34,9 +32,6 @@
                                             Posición
                                         </th>
                                         <th style="width:auto">
-                                            Prioridad
-                                        </th>
-                                        <th style="width:auto">
                                             Fecha de Creación
                                         </th>
                                     </tr>
@@ -44,30 +39,26 @@
                                 <tbody>
                                     @foreach (var item in Model)
                                     {
-                                    <tr>
-                                        <td style="width:auto">
-                                            @Html.DisplayFor(modelItem => item.IdBache)
-                                        </td>
-                                        <td style="width:auto">
-                                            @Html.DisplayFor(modelItem => item.Calle)
-                                        </td>
-                                        <td style="width:auto">
-                                            @Html.DisplayFor(modelItem => item.Distrito)
-                                        </td>
-                                        <td style="width:auto">
-                                            @Html.DisplayFor(modelItem => item.Tamano)
-                                        </td>
-                                        <td style="width:auto">
-                                            @Html.DisplayFor(modelItem => item.Posicion)
-                                        </td>
-                                        <td style="width:auto">
-                                            @Html.DisplayFor(modelItem => item.Prioridad)
-                                        </td>
-                                        <td style="width:auto">
-                                            @Html.DisplayFor(modelItem => item.Fcreacion)
-                                        </td>
-                                    </tr>
-                                    }
+                        <tr>
+                            <td style="width:auto">
+                                @Html.DisplayFor(modelItem => item.IdBache)
+                            </td>
+                            <td style="width:auto">
+                                @Html.DisplayFor(modelItem => item.Calle)
+                            </td>
+                            <td style="width:auto">
+                                @Html.DisplayFor(modelItem => item.Distrito)
+                            </td>
+                            <td style="width:auto">
+                                @Html.DisplayFor(modelItem => item.Tamano)
+                            </td>
+                            <td style="width:auto">
+                                @Html.DisplayFor(modelItem => item.Posicion)
+                            </td>
+                            <td style="width:auto">
+                                @Html.DisplayFor(modelItem => item.Fcreacion)
+                            </td>
+                        </tr>}
                                 </tbody>
                             </table>
                         </div>

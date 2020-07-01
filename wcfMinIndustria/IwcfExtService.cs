@@ -20,16 +20,24 @@ namespace wcfMinIndustria
         [OperationContract]
         List<BachesVM> Listado();
 
-        //REPORTE DE BACHES CIUDADANO
-        [OperationContract]
-        Respuesta RegistroReporteBache(BachesVM objRegistroBaches);
-
-        //REPORTE DE DAÑOS CIUDADANO
-        [OperationContract]
-        Respuesta RegistroReporteDano(DanoVM objRegistroDano);
-
         //LISTADO DE DAÑOS CIUDADANO
         [OperationContract]
         List<DanoVM> ListadoDano();
+
+        //LISTADO DE INFORME DE REPORTE
+        [OperationContract]
+        List<InformeVM> ListadoInforme();
+
+        //REGISTRO DE BACHES CIUDADANO
+        [OperationContract]
+        Respuesta RegistroReporteBache(BachesVM objRegistroBaches);
+
+        //REGISTRO DE DAÑOS CIUDADANO
+        [OperationContract]
+        Respuesta RegistroReporteDano(DanoVM objRegistroDano);
+
+        //REGISTRO DE INFORME DE REPORTE
+        [OperationContract]
+        Respuesta RegistroInforme(InformeVM objRegistroInforme);
     }
 }

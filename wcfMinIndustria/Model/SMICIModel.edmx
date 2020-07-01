@@ -22,7 +22,7 @@
 warning 6002: The table/view 'Baches.dbo.InformeBache' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="InformeBache">
           <Key>
-            <PropertyRef Name="IdBache" />
+            <PropertyRef Name="IdInformeBache" />
             <PropertyRef Name="Ubicacion" />
             <PropertyRef Name="Tamano" />
             <PropertyRef Name="Brigada" />
@@ -31,8 +31,9 @@ warning 6002: The table/view 'Baches.dbo.InformeBache' does not have a primary k
             <PropertyRef Name="EstadoBache" />
             <PropertyRef Name="CantRelleno" />
             <PropertyRef Name="CostoBache" />
+            <PropertyRef Name="IdBache" />
           </Key>
-          <Property Name="IdBache" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdInformeBache" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Ubicacion" Type="varchar" MaxLength="200" Nullable="false" />
           <Property Name="Tamano" Type="float" Nullable="false" />
           <Property Name="Brigada" Type="varchar" MaxLength="50" Nullable="false" />
@@ -41,6 +42,7 @@ warning 6002: The table/view 'Baches.dbo.InformeBache' does not have a primary k
           <Property Name="EstadoBache" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="CantRelleno" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="CostoBache" Type="float" Nullable="false" />
+          <Property Name="IdBache" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'Baches.dbo.ReporteDano' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -109,6 +111,20 @@ warning 6002: The table/view 'Baches.dbo.ReporteDano' does not have a primary ke
           <Parameter Name="DESCRIPCION" Type="varchar(max)" Mode="InOut" />
           <Parameter Name="IDNuevaSolicitud" Type="varchar" Mode="InOut" />
         </Function>
+        <Function Name="USP_REGISTRO_INFORME" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Ubicacion" Type="varchar" Mode="In" />
+          <Parameter Name="Tamano" Type="float" Mode="In" />
+          <Parameter Name="Brigada" Type="varchar" Mode="In" />
+          <Parameter Name="Equipamiento" Type="varchar" Mode="In" />
+          <Parameter Name="HorasDeReparacion" Type="varchar" Mode="In" />
+          <Parameter Name="EstadoBache" Type="varchar" Mode="In" />
+          <Parameter Name="CantRelleno" Type="varchar" Mode="In" />
+          <Parameter Name="CostoBache" Type="float" Mode="In" />
+          <Parameter Name="IdBache" Type="int" Mode="In" />
+          <Parameter Name="RESPUESTA" Type="int" Mode="InOut" />
+          <Parameter Name="DESCRIPCION" Type="varchar(max)" Mode="InOut" />
+          <Parameter Name="IDNuevaSolicitud" Type="varchar" Mode="InOut" />
+        </Function>
         <Function Name="USP_REGISTRO_SOLICITUD_BACHE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="CALLE" Type="varchar" Mode="In" />
           <Parameter Name="DISTRITO" Type="varchar" Mode="In" />
@@ -133,7 +149,7 @@ warning 6002: The table/view 'Baches.dbo.ReporteDano' does not have a primary ke
           <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="InformeBache" EntityType="Self.InformeBache" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [InformeBache].[IdBache] AS [IdBache], 
+    [InformeBache].[IdInformeBache] AS [IdInformeBache], 
     [InformeBache].[Ubicacion] AS [Ubicacion], 
     [InformeBache].[Tamano] AS [Tamano], 
     [InformeBache].[Brigada] AS [Brigada], 
@@ -141,7 +157,8 @@ warning 6002: The table/view 'Baches.dbo.ReporteDano' does not have a primary ke
     [InformeBache].[HorasDeReparacion] AS [HorasDeReparacion], 
     [InformeBache].[EstadoBache] AS [EstadoBache], 
     [InformeBache].[CantRelleno] AS [CantRelleno], 
-    [InformeBache].[CostoBache] AS [CostoBache]
+    [InformeBache].[CostoBache] AS [CostoBache], 
+    [InformeBache].[IdBache] AS [IdBache]
     FROM [dbo].[InformeBache] AS [InformeBache]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="ReporteDano" EntityType="Self.ReporteDano" store:Type="Tables" store:Schema="dbo">
@@ -209,6 +226,20 @@ warning 6002: The table/view 'Baches.dbo.ReporteDano' does not have a primary ke
             <Parameter Name="DESCRIPCION" Mode="InOut" Type="String" />
             <Parameter Name="IDNuevaSolicitud" Mode="InOut" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="USP_REGISTRO_INFORME">
+            <Parameter Name="Ubicacion" Mode="In" Type="String" />
+            <Parameter Name="Tamano" Mode="In" Type="Double" />
+            <Parameter Name="Brigada" Mode="In" Type="String" />
+            <Parameter Name="Equipamiento" Mode="In" Type="String" />
+            <Parameter Name="HorasDeReparacion" Mode="In" Type="String" />
+            <Parameter Name="EstadoBache" Mode="In" Type="String" />
+            <Parameter Name="CantRelleno" Mode="In" Type="String" />
+            <Parameter Name="CostoBache" Mode="In" Type="Double" />
+            <Parameter Name="IdBache" Mode="In" Type="Int32" />
+            <Parameter Name="RESPUESTA" Mode="InOut" Type="Int32" />
+            <Parameter Name="DESCRIPCION" Mode="InOut" Type="String" />
+            <Parameter Name="IDNuevaSolicitud" Mode="InOut" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="Baches">
           <Key>
@@ -254,6 +285,7 @@ warning 6002: The table/view 'Baches.dbo.ReporteDano' does not have a primary ke
             <PropertyRef Name="EstadoBache" />
             <PropertyRef Name="CantRelleno" />
             <PropertyRef Name="CostoBache" />
+            <PropertyRef Name="IdInformeBache" />
           </Key>
           <Property Name="IdBache" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Ubicacion" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
@@ -264,6 +296,7 @@ warning 6002: The table/view 'Baches.dbo.ReporteDano' does not have a primary ke
           <Property Name="EstadoBache" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="CantRelleno" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="CostoBache" Type="Double" Nullable="false" />
+          <Property Name="IdInformeBache" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
         </EntityType>
         <EntityType Name="ReporteDano">
           <Key>
@@ -357,6 +390,7 @@ warning 6002: The table/view 'Baches.dbo.ReporteDano' does not have a primary ke
           <EntitySetMapping Name="InformeBache">
             <EntityTypeMapping TypeName="SMICIModelo.InformeBache">
               <MappingFragment StoreEntitySet="InformeBache">
+                <ScalarProperty Name="IdInformeBache" ColumnName="IdInformeBache" />
                 <ScalarProperty Name="CostoBache" ColumnName="CostoBache" />
                 <ScalarProperty Name="CantRelleno" ColumnName="CantRelleno" />
                 <ScalarProperty Name="EstadoBache" ColumnName="EstadoBache" />
@@ -412,6 +446,7 @@ warning 6002: The table/view 'Baches.dbo.ReporteDano' does not have a primary ke
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="USP_REGISTRO_SOLICITUD_BACHE" FunctionName="SMICIModelo.Store.USP_REGISTRO_SOLICITUD_BACHE" />
           <FunctionImportMapping FunctionImportName="USP_REGISTRO_DANO_DEL_AUTO" FunctionName="SMICIModelo.Store.USP_REGISTRO_DANO_DEL_AUTO" />
+          <FunctionImportMapping FunctionImportName="USP_REGISTRO_INFORME" FunctionName="SMICIModelo.Store.USP_REGISTRO_INFORME" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

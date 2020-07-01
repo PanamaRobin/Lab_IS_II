@@ -1,54 +1,65 @@
 ﻿@model SMICISite.Models.DanoVM
-@{
-    ViewBag.Title = "Daños Vehiculares";
-    Layout = "~/Views/Shared/_Layout_AdminLTE.cshtml";
-}
+@{ ViewBag.Title = "Daños Vehiculares";
+                Layout = "~/Views/Shared/_Layout_AdminLTE.cshtml"; }
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="panel-body">
+            <div>
+                <div class="box shadow-window box-solid box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Reporte de Daños Vehiculares</h3>
+                    </div>
+
+                    <!-- /.box-header -->
+
+                    <div class="box-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <span style="font-weight: bold;">
+                                        @Html.DisplayNameFor(x => x.IdBache)
+                                    </span>
+                                    @Html.TextBoxFor(x => x.IdBache, new { @class = "form-control", @placeholder = "Ingrese el No. del Bache..." })
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <span style="font-weight: bold;">
+                                        @Html.DisplayNameFor(x => x.CostoReparacion)
+                                    </span>
+                                    @Html.TextBoxFor(x => x.CostoReparacion, new { @class = "form-control", @placeholder = "Ingrese el Costo de la Reparación..." })
+                                </div>
+                                <!-- /.form-group -->
+                            </div>
+                            <!-- /.col -->
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <!-- textarea -->
+                                    <span style="font-weight: bold;">
+                                        @Html.DisplayNameFor(x => x.TipoDano)
+                                    </span>
+                                    @Html.TextAreaFor(x => x.TipoDano, new { @class = "form-control multi-line", @placeholder = "Especifique el daño causado por el bache a su vehículo..." })
+                                </div>
+                                <!-- /.form-group -->
+                            </div>
+                            <div class="col-md-12" style="display: flex; justify-content:flex-end; ">
+                                <div class="form-group">
+                                    <a href="@Url.Action("IndexCiudadano", "Ciudadano")" class="btn btn-success float-left" onclick="CrearReporteDano();">Registrar</a>
+                                    <a href="@Url.Action("IndexCiudadano", "Ciudadano")" class="btn btn-danger float-left">Cancelar</a>
+                                    <!-- /.form-group -->
+                                </div>
+                            </div>
+
+                            <!-- /.col -->
+                        </div>
+                        <!-- /.row -->
+                    </div>
 
 
-<div class="box shadow-window box-solid box-primary">
-    <div class="box-header with-border">
-        <h3 class="box-title">Reporte de Daños Vehiculares</h3>
-    </div>
-
-    <!-- /.box-header -->
-
-    <div class="box-body">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group">
-                    @Html.DisplayNameFor(x => x.IdBache)
-                    @Html.TextBoxFor(x => x.IdBache, new { @class = "form-control", @placeholder = "Ingrese el No. del Bache..." })
+                    <!-- /.box-body -->
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    @Html.DisplayNameFor(x => x.CostoReparacion)
-                    @Html.TextBoxFor(x => x.CostoReparacion, new { @class = "form-control", @placeholder = "Ingrese el Costo de la Reparación..." })
-                </div>
-                <!-- /.form-group -->
-            </div>
-            <!-- /.col -->
-            <div class="col-md-12">
-                <div class="form-group">
-                    <!-- textarea -->
-                    @Html.DisplayNameFor(x => x.TipoDano)
-                    @Html.TextAreaFor(x => x.TipoDano, new { @class = "form-control multi-line", @placeholder = "Especifique el daño causado por el bache a su vehículo..." })
-                </div>
-                <!-- /.form-group -->
-            </div>
-            <div class="col-md-12" style="display: flex; justify-content:flex-end; ">
-                <div class="form-group">
-                    <button type="button" style="width:100px; margin-right:15px;" class="btn btn-success float-left" onclick="CrearReporteDano()"> Aceptar</button>
-                    <button type="button" style="width:100px;" class="btn btn-danger float-left">Cancelar</button>
-                    <!-- /.form-group -->
-                </div>
-            </div>
-
-            <!-- /.col -->
         </div>
-        <!-- /.row -->
     </div>
-
-
-    <!-- /.box-body -->
 </div>

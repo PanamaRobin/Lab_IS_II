@@ -31,11 +31,17 @@
                         <!-- Messages: style can be found in dropdown.less-->
                         <!-- User Account: style can be found in dropdown.less -->
                         <!-- Control Sidebar Toggle Button-->
-                        <li>
-                            @*@Html.DisplayFor(modelItem => modelItem.Nombre)*@
-                            <a href="#" data-toggle="control-sidebar" style="margin-right:20px;"><b>Jorge Herrera</b><i class="fa fa-user" style="margin-left: 10px;"></i></a>
-
-
+                        <li class="dropdown user user-menu" style="margin-right:30px;">  
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Jorge Herrera</b><i class="fa fa-user" style="margin-left: 10px;"></i></a>
+                            <!-- User Account: style can be found in dropdown.less -->
+                            <ul class="dropdown-menu" style="width: 100px">
+                                <!-- Menu Footer-->
+                                <li class="user-footer">
+                                    <div style="display:flex; justify-content: center;">
+                                        <a href="@Url.Action("Index", "Home")" class="btn btn-default btn-flat">Cerrar Sesión</a>
+                                    </div>
+                                </li>
+                            </ul>
                         </li>
                     </ul>
                 </div>
@@ -67,7 +73,7 @@
         </div>
 
         <footer class="main-footer">
-            <strong>Copyright &copy; 2020 <a href="#">Ingenieria de Software II</a>.</strong> Derechos Reservados
+            <strong>Copyright &copy; 2020 <a href="https://github.com/PanamaRobin/Lab_IS_II" target="_blank">Ingenieria de Software II</a>.</strong> Derechos Reservados
         </footer>
     </div>
 

@@ -1,0 +1,67 @@
+﻿@{ ViewBag.Title = "Listado de Reportes de Daño";
+    Layout = "~/Views/Shared/_Layout_AdminLTE.cshtml"; }
+
+@model IEnumerable<SitioAdmin.Models.DanoVM>
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="panel-body">
+            <div>
+                <div class="box shadow-window box-solid box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Listado de Daños Reportados</h3>
+                    </div>
+                    <div class="box-body">
+                        <div>
+                            <table class="table table-striped" id="dataTables-ListaSolicitudes">
+                                <thead>
+                                    <tr>
+                                        <th style="width:auto">
+                                            No. de Reporte de Daño
+                                        </th>
+                                        <th style="width:auto">
+                                            Tipo de daño
+                                        </th>
+                                        <th style="width:auto">
+                                            Costo de Reparación
+                                        </th>
+                                        <th style="width:auto">
+                                            No. de Reporte de Bache
+                                        </th>
+                                        <th style="width:auto">
+                                            Fecha de Creación
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                        <tr>
+                            <td style="width:auto">
+                                @Html.DisplayFor(modelItem => item.IdReporte)
+                            </td>
+                            <td style="width:auto">
+                                @Html.DisplayFor(modelItem => item.TipoDano)
+                            </td>
+                            <td style="width:auto">
+                                @Html.DisplayFor(modelItem => item.CostoReparacion)
+                            </td>
+                            <td style="width:auto">
+                                @Html.DisplayFor(modelItem => item.IdBache)
+                            </td>
+                            <td style="width:auto">
+                                @Html.DisplayFor(modelItem => item.Fcreacion)
+                            </td>
+
+                        </tr>
+}
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

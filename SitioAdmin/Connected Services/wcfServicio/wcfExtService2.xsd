@@ -30,6 +30,12 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="BachesVM" nillable="true" type="tns:BachesVM" />
+  <xs:complexType name="ArrayOfDanoVM">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DanoVM" nillable="true" type="tns:DanoVM" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDanoVM" nillable="true" type="tns:ArrayOfDanoVM" />
   <xs:complexType name="DanoVM">
     <xs:sequence>
       <xs:element minOccurs="0" name="CostoReparacion" type="xs:double" />
@@ -41,10 +47,25 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="DanoVM" nillable="true" type="tns:DanoVM" />
-  <xs:complexType name="ArrayOfDanoVM">
+  <xs:complexType name="ArrayOfInformeVM">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="DanoVM" nillable="true" type="tns:DanoVM" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InformeVM" nillable="true" type="tns:InformeVM" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfDanoVM" nillable="true" type="tns:ArrayOfDanoVM" />
+  <xs:element name="ArrayOfInformeVM" nillable="true" type="tns:ArrayOfInformeVM" />
+  <xs:complexType name="InformeVM">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Brigada" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CantRelleno" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CostoBache" type="xs:double" />
+      <xs:element minOccurs="0" name="Equipamiento" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EstadoBache" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HorasDeReparacion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdBache" type="xs:int" />
+      <xs:element minOccurs="0" name="IdInformeBache" type="xs:int" />
+      <xs:element minOccurs="0" name="Tamano" type="xs:double" />
+      <xs:element minOccurs="0" name="Ubicacion" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InformeVM" nillable="true" type="tns:InformeVM" />
 </xs:schema>

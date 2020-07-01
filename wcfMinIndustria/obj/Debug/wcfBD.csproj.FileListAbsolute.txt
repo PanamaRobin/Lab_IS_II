@@ -10,3 +10,15 @@ X:\Git\repositories\Lab_IS_II\wcfMinIndustria\obj\Debug\wcfBD.csproj.CopyComplet
 X:\Git\repositories\Lab_IS_II\wcfMinIndustria\obj\Debug\wcfMinIndustria.dll
 X:\Git\repositories\Lab_IS_II\wcfMinIndustria\obj\Debug\wcfMinIndustria.pdb
 X:\Git\repositories\Lab_IS_II\wcfMinIndustria\obj\Debug\wcfBD.csprojAssemblyReference.cache
+C:\Users\jdjpm\OneDrive\Escritorio\Lab_IS_II\wcfMinIndustria\bin\wcfMinIndustria.dll.config
+C:\Users\jdjpm\OneDrive\Escritorio\Lab_IS_II\wcfMinIndustria\bin\wcfMinIndustria.dll
+C:\Users\jdjpm\OneDrive\Escritorio\Lab_IS_II\wcfMinIndustria\bin\wcfMinIndustria.pdb
+C:\Users\jdjpm\OneDrive\Escritorio\Lab_IS_II\wcfMinIndustria\bin\EntityFramework.dll
+C:\Users\jdjpm\OneDrive\Escritorio\Lab_IS_II\wcfMinIndustria\bin\EntityFramework.SqlServer.dll
+C:\Users\jdjpm\OneDrive\Escritorio\Lab_IS_II\wcfMinIndustria\bin\EntityFramework.xml
+C:\Users\jdjpm\OneDrive\Escritorio\Lab_IS_II\wcfMinIndustria\bin\EntityFramework.SqlServer.xml
+C:\Users\jdjpm\OneDrive\Escritorio\Lab_IS_II\wcfMinIndustria\obj\Debug\wcfBD.csprojAssemblyReference.cache
+C:\Users\jdjpm\OneDrive\Escritorio\Lab_IS_II\wcfMinIndustria\obj\Debug\wcfBD.csproj.CoreCompileInputs.cache
+C:\Users\jdjpm\OneDrive\Escritorio\Lab_IS_II\wcfMinIndustria\obj\Debug\wcfBD.csproj.CopyComplete
+C:\Users\jdjpm\OneDrive\Escritorio\Lab_IS_II\wcfMinIndustria\obj\Debug\wcfMinIndustria.dll
+C:\Users\jdjpm\OneDrive\Escritorio\Lab_IS_II\wcfMinIndustria\obj\Debug\wcfMinIndustria.pdb

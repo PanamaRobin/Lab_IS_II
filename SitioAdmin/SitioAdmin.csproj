@@ -122,34 +122,43 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Connected Services\ServiceReference1\Reference.cs">
+    <Compile Include="Connected Services\wcfServicio\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\FuncionarioController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\BachesVM.cs" />
+    <Compile Include="Models\DanoVM.cs" />
+    <Compile Include="Models\FuncionariosVM.cs" />
+    <Compile Include="Models\InformeVM.cs" />
+    <Compile Include="Models\UsuariosVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Connected Services\ServiceReference1\SitioAdmin.ServiceReference1.BachesVM.datasource">
+    <Content Include="Connected Services\wcfServicio\SitioAdmin.wcfServicio.BachesVM.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\ServiceReference1\SitioAdmin.ServiceReference1.DanoVM.datasource">
+    <Content Include="Connected Services\wcfServicio\SitioAdmin.wcfServicio.DanoVM.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\ServiceReference1\SitioAdmin.ServiceReference1.Respuesta.datasource">
+    <Content Include="Connected Services\wcfServicio\SitioAdmin.wcfServicio.Respuesta.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\ServiceReference1\SitioAdmin.ServiceReference1.UsuariosVM.datasource">
+    <Content Include="Connected Services\wcfServicio\SitioAdmin.wcfServicio.UsuariosVM.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <None Include="Connected Services\ServiceReference1\wcfExtService.disco" />
-    <None Include="Connected Services\ServiceReference1\configuration91.svcinfo" />
-    <None Include="Connected Services\ServiceReference1\configuration.svcinfo" />
-    <None Include="Connected Services\ServiceReference1\Reference.svcmap">
+    <Content Include="Connected Services\wcfServicio\SitioAdmin.wcfServicio.InformeVM.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\wcfServicio\wcfExtService.disco" />
+    <None Include="Connected Services\wcfServicio\configuration91.svcinfo" />
+    <None Include="Connected Services\wcfServicio\configuration.svcinfo" />
+    <None Include="Connected Services\wcfServicio\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -235,21 +244,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
-    <None Include="Connected Services\ServiceReference1\wcfExtService.wsdl" />
-    <None Include="Connected Services\ServiceReference1\wcfExtService.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ServiceReference1\wcfExtService1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ServiceReference1\wcfExtService2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ServiceReference1\wcfExtService3.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <Content Include="Content\AdminLTE\fonts\fontawesome-webfont.eot" />
     <Content Include="Content\AdminLTE\fonts\fontawesome-webfont.ttf" />
     <Content Include="Content\AdminLTE\fonts\fontawesome-webfont.woff" />
@@ -262,17 +256,36 @@
     <Content Include="Content\AdminLTE\fonts\ionicons.eot" />
     <Content Include="Content\AdminLTE\fonts\ionicons.ttf" />
     <Content Include="Content\AdminLTE\fonts\ionicons.woff" />
-    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
-    <Content Include="Scripts\jquery-3.4.1.js" />
-    <Content Include="Scripts\jquery-3.4.1.min.js" />
-    <Content Include="Scripts\jquery-3.4.1.slim.js" />
-    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Connected Services\wcfServicio\wcfExtService.wsdl" />
+    <None Include="Connected Services\wcfServicio\wcfExtService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\wcfServicio\wcfExtService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\wcfServicio\wcfExtService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\wcfServicio\wcfExtService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\General.js" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <Content Include="Scripts\jquery.form.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\SpinnerModal.js" />
+    <Content Include="Scripts\SpinnerModalExtended.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -287,10 +300,17 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_Layout_AdminLTE.cshtml" />
+    <Content Include="Views\Shared\_Layout_AdminLTE_Login.cshtml" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Views\Funcionario\IndexFuncionario.cshtml" />
+    <Content Include="Views\Funcionario\CreateInformeBache.cshtml" />
+    <Content Include="Views\Funcionario\InformeDeReporte.cshtml" />
+    <Content Include="Views\Funcionario\IndexDano.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -302,14 +322,12 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="packages.config" />
-    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
-    <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\ServiceReference1\" />
+    <WCFMetadataStorage Include="Connected Services\wcfServicio\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

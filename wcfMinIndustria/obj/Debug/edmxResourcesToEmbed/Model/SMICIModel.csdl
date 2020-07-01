@@ -46,6 +46,20 @@
       <Parameter Name="DESCRIPCION" Mode="InOut" Type="String" />
       <Parameter Name="IDNuevaSolicitud" Mode="InOut" Type="String" />
     </FunctionImport>
+    <FunctionImport Name="USP_REGISTRO_INFORME">
+      <Parameter Name="Ubicacion" Mode="In" Type="String" />
+      <Parameter Name="Tamano" Mode="In" Type="Double" />
+      <Parameter Name="Brigada" Mode="In" Type="String" />
+      <Parameter Name="Equipamiento" Mode="In" Type="String" />
+      <Parameter Name="HorasDeReparacion" Mode="In" Type="String" />
+      <Parameter Name="EstadoBache" Mode="In" Type="String" />
+      <Parameter Name="CantRelleno" Mode="In" Type="String" />
+      <Parameter Name="CostoBache" Mode="In" Type="Double" />
+      <Parameter Name="IdBache" Mode="In" Type="Int32" />
+      <Parameter Name="RESPUESTA" Mode="InOut" Type="Int32" />
+      <Parameter Name="DESCRIPCION" Mode="InOut" Type="String" />
+      <Parameter Name="IDNuevaSolicitud" Mode="InOut" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="Baches">
     <Key>
@@ -91,6 +105,7 @@
       <PropertyRef Name="EstadoBache" />
       <PropertyRef Name="CantRelleno" />
       <PropertyRef Name="CostoBache" />
+      <PropertyRef Name="IdInformeBache" />
     </Key>
     <Property Name="IdBache" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Ubicacion" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
@@ -101,6 +116,7 @@
     <Property Name="EstadoBache" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="CantRelleno" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="CostoBache" Type="Double" Nullable="false" />
+    <Property Name="IdInformeBache" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
   </EntityType>
   <EntityType Name="ReporteDano">
     <Key>

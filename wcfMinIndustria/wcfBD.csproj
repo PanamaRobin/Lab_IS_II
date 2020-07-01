@@ -93,6 +93,7 @@
       <DependentUpon>SMICIModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\BachesVM.cs" />
+    <Compile Include="Model\InformeVM.cs" />
     <Compile Include="Model\LISTADO_BACHES_Result.cs">
       <DependentUpon>SMICIModel.tt</DependentUpon>
     </Compile>

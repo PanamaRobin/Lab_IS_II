@@ -1,0 +1,104 @@
+﻿@{
+    ViewBag.Title = "Listado de reportes";
+    Layout = "~/Views/Shared/_Layout_AdminLTE.cshtml";
+}
+
+@model IEnumerable<SitioAdmin.Models.BachesVM>
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="panel-body">
+            <div>
+                <div class="box shadow-window box-solid box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Listado de Solicitudes</h3>
+                    </div>
+                    <div class="box-body">
+                        <div>
+                            <table class="table table-striped" id="dataTables-ListaSolicitudes">
+                                <thead>
+                                    <tr>
+                                        <th style="width:auto">
+                                            No. de Reporte
+                                        </th>
+                                        <th style="width:auto">
+                                            Calle
+                                        </th>
+                                        <th style="width:auto">
+                                            Distrito
+                                        </th>
+                                        <th style="width:auto">
+                                            Tamaño
+                                        </th>
+                                        <th style="width:auto">
+                                            Posición
+                                        </th>
+                                        <th style="width:auto">
+                                            Prioridad
+                                        </th>
+                                        <th style="width:auto">
+                                            Fecha de Creación
+                                        </th>
+                                        <th style="width:auto">
+                                          
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                    <tr>
+                                        <td style="width:auto">
+                                            @Html.DisplayFor(modelItem => item.IdBache)
+                                        </td>
+                                        <td style="width:auto">
+                                            @Html.DisplayFor(modelItem => item.Calle)
+                                        </td>
+                                        <td style="width:auto">
+                                            @Html.DisplayFor(modelItem => item.Distrito)
+                                        </td>
+                                        <td style="width:auto">
+                                            @Html.DisplayFor(modelItem => item.Tamano)
+                                        </td>
+                                        <td style="width:auto">
+                                            @Html.DisplayFor(modelItem => item.Posicion)
+                                        </td>
+                                        <td style="width:auto">
+                                            @if (item.Prioridad == "Importante")
+                                            {
+                                                <span class="label label-warning">
+                                                    Importante
+                                                </span>
+                                            }
+                                            @if (item.Prioridad == "Muy Importante")
+                                            {
+                                                <span class="label label-danger">
+                                                    Muy Importante
+                                                </span>
+                                            }
+                                            @if (item.Prioridad == "Menos Importante")
+                                            {
+                                        <span class="label label-primary">
+                                            Menos Importante
+                                        </span>
+                                            }
+
+                                        </td>
+                                        <td style="width:auto">
+                                            @Html.DisplayFor(modelItem => item.Fcreacion)
+                                        </td>
+                                        <td style="width:auto" class="text-center">
+                                            <a href="@Url.Action("CreateInformeBache", "Funcionario")" class="btn btn-social-icon btn-warning text-sm-center" title="Generar Informe"><i class="fa fa-edit text-sm-center"></i></a>
+                                        </td>
+                                    </tr>
+                                  
+                                }
+                                    </tbody>
+                                </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

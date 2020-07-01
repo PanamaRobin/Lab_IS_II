@@ -29,34 +29,6 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="RegistroReporteBache">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/wcfMinIndustria.Model" minOccurs="0" name="objRegistroBaches" nillable="true" type="q3:BachesVM" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="RegistroReporteBacheResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/wcfMinIndustria" minOccurs="0" name="RegistroReporteBacheResult" nillable="true" type="q4:Respuesta" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="RegistroReporteDano">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/wcfMinIndustria.Model" minOccurs="0" name="objRegistroDano" nillable="true" type="q5:DanoVM" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="RegistroReporteDanoResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/wcfMinIndustria" minOccurs="0" name="RegistroReporteDanoResult" nillable="true" type="q6:Respuesta" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
   <xs:element name="ListadoDano">
     <xs:complexType>
       <xs:sequence />
@@ -65,7 +37,61 @@
   <xs:element name="ListadoDanoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/wcfMinIndustria.Model" minOccurs="0" name="ListadoDanoResult" nillable="true" type="q7:ArrayOfDanoVM" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/wcfMinIndustria.Model" minOccurs="0" name="ListadoDanoResult" nillable="true" type="q3:ArrayOfDanoVM" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListadoInforme">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListadoInformeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/wcfMinIndustria.Model" minOccurs="0" name="ListadoInformeResult" nillable="true" type="q4:ArrayOfInformeVM" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegistroReporteBache">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/wcfMinIndustria.Model" minOccurs="0" name="objRegistroBaches" nillable="true" type="q5:BachesVM" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegistroReporteBacheResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/wcfMinIndustria" minOccurs="0" name="RegistroReporteBacheResult" nillable="true" type="q6:Respuesta" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegistroReporteDano">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/wcfMinIndustria.Model" minOccurs="0" name="objRegistroDano" nillable="true" type="q7:DanoVM" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegistroReporteDanoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/wcfMinIndustria" minOccurs="0" name="RegistroReporteDanoResult" nillable="true" type="q8:Respuesta" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegistroInforme">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/wcfMinIndustria.Model" minOccurs="0" name="objRegistroInforme" nillable="true" type="q9:InformeVM" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegistroInformeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/wcfMinIndustria" minOccurs="0" name="RegistroInformeResult" nillable="true" type="q10:Respuesta" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

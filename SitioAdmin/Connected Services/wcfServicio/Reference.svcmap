@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="a71fbad0-1c8a-4a0d-b95c-bd36aa31c765" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:52832/wcfExtService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="wcfExtService.xsd" MetadataType="Schema" ID="ae0c5086-1455-49d1-9929-48a25ed6b67a" SourceId="1" SourceUrl="http://localhost:52832/wcfExtService.svc?xsd=xsd0" />
+    <MetadataFile FileName="wcfExtService1.xsd" MetadataType="Schema" ID="950fe320-a5e7-4c4a-801c-5621113a9951" SourceId="1" SourceUrl="http://localhost:52832/wcfExtService.svc?xsd=xsd1" />
+    <MetadataFile FileName="wcfExtService.disco" MetadataType="Disco" ID="fbfa02b6-db6a-4f57-b62b-0517d9b5f15d" SourceId="1" SourceUrl="http://localhost:52832/wcfExtService.svc?disco" />
+    <MetadataFile FileName="wcfExtService.wsdl" MetadataType="Wsdl" ID="a1861fbf-dcab-478f-bfe3-bc923f9bcbd5" SourceId="1" SourceUrl="http://localhost:52832/wcfExtService.svc?wsdl" />
+    <MetadataFile FileName="wcfExtService2.xsd" MetadataType="Schema" ID="e59f55c1-5ce9-4b3c-95ba-a1999e98d8de" SourceId="1" SourceUrl="http://localhost:52832/wcfExtService.svc?xsd=xsd2" />
+    <MetadataFile FileName="wcfExtService3.xsd" MetadataType="Schema" ID="5f788027-5adb-45e3-97be-06b711122fc1" SourceId="1" SourceUrl="http://localhost:52832/wcfExtService.svc?xsd=xsd3" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

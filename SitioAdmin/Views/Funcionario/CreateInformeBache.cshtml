@@ -1,0 +1,88 @@
+﻿@model SitioAdmin.Models.InformeVM
+@{
+    ViewBag.Title = "Reportar Bache";
+    Layout = "~/Views/Shared/_Layout_AdminLTE.cshtml";
+}
+
+
+<div class="box shadow-window box-solid box-primary">
+    <div class="box-header with-border">
+        <h3 class="box-title">Reporte de Bache</h3>
+    </div>
+
+    <!-- /.box-header -->
+
+    <div class="box-body">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.DisplayNameFor(x => x.Ubicacion)
+                    @Html.TextBoxFor(x => x.Ubicacion, new { @class = "form-control", @placeholder = "Ingrese la Ubicacion..." })
+                </div>
+                <!-- /.form-group -->
+                <div class="form-group">
+                    @Html.DisplayNameFor(x => x.Tamano)
+                    @Html.TextBoxFor(x => x.Tamano, new { @class = "form-control", @placeholder = "Ingrese el Distrito..." })
+                </div>
+                <!-- /.form-group -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.DisplayNameFor(x => x.Brigada)
+                    @Html.TextBoxFor(x => x.Brigada, new { @class = "form-control", @placeholder = "Ingrese la Brigada..." })
+                </div>
+                <!-- /.form-group -->
+                <div class="form-group">
+                    @Html.DisplayNameFor(x => x.Equipamiento)
+                    @Html.TextBoxFor(x => x.Equipamiento, new { @class = "form-control", @placeholder = "Ingrese la Equipamiento..." })
+                </div>
+                <!-- /.form-group -->
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.DisplayNameFor(x => x.HorasDeReparacion)
+                    @Html.TextBoxFor(x => x.HorasDeReparacion, new { @class = "form-control", @placeholder = "Ingrese las Horas de Reparación..." })
+                </div>
+                <!-- /.form-group -->
+                <div class="form-group">
+                    @Html.DisplayNameFor(x => x.EstadoBache)
+                    @Html.TextBoxFor(x => x.EstadoBache, new { @class = "form-control", @placeholder = "Ingrese el Estado del Bache..." })
+                </div>
+                <!-- /.form-group -->
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.DisplayNameFor(x => x.CantRelleno)
+                    @Html.TextBoxFor(x => x.CantRelleno, new { @class = "form-control", @placeholder = "Ingrese la Cantidad de Relleno..." })
+                </div>
+                <!-- /.form-group -->
+                <div class="form-group">
+                    @Html.DisplayNameFor(x => x.CostoBache)
+                    @Html.TextBoxFor(x => x.CostoBache, new { @class = "form-control", @placeholder = "Ingrese el Costo Total de Reparación..." })
+                </div>
+                <!-- /.form-group -->
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.DisplayNameFor(x => x.IdBache)
+                    @Html.TextBoxFor(x => x.IdBache, new { @class = "form-control", @placeholder = "Ingrese el No de Reporte de Bache" })
+                </div>
+            </div>
+            <div class="col-md-12" style="display: flex; justify-content:flex-end; ">
+                <div class="form-group">
+                    <a href="@Url.Action("IndexFuncionario", "Funcionario")" class="btn btn-success float-left"  onclick="CrearInformeReporte();">Registrar</a>
+                    <a href="@Url.Action("IndexFuncionario", "Funcionario")" class="btn btn-danger float-left">Cancelar</a>
+                   
+                    <!-- /.form-group -->
+                </div>
+            </div>
+
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div>
+
+
+    <!-- /.box-body -->
+</div>

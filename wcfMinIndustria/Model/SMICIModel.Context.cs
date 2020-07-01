@@ -122,5 +122,46 @@ namespace wcfMinIndustria.Model
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_REGISTRO_DANO_DEL_AUTO", tipoDanoParameter, costoReparacionParameter, idBacheParameter, rESPUESTA, dESCRIPCION, iDNuevaSolicitud);
         }
+    
+        public virtual int USP_REGISTRO_INFORME(string ubicacion, Nullable<double> tamano, string brigada, string equipamiento, string horasDeReparacion, string estadoBache, string cantRelleno, Nullable<double> costoBache, Nullable<int> idBache, ObjectParameter rESPUESTA, ObjectParameter dESCRIPCION, ObjectParameter iDNuevaSolicitud)
+        {
+            var ubicacionParameter = ubicacion != null ?
+                new ObjectParameter("Ubicacion", ubicacion) :
+                new ObjectParameter("Ubicacion", typeof(string));
+    
+            var tamanoParameter = tamano.HasValue ?
+                new ObjectParameter("Tamano", tamano) :
+                new ObjectParameter("Tamano", typeof(double));
+    
+            var brigadaParameter = brigada != null ?
+                new ObjectParameter("Brigada", brigada) :
+                new ObjectParameter("Brigada", typeof(string));
+    
+            var equipamientoParameter = equipamiento != null ?
+                new ObjectParameter("Equipamiento", equipamiento) :
+                new ObjectParameter("Equipamiento", typeof(string));
+    
+            var horasDeReparacionParameter = horasDeReparacion != null ?
+                new ObjectParameter("HorasDeReparacion", horasDeReparacion) :
+                new ObjectParameter("HorasDeReparacion", typeof(string));
+    
+            var estadoBacheParameter = estadoBache != null ?
+                new ObjectParameter("EstadoBache", estadoBache) :
+                new ObjectParameter("EstadoBache", typeof(string));
+    
+            var cantRellenoParameter = cantRelleno != null ?
+                new ObjectParameter("CantRelleno", cantRelleno) :
+                new ObjectParameter("CantRelleno", typeof(string));
+    
+            var costoBacheParameter = costoBache.HasValue ?
+                new ObjectParameter("CostoBache", costoBache) :
+                new ObjectParameter("CostoBache", typeof(double));
+    
+            var idBacheParameter = idBache.HasValue ?
+                new ObjectParameter("IdBache", idBache) :
+                new ObjectParameter("IdBache", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_REGISTRO_INFORME", ubicacionParameter, tamanoParameter, brigadaParameter, equipamientoParameter, horasDeReparacionParameter, estadoBacheParameter, cantRellenoParameter, costoBacheParameter, idBacheParameter, rESPUESTA, dESCRIPCION, iDNuevaSolicitud);
+        }
     }
 }

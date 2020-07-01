@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SitioAdmin.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,18 +14,54 @@ namespace SitioAdmin.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Login(UsuariosVM objUsuariosVM)
         {
-            ViewBag.Message = "Your application description page.";
+            string strTitulo = "titulo Error ";
+            bool boolExitoso = false;
+            string strMensaje = "Error descripcion";
 
-            return View();
-        }
+            //int Resp = 0;
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
+            if (ModelState.IsValid)
+            {
+                wcfServicio.IwcfExtServiceClient objServicio = new wcfServicio.IwcfExtServiceClient();
 
-            return View();
+                try
+                {
+                    var Resp = objServicio.Login(objUsuariosVM.Correo, objUsuariosVM.Contrasena);
+
+                    if (Resp.IdUsuario == 0)
+                    {
+                        strTitulo = "Credenciales Incorrectas";
+                        boolExitoso = false;
+                        strMensaje = "Usuario o Contraseña Incorrecta...";
+                    }
+                    else
+                    {
+                        UsuariosVM objUsuario = new UsuariosVM();
+                        objUsuario.IdUsuario = Resp.IdUsuario;
+                        objUsuario.Nombre = Resp.Nombre;
+                        objUsuario.Correo = Resp.Correo;
+
+                        strTitulo = "Usuario Encontrado";
+                        boolExitoso = true;
+                        strMensaje = "El Id del Usuario Encontrado es = " + Resp;
+
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    strTitulo = "Exepción Encontrada";
+                    boolExitoso = false;
+                    strMensaje = "Ocurrió una excepción no esperada... Detalles =" + ex.Message;
+                }
+
+            }
+
+            var objRes = new { success = boolExitoso, titulo = strTitulo, mensaje = strMensaje };
+
+            return Json(objRes, JsonRequestBehavior.AllowGet);
         }
     }
 }

@@ -35,7 +35,7 @@ namespace wcfMinIndustria.Model
             }
             return objPerfilVM;
         }
-
+        //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* LISTADOS -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
         //LISTADO DE BACHES CIUDADANO
         public List<BachesVM> Listado()
         {
@@ -65,6 +65,67 @@ namespace wcfMinIndustria.Model
             }
             return objLista;
         }
+
+        //LISTADO DE DAÑOS AL AUTO
+        public List<DanoVM> ListadoDano()
+        {
+            List<DanoVM> objLista = new List<DanoVM>();
+            try
+            {
+                var objBaches = db.ReporteDano;
+
+                foreach (var reg in objBaches)
+                {
+                    objLista.Add(new DanoVM()
+                    {
+                        IdReporte = reg.IdReporte,
+                        TipoDano = reg.TipoDano,
+                        CostoReparacion = reg.CostoReparacion,
+                        IdUsuario = reg.IdUsuario,
+                        IdBache = reg.IdBache,
+                        Fcreacion = reg.Fecha.ToString("yyyy-MM-dd")
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return objLista;
+        }
+
+        //LISTADO DE INFORME DE REPORTE
+        public List<InformeVM> ListadoInforme()
+        {
+            List<InformeVM> objLista = new List<InformeVM>();
+            try
+            {
+                var objBaches = db.InformeBache;
+
+                foreach (var reg in objBaches)
+                {
+                    objLista.Add(new InformeVM()
+                    {
+                        IdInformeBache = reg.IdInformeBache,
+                        Ubicacion = reg.Ubicacion,
+                        Tamano = reg.Tamano,
+                        Brigada = reg.Brigada,
+                        Equipamiento = reg.Equipamiento,
+                        HorasDeReparacion = reg.HorasDeReparacion,
+                        EstadoBache = reg.EstadoBache,
+                        CantRelleno = reg.CantRelleno,
+                        CostoBache = reg.CostoBache,
+                        IdBache = reg.IdBache,
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return objLista;
+        }
+        //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* REGISTROS -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 
         //REGISTRAR REPORTE DE BACHE
         public Respuesta RegistroReporteBache(BachesVM objRegistroBaches)
@@ -130,33 +191,40 @@ namespace wcfMinIndustria.Model
             }
             return objResp;
         }
-
-        //LISTADO DE DAÑOS AL AUTO
-        public List<DanoVM> ListadoDano()
+        //REGISTRAR INFORME DE REPORTE DE BACHES
+        public Respuesta RegistroInforme(InformeVM objRegistroInforme)
         {
-            List<DanoVM> objLista = new List<DanoVM>();
+            Respuesta objResp = new Respuesta();
+
+            System.Data.Entity.Core.Objects.ObjectParameter Resp = new System.Data.Entity.Core.Objects.ObjectParameter("RESPUESTA", 0);
+            System.Data.Entity.Core.Objects.ObjectParameter DescError = new System.Data.Entity.Core.Objects.ObjectParameter("DESCRIPCION", "");
+            System.Data.Entity.Core.Objects.ObjectParameter IdNuevaSolicitud = new System.Data.Entity.Core.Objects.ObjectParameter("IDNuevaSolicitud", 0);
+
             try
             {
-                var objBaches = db.ReporteDano;
+                db.USP_REGISTRO_INFORME(objRegistroInforme.Ubicacion, objRegistroInforme.Tamano, objRegistroInforme.Brigada, objRegistroInforme.Equipamiento,
+                    objRegistroInforme.HorasDeReparacion, objRegistroInforme.EstadoBache, objRegistroInforme.CantRelleno, objRegistroInforme.CostoBache,
+                    objRegistroInforme.IdBache, Resp, DescError, IdNuevaSolicitud);
 
-                foreach (var reg in objBaches)
+                objResp.IdRespuesta = (int)Resp.Value;
+                objResp.Mensaje = DescError.Value.ToString();
+
+                if (objResp.IdRespuesta == 0) //Sin Error
                 {
-                    objLista.Add(new DanoVM()
-                    {
-                        IdReporte = reg.IdReporte,
-                        TipoDano = reg.TipoDano,
-                        CostoReparacion = reg.CostoReparacion,
-                        IdUsuario = reg.IdUsuario,
-                        IdBache = reg.IdBache,
-                        Fcreacion = reg.Fecha.ToString("yyyy-MM-dd")
-                    });
+                    objRegistroInforme.IdInformeBache = Convert.ToInt16(IdNuevaSolicitud.Value);
+
+                    objResp.IdSolicitud = Convert.ToInt16(objRegistroInforme.IdInformeBache);
+
                 }
             }
             catch (Exception ex)
             {
+                objResp.IdRespuesta = 1;
 
             }
-            return objLista;
+            return objResp;
         }
+
+       
     }
 }

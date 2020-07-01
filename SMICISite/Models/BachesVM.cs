@@ -12,6 +12,7 @@ namespace SMICISite.Models
         public string Calle { set; get; }
         public string Distrito { set; get; }
         [Display(Name = "Tamaño")]
+
         public string Tamano { set; get; }
         [Display(Name = "Posición")]
         public string Posicion { set; get; }

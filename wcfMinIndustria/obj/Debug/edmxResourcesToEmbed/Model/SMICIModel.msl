@@ -39,6 +39,7 @@
     <EntitySetMapping Name="InformeBache">
       <EntityTypeMapping TypeName="SMICIModelo.InformeBache">
         <MappingFragment StoreEntitySet="InformeBache">
+          <ScalarProperty Name="IdInformeBache" ColumnName="IdInformeBache" />
           <ScalarProperty Name="CostoBache" ColumnName="CostoBache" />
           <ScalarProperty Name="CantRelleno" ColumnName="CantRelleno" />
           <ScalarProperty Name="EstadoBache" ColumnName="EstadoBache" />
@@ -94,5 +95,6 @@
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="USP_REGISTRO_SOLICITUD_BACHE" FunctionName="SMICIModelo.Store.USP_REGISTRO_SOLICITUD_BACHE" />
     <FunctionImportMapping FunctionImportName="USP_REGISTRO_DANO_DEL_AUTO" FunctionName="SMICIModelo.Store.USP_REGISTRO_DANO_DEL_AUTO" />
+    <FunctionImportMapping FunctionImportName="USP_REGISTRO_INFORME" FunctionName="SMICIModelo.Store.USP_REGISTRO_INFORME" />
   </EntityContainerMapping>
 </Mapping>

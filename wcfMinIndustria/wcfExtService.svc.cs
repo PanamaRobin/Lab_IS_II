@@ -20,6 +20,7 @@ namespace wcfMinIndustria
             return objDataManager.Login(strUsuario, strPass);
         }
 
+        //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* LISTADOS -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
         //LISTADO DE BACHES CIUDADANO
         public List<BachesVM> Listado()
         {
@@ -28,26 +29,6 @@ namespace wcfMinIndustria
             Res = objDataManager.Listado();
 
             return Res;
-        }
-
-        //REPORTE DE BACHES CIUDADANO
-        public Respuesta RegistroReporteBache(BachesVM objRegistroBaches)
-        {
-            Respuesta objResp = new Respuesta();
-
-            objResp = objDataManager.RegistroReporteBache(objRegistroBaches);
-
-            return objResp;
-        }
-
-        //REPORTE DE DAÑOS CIUDADANO
-        public Respuesta RegistroReporteDano(DanoVM objRegistroDano)
-        {
-            Respuesta objResp = new Respuesta();
-
-            objResp = objDataManager.RegistroReporteDano(objRegistroDano);
-
-            return objResp;
         }
 
         //LISTADO DE DAÑOS CIUDADANO
@@ -59,5 +40,47 @@ namespace wcfMinIndustria
 
             return Res;
         }
+
+        //LISTADO DE INFORME DE REPORTE
+        public List<InformeVM> ListadoInforme()
+        {
+            List<InformeVM> Res = new List<InformeVM>();
+
+            Res = objDataManager.ListadoInforme();
+
+            return Res;
+        }
+
+        //-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* REGISTROS -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+        //REGISTRO DE BACHES CIUDADANO
+        public Respuesta RegistroReporteBache(BachesVM objRegistroBaches)
+        {
+            Respuesta objResp = new Respuesta();
+
+            objResp = objDataManager.RegistroReporteBache(objRegistroBaches);
+
+            return objResp;
+        }
+
+        //REGISTRO DE DAÑOS CIUDADANO
+        public Respuesta RegistroReporteDano(DanoVM objRegistroDano)
+        {
+            Respuesta objResp = new Respuesta();
+
+            objResp = objDataManager.RegistroReporteDano(objRegistroDano);
+
+            return objResp;
+        }
+
+        //REGISTRO DE INFORME DE REPORTE
+        public Respuesta RegistroInforme(InformeVM objRegistroInforme)
+        {
+            Respuesta objResp = new Respuesta();
+
+            objResp = objDataManager.RegistroInforme(objRegistroInforme);
+
+            return objResp;
+        }
+
     }
 }
