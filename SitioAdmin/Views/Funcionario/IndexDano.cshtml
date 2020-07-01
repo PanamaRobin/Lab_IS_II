@@ -31,29 +31,40 @@
                                         <th style="width:auto">
                                             Fecha de Creación
                                         </th>
+                                        <th style="width:auto">
+                                            Estado
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach (var item in Model)
                                     {
-                        <tr>
-                            <td style="width:auto">
-                                @Html.DisplayFor(modelItem => item.IdReporte)
-                            </td>
-                            <td style="width:auto">
-                                @Html.DisplayFor(modelItem => item.TipoDano)
-                            </td>
-                            <td style="width:auto">
-                                @Html.DisplayFor(modelItem => item.CostoReparacion)
-                            </td>
-                            <td style="width:auto">
-                                @Html.DisplayFor(modelItem => item.IdBache)
-                            </td>
-                            <td style="width:auto">
-                                @Html.DisplayFor(modelItem => item.Fcreacion)
-                            </td>
+                                    <tr>
+                                        <td style="width:auto">
+                                            @Html.DisplayFor(modelItem => item.IdReporte)
+                                        </td>
+                                        <td style="width:auto">
+                                            @Html.DisplayFor(modelItem => item.TipoDano)
+                                        </td>
+                                        <td style="width:auto">
+                                            @Html.DisplayFor(modelItem => item.CostoReparacion)
+                                        </td>
+                                        <td style="width:auto">
+                                            @Html.DisplayFor(modelItem => item.IdBache)
+                                        </td>
+                                        <td style="width:auto">
+                                            @Html.DisplayFor(modelItem => item.Fcreacion)
+                                        </td>
+                                        <td style="width:auto">
+                                            @if (item.Estado == "Activo")
+                                            {
+                                                <span class="label label-danger">
+                                                    Activo
+                                                </span>
+                                            }
+                                        </td>
 
-                        </tr>
+                                    </tr>
 }
 
                                 </tbody>

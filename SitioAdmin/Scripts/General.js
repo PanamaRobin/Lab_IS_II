@@ -161,6 +161,49 @@ function CrearInformeReporte() {
 
     //return Resp;
 }
+function ActualizarEstado() {
+    var Resp = false;
+
+    // Guardar todos los datos de la nueva solicitud
+    var DatosNewSolicitud = {
+        //Indice 1
+        IdBache: $('#IdBache').val(),
+        Calle: $('#Calle').val(),
+        Distrito: $('#Distrito').val(),
+        Tamano: $('#Tamano').val(),
+        Posicion: $('#Posicion').val(),
+        Usuario: $('#Usuario').val(),
+        Prioridad: $('#Prioridad').val(),
+        Fcreacion: $('#Fcreacion').val(),
+        Estado: $('#Estado').val(),
+    }
+
+    $.ajax({
+        url: RootURL + "Solicitud/ActualizaSolicitud",
+        type: "Post",
+        cache: true,
+        data: DatosNewSolicitud,
+        success: function (data) {
+            Resp = data.success;
+            if (data.success != true) {
+                GritterPop(data);
+            }
+            else {
+                MostrarPantallaInformacion(data.mensaje, data.titulo, function () {
+                    //$.spin('true');
+                    window.location.href = RootURL + 'Solicitud/Index';
+                });
+            }
+        },
+        error: function (response) {
+            $.spin('false');
+            ManejaErroresAJAXSession(response);
+            Resp = false;
+        }
+    });
+
+    return Resp;
+}
 
 //function EliminarReporte(IdBache) {
 //    $.ajax({
@@ -472,7 +515,7 @@ function FormatearTablas() {
             "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
             "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
             "sInfoPostFix": "",
-            "sSearch": "Buscar:",
+            "sSearch": "Buscar: ",
             "sUrl": "",
             "sInfoThousands": ",",
             "sLoadingRecords": "Cargando...",
@@ -508,7 +551,7 @@ function FormatearDataTablePuntual() {
             "sInfoEmpty": "Mostrando del 0 al 0 de 0 registros",
             "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
             "sInfoPostFix": "",
-            "sSearch": "Buscar:",
+            "sSearch": "Buscar: ",
             "sUrl": "",
             "sInfoThousands": ",",
             "sLoadingRecords": "Cargando...",

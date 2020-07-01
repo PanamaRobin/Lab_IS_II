@@ -17,6 +17,7 @@
           <Property Name="Usuario" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Prioridad" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Fcreacion" Type="datetime" Nullable="false" />
+          <Property Name="Estado" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'Baches.dbo.InformeBache' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -54,6 +55,7 @@ warning 6002: The table/view 'Baches.dbo.ReporteDano' does not have a primary ke
             <PropertyRef Name="IdUsuario" />
             <PropertyRef Name="IdBache" />
             <PropertyRef Name="Fecha" />
+            <PropertyRef Name="Estado" />
           </Key>
           <Property Name="IdReporte" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TipoDano" Type="varchar" MaxLength="50" Nullable="false" />
@@ -61,6 +63,7 @@ warning 6002: The table/view 'Baches.dbo.ReporteDano' does not have a primary ke
           <Property Name="IdUsuario" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="IdBache" Type="int" Nullable="false" />
           <Property Name="Fecha" Type="datetime" Nullable="false" />
+          <Property Name="Estado" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Tipo">
           <Key>
@@ -168,7 +171,8 @@ warning 6002: The table/view 'Baches.dbo.ReporteDano' does not have a primary ke
     [ReporteDano].[CostoReparacion] AS [CostoReparacion], 
     [ReporteDano].[IdUsuario] AS [IdUsuario], 
     [ReporteDano].[IdBache] AS [IdBache], 
-    [ReporteDano].[Fecha] AS [Fecha]
+    [ReporteDano].[Fecha] AS [Fecha], 
+    [ReporteDano].[Estado] AS [Estado]
     FROM [dbo].[ReporteDano] AS [ReporteDano]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK4" Association="Self.FK4">
@@ -209,6 +213,20 @@ warning 6002: The table/view 'Baches.dbo.ReporteDano' does not have a primary ke
           <FunctionImport Name="LISTADO_BACHES" ReturnType="Collection(SMICIModelo.LISTADO_BACHES_Result)">
           <Parameter Name="IDUSUARIO" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="USP_REGISTRO_INFORME">
+            <Parameter Name="Ubicacion" Mode="In" Type="String" />
+            <Parameter Name="Tamano" Mode="In" Type="Double" />
+            <Parameter Name="Brigada" Mode="In" Type="String" />
+            <Parameter Name="Equipamiento" Mode="In" Type="String" />
+            <Parameter Name="HorasDeReparacion" Mode="In" Type="String" />
+            <Parameter Name="EstadoBache" Mode="In" Type="String" />
+            <Parameter Name="CantRelleno" Mode="In" Type="String" />
+            <Parameter Name="CostoBache" Mode="In" Type="Double" />
+            <Parameter Name="IdBache" Mode="In" Type="Int32" />
+            <Parameter Name="RESPUESTA" Mode="InOut" Type="Int32" />
+            <Parameter Name="DESCRIPCION" Mode="InOut" Type="String" />
+            <Parameter Name="IDNuevaSolicitud" Mode="InOut" Type="String" />
+          </FunctionImport>
           <FunctionImport Name="USP_REGISTRO_SOLICITUD_BACHE">
             <Parameter Name="CALLE" Mode="In" Type="String" />
             <Parameter Name="DISTRITO" Mode="In" Type="String" />
@@ -221,20 +239,6 @@ warning 6002: The table/view 'Baches.dbo.ReporteDano' does not have a primary ke
           <FunctionImport Name="USP_REGISTRO_DANO_DEL_AUTO">
             <Parameter Name="TipoDano" Mode="In" Type="String" />
             <Parameter Name="CostoReparacion" Mode="In" Type="Double" />
-            <Parameter Name="IdBache" Mode="In" Type="Int32" />
-            <Parameter Name="RESPUESTA" Mode="InOut" Type="Int32" />
-            <Parameter Name="DESCRIPCION" Mode="InOut" Type="String" />
-            <Parameter Name="IDNuevaSolicitud" Mode="InOut" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="USP_REGISTRO_INFORME">
-            <Parameter Name="Ubicacion" Mode="In" Type="String" />
-            <Parameter Name="Tamano" Mode="In" Type="Double" />
-            <Parameter Name="Brigada" Mode="In" Type="String" />
-            <Parameter Name="Equipamiento" Mode="In" Type="String" />
-            <Parameter Name="HorasDeReparacion" Mode="In" Type="String" />
-            <Parameter Name="EstadoBache" Mode="In" Type="String" />
-            <Parameter Name="CantRelleno" Mode="In" Type="String" />
-            <Parameter Name="CostoBache" Mode="In" Type="Double" />
             <Parameter Name="IdBache" Mode="In" Type="Int32" />
             <Parameter Name="RESPUESTA" Mode="InOut" Type="Int32" />
             <Parameter Name="DESCRIPCION" Mode="InOut" Type="String" />
@@ -254,6 +258,7 @@ warning 6002: The table/view 'Baches.dbo.ReporteDano' does not have a primary ke
           <Property Name="Prioridad" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="ReporteDano" Relationship="SMICIModelo.FK4" FromRole="Baches" ToRole="ReporteDano" />
           <Property Name="Fcreacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Estado" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Tipo">
           <Key>
@@ -306,6 +311,7 @@ warning 6002: The table/view 'Baches.dbo.ReporteDano' does not have a primary ke
             <PropertyRef Name="IdUsuario" />
             <PropertyRef Name="IdBache" />
             <PropertyRef Name="Fecha" />
+            <PropertyRef Name="Estado" />
           </Key>
           <Property Name="IdReporte" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TipoDano" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -314,6 +320,7 @@ warning 6002: The table/view 'Baches.dbo.ReporteDano' does not have a primary ke
           <Property Name="IdBache" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Baches" Relationship="SMICIModelo.FK4" FromRole="ReporteDano" ToRole="Baches" />
           <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Estado" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK4">
           <End Type="SMICIModelo.Baches" Role="Baches" Multiplicity="1" />
@@ -355,6 +362,7 @@ warning 6002: The table/view 'Baches.dbo.ReporteDano' does not have a primary ke
           <EntitySetMapping Name="Baches">
             <EntityTypeMapping TypeName="SMICIModelo.Baches">
               <MappingFragment StoreEntitySet="Baches">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
                 <ScalarProperty Name="Fcreacion" ColumnName="Fcreacion" />
                 <ScalarProperty Name="Prioridad" ColumnName="Prioridad" />
                 <ScalarProperty Name="Usuario" ColumnName="Usuario" />
@@ -406,6 +414,7 @@ warning 6002: The table/view 'Baches.dbo.ReporteDano' does not have a primary ke
           <EntitySetMapping Name="ReporteDano">
             <EntityTypeMapping TypeName="SMICIModelo.ReporteDano">
               <MappingFragment StoreEntitySet="ReporteDano">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
                 <ScalarProperty Name="Fecha" ColumnName="Fecha" />
                 <ScalarProperty Name="IdBache" ColumnName="IdBache" />
                 <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
@@ -444,9 +453,9 @@ warning 6002: The table/view 'Baches.dbo.ReporteDano' does not have a primary ke
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USP_REGISTRO_INFORME" FunctionName="SMICIModelo.Store.USP_REGISTRO_INFORME" />
           <FunctionImportMapping FunctionImportName="USP_REGISTRO_SOLICITUD_BACHE" FunctionName="SMICIModelo.Store.USP_REGISTRO_SOLICITUD_BACHE" />
           <FunctionImportMapping FunctionImportName="USP_REGISTRO_DANO_DEL_AUTO" FunctionName="SMICIModelo.Store.USP_REGISTRO_DANO_DEL_AUTO" />
-          <FunctionImportMapping FunctionImportName="USP_REGISTRO_INFORME" FunctionName="SMICIModelo.Store.USP_REGISTRO_INFORME" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

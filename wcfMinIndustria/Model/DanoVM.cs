@@ -13,5 +13,6 @@ namespace wcfMinIndustria.Model
         public string IdUsuario { set; get; }
         public int IdBache { set; get; }
         public string Fcreacion { set; get; }
+        public string Estado { set; get; }
     }
 }

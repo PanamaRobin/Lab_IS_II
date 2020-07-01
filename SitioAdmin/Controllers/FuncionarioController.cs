@@ -29,7 +29,8 @@ namespace SitioAdmin.Controllers
                     Posicion = fila.Posicion,
                     Usuario = fila.Usuario,
                     Prioridad = fila.Prioridad,
-                    Fcreacion = fila.Fcreacion
+                    Fcreacion = fila.Fcreacion,
+                    Estado = fila.Estado
                 });
             }
             return View(objLista);
@@ -80,7 +81,8 @@ namespace SitioAdmin.Controllers
                     CostoReparacion = fila.CostoReparacion,
                     IdUsuario = fila.IdUsuario,
                     IdBache = fila.IdBache,
-                    Fcreacion = fila.Fcreacion
+                    Fcreacion = fila.Fcreacion,
+                    Estado = fila.Estado
                 });
             }
             return View(objLista);
@@ -145,5 +147,6 @@ namespace SitioAdmin.Controllers
             var objRes = new { success = boolexitoso, titulo = strTitulo, mensaje = strMensaje, IdSolicitud = IdSolicitud };
             return Json(objRes, JsonRequestBehavior.AllowGet);
         }
+
     }
 }

@@ -154,6 +154,9 @@ namespace SMICISite.wcfServicio {
         private string DistritoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EstadoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string FcreacionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -203,6 +206,19 @@ namespace SMICISite.wcfServicio {
                 if ((object.ReferenceEquals(this.DistritoField, value) != true)) {
                     this.DistritoField = value;
                     this.RaisePropertyChanged("Distrito");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Estado {
+            get {
+                return this.EstadoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EstadoField, value) != true)) {
+                    this.EstadoField = value;
+                    this.RaisePropertyChanged("Estado");
                 }
             }
         }
@@ -281,6 +297,336 @@ namespace SMICISite.wcfServicio {
                 if ((object.ReferenceEquals(this.UsuarioField, value) != true)) {
                     this.UsuarioField = value;
                     this.RaisePropertyChanged("Usuario");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DanoVM", Namespace="http://schemas.datacontract.org/2004/07/wcfMinIndustria.Model")]
+    [System.SerializableAttribute()]
+    public partial class DanoVM : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double CostoReparacionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EstadoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FcreacionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdBacheField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdReporteField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string IdUsuarioField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TipoDanoField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double CostoReparacion {
+            get {
+                return this.CostoReparacionField;
+            }
+            set {
+                if ((this.CostoReparacionField.Equals(value) != true)) {
+                    this.CostoReparacionField = value;
+                    this.RaisePropertyChanged("CostoReparacion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Estado {
+            get {
+                return this.EstadoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EstadoField, value) != true)) {
+                    this.EstadoField = value;
+                    this.RaisePropertyChanged("Estado");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Fcreacion {
+            get {
+                return this.FcreacionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FcreacionField, value) != true)) {
+                    this.FcreacionField = value;
+                    this.RaisePropertyChanged("Fcreacion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int IdBache {
+            get {
+                return this.IdBacheField;
+            }
+            set {
+                if ((this.IdBacheField.Equals(value) != true)) {
+                    this.IdBacheField = value;
+                    this.RaisePropertyChanged("IdBache");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int IdReporte {
+            get {
+                return this.IdReporteField;
+            }
+            set {
+                if ((this.IdReporteField.Equals(value) != true)) {
+                    this.IdReporteField = value;
+                    this.RaisePropertyChanged("IdReporte");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string IdUsuario {
+            get {
+                return this.IdUsuarioField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IdUsuarioField, value) != true)) {
+                    this.IdUsuarioField = value;
+                    this.RaisePropertyChanged("IdUsuario");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TipoDano {
+            get {
+                return this.TipoDanoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TipoDanoField, value) != true)) {
+                    this.TipoDanoField = value;
+                    this.RaisePropertyChanged("TipoDano");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="InformeVM", Namespace="http://schemas.datacontract.org/2004/07/wcfMinIndustria.Model")]
+    [System.SerializableAttribute()]
+    public partial class InformeVM : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string BrigadaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CantRellenoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double CostoBacheField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EquipamientoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EstadoBacheField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string HorasDeReparacionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdBacheField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdInformeBacheField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double TamanoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UbicacionField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Brigada {
+            get {
+                return this.BrigadaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BrigadaField, value) != true)) {
+                    this.BrigadaField = value;
+                    this.RaisePropertyChanged("Brigada");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CantRelleno {
+            get {
+                return this.CantRellenoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CantRellenoField, value) != true)) {
+                    this.CantRellenoField = value;
+                    this.RaisePropertyChanged("CantRelleno");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double CostoBache {
+            get {
+                return this.CostoBacheField;
+            }
+            set {
+                if ((this.CostoBacheField.Equals(value) != true)) {
+                    this.CostoBacheField = value;
+                    this.RaisePropertyChanged("CostoBache");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Equipamiento {
+            get {
+                return this.EquipamientoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EquipamientoField, value) != true)) {
+                    this.EquipamientoField = value;
+                    this.RaisePropertyChanged("Equipamiento");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EstadoBache {
+            get {
+                return this.EstadoBacheField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EstadoBacheField, value) != true)) {
+                    this.EstadoBacheField = value;
+                    this.RaisePropertyChanged("EstadoBache");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string HorasDeReparacion {
+            get {
+                return this.HorasDeReparacionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.HorasDeReparacionField, value) != true)) {
+                    this.HorasDeReparacionField = value;
+                    this.RaisePropertyChanged("HorasDeReparacion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int IdBache {
+            get {
+                return this.IdBacheField;
+            }
+            set {
+                if ((this.IdBacheField.Equals(value) != true)) {
+                    this.IdBacheField = value;
+                    this.RaisePropertyChanged("IdBache");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int IdInformeBache {
+            get {
+                return this.IdInformeBacheField;
+            }
+            set {
+                if ((this.IdInformeBacheField.Equals(value) != true)) {
+                    this.IdInformeBacheField = value;
+                    this.RaisePropertyChanged("IdInformeBache");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Tamano {
+            get {
+                return this.TamanoField;
+            }
+            set {
+                if ((this.TamanoField.Equals(value) != true)) {
+                    this.TamanoField = value;
+                    this.RaisePropertyChanged("Tamano");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Ubicacion {
+            get {
+                return this.UbicacionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UbicacionField, value) != true)) {
+                    this.UbicacionField = value;
+                    this.RaisePropertyChanged("Ubicacion");
                 }
             }
         }
@@ -388,131 +734,6 @@ namespace SMICISite.wcfServicio {
         }
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="DanoVM", Namespace="http://schemas.datacontract.org/2004/07/wcfMinIndustria.Model")]
-    [System.SerializableAttribute()]
-    public partial class DanoVM : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double CostoReparacionField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string FcreacionField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdBacheField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdReporteField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string IdUsuarioField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string TipoDanoField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double CostoReparacion {
-            get {
-                return this.CostoReparacionField;
-            }
-            set {
-                if ((this.CostoReparacionField.Equals(value) != true)) {
-                    this.CostoReparacionField = value;
-                    this.RaisePropertyChanged("CostoReparacion");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Fcreacion {
-            get {
-                return this.FcreacionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.FcreacionField, value) != true)) {
-                    this.FcreacionField = value;
-                    this.RaisePropertyChanged("Fcreacion");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int IdBache {
-            get {
-                return this.IdBacheField;
-            }
-            set {
-                if ((this.IdBacheField.Equals(value) != true)) {
-                    this.IdBacheField = value;
-                    this.RaisePropertyChanged("IdBache");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int IdReporte {
-            get {
-                return this.IdReporteField;
-            }
-            set {
-                if ((this.IdReporteField.Equals(value) != true)) {
-                    this.IdReporteField = value;
-                    this.RaisePropertyChanged("IdReporte");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string IdUsuario {
-            get {
-                return this.IdUsuarioField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.IdUsuarioField, value) != true)) {
-                    this.IdUsuarioField = value;
-                    this.RaisePropertyChanged("IdUsuario");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string TipoDano {
-            get {
-                return this.TipoDanoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TipoDanoField, value) != true)) {
-                    this.TipoDanoField = value;
-                    this.RaisePropertyChanged("TipoDano");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="wcfServicio.IwcfExtService")]
     public interface IwcfExtService {
@@ -529,6 +750,18 @@ namespace SMICISite.wcfServicio {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IwcfExtService/Listado", ReplyAction="http://tempuri.org/IwcfExtService/ListadoResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<SMICISite.wcfServicio.BachesVM>> ListadoAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IwcfExtService/ListadoDano", ReplyAction="http://tempuri.org/IwcfExtService/ListadoDanoResponse")]
+        System.Collections.Generic.List<SMICISite.wcfServicio.DanoVM> ListadoDano();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IwcfExtService/ListadoDano", ReplyAction="http://tempuri.org/IwcfExtService/ListadoDanoResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<SMICISite.wcfServicio.DanoVM>> ListadoDanoAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IwcfExtService/ListadoInforme", ReplyAction="http://tempuri.org/IwcfExtService/ListadoInformeResponse")]
+        System.Collections.Generic.List<SMICISite.wcfServicio.InformeVM> ListadoInforme();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IwcfExtService/ListadoInforme", ReplyAction="http://tempuri.org/IwcfExtService/ListadoInformeResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<SMICISite.wcfServicio.InformeVM>> ListadoInformeAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IwcfExtService/RegistroReporteBache", ReplyAction="http://tempuri.org/IwcfExtService/RegistroReporteBacheResponse")]
         SMICISite.wcfServicio.Respuesta RegistroReporteBache(SMICISite.wcfServicio.BachesVM objRegistroBaches);
         
@@ -541,11 +774,11 @@ namespace SMICISite.wcfServicio {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IwcfExtService/RegistroReporteDano", ReplyAction="http://tempuri.org/IwcfExtService/RegistroReporteDanoResponse")]
         System.Threading.Tasks.Task<SMICISite.wcfServicio.Respuesta> RegistroReporteDanoAsync(SMICISite.wcfServicio.DanoVM objRegistroDano);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IwcfExtService/ListadoDano", ReplyAction="http://tempuri.org/IwcfExtService/ListadoDanoResponse")]
-        System.Collections.Generic.List<SMICISite.wcfServicio.DanoVM> ListadoDano();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IwcfExtService/RegistroInforme", ReplyAction="http://tempuri.org/IwcfExtService/RegistroInformeResponse")]
+        SMICISite.wcfServicio.Respuesta RegistroInforme(SMICISite.wcfServicio.InformeVM objRegistroInforme);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IwcfExtService/ListadoDano", ReplyAction="http://tempuri.org/IwcfExtService/ListadoDanoResponse")]
-        System.Threading.Tasks.Task<System.Collections.Generic.List<SMICISite.wcfServicio.DanoVM>> ListadoDanoAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IwcfExtService/RegistroInforme", ReplyAction="http://tempuri.org/IwcfExtService/RegistroInformeResponse")]
+        System.Threading.Tasks.Task<SMICISite.wcfServicio.Respuesta> RegistroInformeAsync(SMICISite.wcfServicio.InformeVM objRegistroInforme);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -591,6 +824,22 @@ namespace SMICISite.wcfServicio {
             return base.Channel.ListadoAsync();
         }
         
+        public System.Collections.Generic.List<SMICISite.wcfServicio.DanoVM> ListadoDano() {
+            return base.Channel.ListadoDano();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<SMICISite.wcfServicio.DanoVM>> ListadoDanoAsync() {
+            return base.Channel.ListadoDanoAsync();
+        }
+        
+        public System.Collections.Generic.List<SMICISite.wcfServicio.InformeVM> ListadoInforme() {
+            return base.Channel.ListadoInforme();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<SMICISite.wcfServicio.InformeVM>> ListadoInformeAsync() {
+            return base.Channel.ListadoInformeAsync();
+        }
+        
         public SMICISite.wcfServicio.Respuesta RegistroReporteBache(SMICISite.wcfServicio.BachesVM objRegistroBaches) {
             return base.Channel.RegistroReporteBache(objRegistroBaches);
         }
@@ -607,12 +856,12 @@ namespace SMICISite.wcfServicio {
             return base.Channel.RegistroReporteDanoAsync(objRegistroDano);
         }
         
-        public System.Collections.Generic.List<SMICISite.wcfServicio.DanoVM> ListadoDano() {
-            return base.Channel.ListadoDano();
+        public SMICISite.wcfServicio.Respuesta RegistroInforme(SMICISite.wcfServicio.InformeVM objRegistroInforme) {
+            return base.Channel.RegistroInforme(objRegistroInforme);
         }
         
-        public System.Threading.Tasks.Task<System.Collections.Generic.List<SMICISite.wcfServicio.DanoVM>> ListadoDanoAsync() {
-            return base.Channel.ListadoDanoAsync();
+        public System.Threading.Tasks.Task<SMICISite.wcfServicio.Respuesta> RegistroInformeAsync(SMICISite.wcfServicio.InformeVM objRegistroInforme) {
+            return base.Channel.RegistroInformeAsync(objRegistroInforme);
         }
     }
 }

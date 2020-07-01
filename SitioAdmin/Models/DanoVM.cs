@@ -17,5 +17,6 @@ namespace SitioAdmin.Models
         [Display(Name = "No. de Bache")]
         public int IdBache { set; get; }
         public string Fcreacion { set; get; }
+        public string Estado { set; get; }
     }
 }

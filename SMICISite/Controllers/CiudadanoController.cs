@@ -29,7 +29,8 @@ namespace SMICISite.Controllers
                     Posicion = fila.Posicion,
                     Usuario = fila.Usuario,
                     Prioridad = fila.Prioridad,
-                    Fcreacion = fila.Fcreacion
+                    Fcreacion = fila.Fcreacion,
+                    Estado = fila.Estado
                 });
             }
             return View(objLista);
@@ -164,7 +165,8 @@ namespace SMICISite.Controllers
                     CostoReparacion = fila.CostoReparacion,
                     IdUsuario = fila.IdUsuario,
                     IdBache = fila.IdBache,
-                    Fcreacion = fila.Fcreacion
+                    Fcreacion = fila.Fcreacion,
+                    Estado = fila.Estado
                 });
             }
             return View(objLista);

@@ -15,5 +15,6 @@ namespace wcfMinIndustria.Model
         public string Usuario { set; get; }
         public string Prioridad { set; get; }
         public string Fcreacion { set; get; }
+        public string Estado { set; get; }
     }
 }

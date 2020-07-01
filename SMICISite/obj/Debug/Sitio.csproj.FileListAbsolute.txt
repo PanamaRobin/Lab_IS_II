@@ -145,8 +145,8 @@ C:\Users\jdjpm\OneDrive\Escritorio\Lab_IS_II\SMICISite\bin\System.Web.WebPages.R
 C:\Users\jdjpm\OneDrive\Escritorio\Lab_IS_II\SMICISite\bin\Newtonsoft.Json.xml
 C:\Users\jdjpm\OneDrive\Escritorio\Lab_IS_II\SMICISite\bin\Antlr3.Runtime.pdb
 C:\Users\jdjpm\OneDrive\Escritorio\Lab_IS_II\SMICISite\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\jdjpm\OneDrive\Escritorio\Lab_IS_II\SMICISite\obj\Debug\Sitio.csprojAssemblyReference.cache
 C:\Users\jdjpm\OneDrive\Escritorio\Lab_IS_II\SMICISite\obj\Debug\Sitio.csproj.CoreCompileInputs.cache
 C:\Users\jdjpm\OneDrive\Escritorio\Lab_IS_II\SMICISite\obj\Debug\Sitio.csproj.CopyComplete
 C:\Users\jdjpm\OneDrive\Escritorio\Lab_IS_II\SMICISite\obj\Debug\SMICISite.dll
 C:\Users\jdjpm\OneDrive\Escritorio\Lab_IS_II\SMICISite\obj\Debug\SMICISite.pdb
-C:\Users\jdjpm\OneDrive\Escritorio\Lab_IS_II\SMICISite\obj\Debug\Sitio.csprojAssemblyReference.cache

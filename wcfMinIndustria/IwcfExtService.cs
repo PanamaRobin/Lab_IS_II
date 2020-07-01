@@ -39,5 +39,6 @@ namespace wcfMinIndustria
         //REGISTRO DE INFORME DE REPORTE
         [OperationContract]
         Respuesta RegistroInforme(InformeVM objRegistroInforme);
+
     }
 }

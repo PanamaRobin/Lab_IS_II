@@ -29,6 +29,20 @@
     <FunctionImport Name="LISTADO_BACHES" ReturnType="Collection(SMICIModelo.LISTADO_BACHES_Result)">
       <Parameter Name="IDUSUARIO" Mode="In" Type="String" />
     </FunctionImport>
+    <FunctionImport Name="USP_REGISTRO_INFORME">
+      <Parameter Name="Ubicacion" Mode="In" Type="String" />
+      <Parameter Name="Tamano" Mode="In" Type="Double" />
+      <Parameter Name="Brigada" Mode="In" Type="String" />
+      <Parameter Name="Equipamiento" Mode="In" Type="String" />
+      <Parameter Name="HorasDeReparacion" Mode="In" Type="String" />
+      <Parameter Name="EstadoBache" Mode="In" Type="String" />
+      <Parameter Name="CantRelleno" Mode="In" Type="String" />
+      <Parameter Name="CostoBache" Mode="In" Type="Double" />
+      <Parameter Name="IdBache" Mode="In" Type="Int32" />
+      <Parameter Name="RESPUESTA" Mode="InOut" Type="Int32" />
+      <Parameter Name="DESCRIPCION" Mode="InOut" Type="String" />
+      <Parameter Name="IDNuevaSolicitud" Mode="InOut" Type="String" />
+    </FunctionImport>
     <FunctionImport Name="USP_REGISTRO_SOLICITUD_BACHE">
       <Parameter Name="CALLE" Mode="In" Type="String" />
       <Parameter Name="DISTRITO" Mode="In" Type="String" />
@@ -41,20 +55,6 @@
     <FunctionImport Name="USP_REGISTRO_DANO_DEL_AUTO">
       <Parameter Name="TipoDano" Mode="In" Type="String" />
       <Parameter Name="CostoReparacion" Mode="In" Type="Double" />
-      <Parameter Name="IdBache" Mode="In" Type="Int32" />
-      <Parameter Name="RESPUESTA" Mode="InOut" Type="Int32" />
-      <Parameter Name="DESCRIPCION" Mode="InOut" Type="String" />
-      <Parameter Name="IDNuevaSolicitud" Mode="InOut" Type="String" />
-    </FunctionImport>
-    <FunctionImport Name="USP_REGISTRO_INFORME">
-      <Parameter Name="Ubicacion" Mode="In" Type="String" />
-      <Parameter Name="Tamano" Mode="In" Type="Double" />
-      <Parameter Name="Brigada" Mode="In" Type="String" />
-      <Parameter Name="Equipamiento" Mode="In" Type="String" />
-      <Parameter Name="HorasDeReparacion" Mode="In" Type="String" />
-      <Parameter Name="EstadoBache" Mode="In" Type="String" />
-      <Parameter Name="CantRelleno" Mode="In" Type="String" />
-      <Parameter Name="CostoBache" Mode="In" Type="Double" />
       <Parameter Name="IdBache" Mode="In" Type="Int32" />
       <Parameter Name="RESPUESTA" Mode="InOut" Type="Int32" />
       <Parameter Name="DESCRIPCION" Mode="InOut" Type="String" />
@@ -74,6 +74,7 @@
     <Property Name="Prioridad" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="ReporteDano" Relationship="SMICIModelo.FK4" FromRole="Baches" ToRole="ReporteDano" />
     <Property Name="Fcreacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Estado" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="Tipo">
     <Key>
@@ -126,6 +127,7 @@
       <PropertyRef Name="IdUsuario" />
       <PropertyRef Name="IdBache" />
       <PropertyRef Name="Fecha" />
+      <PropertyRef Name="Estado" />
     </Key>
     <Property Name="IdReporte" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="TipoDano" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -134,6 +136,7 @@
     <Property Name="IdBache" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Baches" Relationship="SMICIModelo.FK4" FromRole="ReporteDano" ToRole="Baches" />
     <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Estado" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <Association Name="FK4">
     <End Type="SMICIModelo.Baches" Role="Baches" Multiplicity="1" />

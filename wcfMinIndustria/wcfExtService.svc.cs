@@ -81,6 +81,5 @@ namespace wcfMinIndustria
 
             return objResp;
         }
-
     }
 }

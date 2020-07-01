@@ -11,7 +11,7 @@
             <div>
                 <div class="box shadow-window box-solid box-primary">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Listado de Solicitudes</h3>
+                        <h3 class="box-title">Listado de Reportes</h3>
                     </div>
                     <div class="box-body">
                         <div>
@@ -40,8 +40,12 @@
                                             Fecha de Creación
                                         </th>
                                         <th style="width:auto">
-                                          
+                                            Estado
                                         </th>
+                                        <th style="width:auto">
+
+                                        </th>
+                                      
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -51,18 +55,23 @@
                                         <td style="width:auto">
                                             @Html.DisplayFor(modelItem => item.IdBache)
                                         </td>
+
                                         <td style="width:auto">
                                             @Html.DisplayFor(modelItem => item.Calle)
                                         </td>
+
                                         <td style="width:auto">
                                             @Html.DisplayFor(modelItem => item.Distrito)
                                         </td>
+
                                         <td style="width:auto">
                                             @Html.DisplayFor(modelItem => item.Tamano)
                                         </td>
+
                                         <td style="width:auto">
                                             @Html.DisplayFor(modelItem => item.Posicion)
                                         </td>
+
                                         <td style="width:auto">
                                             @if (item.Prioridad == "Importante")
                                             {
@@ -78,18 +87,29 @@
                                             }
                                             @if (item.Prioridad == "Menos Importante")
                                             {
-                                        <span class="label label-primary">
-                                            Menos Importante
-                                        </span>
+                                                <span class="label label-primary">
+                                                    Menos Importante
+                                                </span>
                                             }
 
                                         </td>
+
                                         <td style="width:auto">
                                             @Html.DisplayFor(modelItem => item.Fcreacion)
                                         </td>
+
+                                        <td style="width:auto">
+                                            @if (item.Estado == "Activo")
+                                            {
+                                                <span class="label label-success">
+                                                    Activo
+                                                </span>}
+                                        </td>
+
                                         <td style="width:auto" class="text-center">
                                             <a href="@Url.Action("CreateInformeBache", "Funcionario")" class="btn btn-social-icon btn-warning text-sm-center" title="Generar Informe"><i class="fa fa-edit text-sm-center"></i></a>
                                         </td>
+
                                     </tr>
                                   
                                 }

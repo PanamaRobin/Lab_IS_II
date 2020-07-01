@@ -154,6 +154,9 @@ namespace SitioAdmin.wcfServicio {
         private string DistritoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EstadoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string FcreacionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -203,6 +206,19 @@ namespace SitioAdmin.wcfServicio {
                 if ((object.ReferenceEquals(this.DistritoField, value) != true)) {
                     this.DistritoField = value;
                     this.RaisePropertyChanged("Distrito");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Estado {
+            get {
+                return this.EstadoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EstadoField, value) != true)) {
+                    this.EstadoField = value;
+                    this.RaisePropertyChanged("Estado");
                 }
             }
         }
@@ -308,6 +324,9 @@ namespace SitioAdmin.wcfServicio {
         private double CostoReparacionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EstadoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string FcreacionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -341,6 +360,19 @@ namespace SitioAdmin.wcfServicio {
                 if ((this.CostoReparacionField.Equals(value) != true)) {
                     this.CostoReparacionField = value;
                     this.RaisePropertyChanged("CostoReparacion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Estado {
+            get {
+                return this.EstadoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EstadoField, value) != true)) {
+                    this.EstadoField = value;
+                    this.RaisePropertyChanged("Estado");
                 }
             }
         }

@@ -42,7 +42,7 @@ namespace wcfMinIndustria.Model
             List<BachesVM> objLista = new List<BachesVM>();
             try
             {
-                var objBaches = db.LISTADO_BACHES("Jorge");
+                var objBaches = db.Baches;
 
                 foreach (var reg in objBaches)
                 {
@@ -55,7 +55,8 @@ namespace wcfMinIndustria.Model
                         Posicion = reg.Posicion,
                         Usuario = reg.Usuario,
                         Prioridad = reg.Prioridad,
-                        Fcreacion = reg.Fcreacion.ToString("yyyy-MM-dd")
+                        Fcreacion = reg.Fcreacion.ToString("yyyy-MM-dd"),
+                        Estado = reg.Estado
                     });   
                 }
             }
@@ -83,7 +84,8 @@ namespace wcfMinIndustria.Model
                         CostoReparacion = reg.CostoReparacion,
                         IdUsuario = reg.IdUsuario,
                         IdBache = reg.IdBache,
-                        Fcreacion = reg.Fecha.ToString("yyyy-MM-dd")
+                        Fcreacion = reg.Fecha.ToString("yyyy-MM-dd"),
+                        Estado = reg.Estado
                     });
                 }
             }
@@ -225,6 +227,5 @@ namespace wcfMinIndustria.Model
             return objResp;
         }
 
-       
     }
 }
