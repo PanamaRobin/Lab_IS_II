@@ -7,7 +7,7 @@
     <div class="col-xs-12">
         <div class="panel-body">
             <div>
-                <div class="box shadow-window box-solid box-primary">
+                <div class="box shadow-window box-solid box-warning">
                     <div class="box-header with-border">
                         <h3 class="box-title">Listado de Solicitudes</h3>
                     </div>
@@ -42,33 +42,35 @@
                                 <tbody>
                                     @foreach (var item in Model)
                                     {
-                                    <tr>
-                                        <td style="width:auto">
-                                            @Html.DisplayFor(modelItem => item.IdBache)
-                                        </td>
-                                        <td style="width:auto">
-                                            @Html.DisplayFor(modelItem => item.Calle)
-                                        </td>
-                                        <td style="width:auto">
-                                            @Html.DisplayFor(modelItem => item.Distrito)
-                                        </td>
-                                        <td style="width:auto">
-                                            @Html.DisplayFor(modelItem => item.Tamano)
-                                        </td>
-                                        <td style="width:auto">
-                                            @Html.DisplayFor(modelItem => item.Posicion)
-                                        </td>
-                                        <td style="width:auto">
-                                            @Html.DisplayFor(modelItem => item.Fcreacion)
-                                        </td>
-                                        <td style="width:auto">
-                                            @if (item.Estado == "Activo")
-                                            {
-                                                <span class="label label-success">
-                                                    Activo
-                                                </span>}
-                                        </td>
-                                    </tr>}
+                                        <tr>
+                                            <td style="width:auto">
+                                                @Html.DisplayFor(modelItem => item.IdBache)
+                                            </td>
+                                            <td style="width:auto">
+                                                @Html.DisplayFor(modelItem => item.Calle)
+                                            </td>
+                                            <td style="width:auto">
+                                                @Html.DisplayFor(modelItem => item.Distrito)
+                                            </td>
+                                            <td style="width:auto">
+                                                @Html.DisplayFor(modelItem => item.Tamano)
+                                            </td>
+                                            <td style="width:auto">
+                                                @Html.DisplayFor(modelItem => item.Posicion)
+                                            </td>
+                                            <td style="width:auto">
+                                                @Html.DisplayFor(modelItem => item.Fcreacion)
+                                            </td>
+                                            <td style="width:auto">
+                                                @if (item.Estado == "Activo")
+                                                 {
+                                                    <span class="label label-success">
+                                                        Activo
+                                                    </span>
+                                                 }
+                                            </td>
+                                        </tr>
+                                    }
                                 </tbody>
                             </table>
                         </div>

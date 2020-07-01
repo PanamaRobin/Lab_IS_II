@@ -7,7 +7,7 @@
     <div class="col-xs-12">
         <div class="panel-body">
             <div>
-                <div class="box shadow-window box-solid box-primary">
+                <div class="box shadow-window box-solid box-warning">
                     <div class="box-header with-border">
                         <h3 class="box-title">Listado de Daños Reportados</h3>
                     </div>
@@ -56,9 +56,13 @@
                                             @Html.DisplayFor(modelItem => item.Fcreacion)
                                         </td>
                                         <td style="width:auto">
-                                            @Html.DisplayFor(modelItem => item.Estado)
+                                            @if (item.Estado == "Activo")
+                                            {
+                                                <span class="label label-success">
+                                                    Activo
+                                                </span>
+                                            }
                                         </td>
-
                                     </tr>}
 
                                 </tbody>

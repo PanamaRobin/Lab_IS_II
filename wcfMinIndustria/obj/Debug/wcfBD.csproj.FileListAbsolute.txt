@@ -9,7 +9,6 @@ X:\Git\repositories\Lab_IS_II\wcfMinIndustria\obj\Debug\wcfBD.csproj.CoreCompile
 X:\Git\repositories\Lab_IS_II\wcfMinIndustria\obj\Debug\wcfBD.csproj.CopyComplete
 X:\Git\repositories\Lab_IS_II\wcfMinIndustria\obj\Debug\wcfMinIndustria.dll
 X:\Git\repositories\Lab_IS_II\wcfMinIndustria\obj\Debug\wcfMinIndustria.pdb
-X:\Git\repositories\Lab_IS_II\wcfMinIndustria\obj\Debug\wcfBD.csprojAssemblyReference.cache
 C:\Users\jdjpm\OneDrive\Escritorio\Lab_IS_II\wcfMinIndustria\bin\wcfMinIndustria.dll.config
 C:\Users\jdjpm\OneDrive\Escritorio\Lab_IS_II\wcfMinIndustria\bin\wcfMinIndustria.dll
 C:\Users\jdjpm\OneDrive\Escritorio\Lab_IS_II\wcfMinIndustria\bin\wcfMinIndustria.pdb
